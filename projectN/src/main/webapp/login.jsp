@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>ログイン</title>
 <title>Insert title here</title>
 </head>
 <body>
-	eeeee
+	<form action="login" method="POST">
+		ID<input type = "text" name = "id"><br>
+		パスワード<input type = "password" name = "password"><br>
+		<input type = "submit" value = "ログイン"
+	</form>
 </body>
 </html>
