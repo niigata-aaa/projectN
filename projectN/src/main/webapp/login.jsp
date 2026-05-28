@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>ログイン</title>
-<title>Insert title here</title>
 </head>
 <body>
 	<form action="login" method="POST">
