@@ -26,6 +26,7 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 		return count;
 	}
 	
+	//ユーザを一覧表示するDAO
 	public List<UserBean> displayAllUser(String post_id) throws SQLException,ClassNotFoundException{
 		List<UserBean> displayAllList = new ArrayList<UserBean>();
 		
