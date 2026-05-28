@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.UserDAO;
-import model.entity.UserBean;
 
 /**
  * Servlet implementation class UserRegisterServlet
@@ -47,16 +46,13 @@ public class UserRegisterServlet extends HttpServlet {
 		String user_id = request.getParameter("user_id");
 		String password = request.getParameter("password");
 		
-		UserBean user = new UserBean();
-		user.setUser_id(user_id);
-		user.setPassword(password);
 		
 		UserDAO userDao = new UserDAO();
 		
 		int count = 0;
 		
 		try {
-			count =userDao.insertUser(user);
+			count =userDao.insertUser(user_id,password);
 		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
