@@ -1,7 +1,6 @@
 package model.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,13 +15,13 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 		
 		String sql = "DELETE FROM m_user WHERE user_id = ?";
 		
-		try(Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)){
-			
-			pstmt.setString(1, user_id);
-			
-			count = pstmt.executeUpdate();
-		}
+//		try(Connection con = ConnectionManager.getConnection();
+//				PreparedStatement pstmt = con.prepareStatement(sql)){
+//			
+//			pstmt.setString(1, user_id);
+//			
+//			count = pstmt.executeUpdate();
+//		}
 		return count;
 	}
 	
@@ -37,9 +36,9 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 			
 			while(res.next()) {
 					UserBean user = new UserBean();
+					user.setUser_id(res.getString("user_id"));
 					user.setPost_id(res.getString("post_id"));
-					user.setPost_name(res.getString("post_name"));
-					List.add(user);
+					displayAllList.add(user);
 			}
 						
 		}
