@@ -7,10 +7,12 @@
 <title>ユーザ登録エラー画面</title>
 </head>
 <body>
-	会員登録できませんでした。
-		<a href="user-reji.jsp">
-			<button type="botton">会員登録画面に戻る</button>
-		</a>
-	</form>
+<!--	会員登録できませんでした。-->
+<!--		<a href="user-reji.jsp">-->
+<!--			<button type="botton">会員登録画面に戻る</button>-->
+<!--		</a>-->
+<!--	</form>-->
+	会員登録できませんでした<br>
+	<a href = "user-reji.jsp">会員登録画面に戻る</a>
 </body>
 </html>

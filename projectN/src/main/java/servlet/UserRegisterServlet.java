@@ -58,9 +58,9 @@ public class UserRegisterServlet extends HttpServlet {
 		}
 		
 		if(count > 0) {
-			url = "user-regi-comp";
+			url = "user-regi-comp.jsp";
 		}else {
-			url = "user-regi-error";
+			url = "user-regi-error.jsp";
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
