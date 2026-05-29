@@ -63,10 +63,10 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 			
 			if(res.next()) {
 				return true;
-			}else {
-				return false;
 			}
+			
 		}
+		return false;
 	}
 	
 //	public class Proen {//新しいユーザの登録
