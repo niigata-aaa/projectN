@@ -13,19 +13,25 @@ import model.entity.AlbumBean;
 import model.entity.UserBean;
 
 public class AlbumDAO {
-	public int updateAlbum(String user_id, int Album_id) throws SQLException, ClassNotFoundException {
+	public int updateAlbum(AlbumBean album) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
 
 		String sql = "UPDATE t_album SET album_name = ?,trip_start =?, trip_end = ?,companion = ?, memo = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
+				
+				String album_name = album.getAlbum_name();
+				LocalDate trip_start = album.getTrip_start();
+				LocalDate trip_end = album.getTrip_end();
+				String companion = album.getCompanion();
+				String memo = album.getMemo();
 
-			//			pstmt.setString(1,album_name);
-			//			pstmt.setDate(2,trip_start);
-			//			pstmt.setDate(3,trip_end);
-			//			pstmt.setString(4,companion);
-			//			pstmt.setString(5,memo);
+				pstmt.setString(1,album_name);
+				pstmt.setDate(2, Date.valueOf(trip_start));
+				pstmt.setDate(3,Date.valueOf(trip_end));
+				pstmt.setString(4,companion);
+				pstmt.setString(5,memo);
 
 			processingNumber = pstmt.executeUpdate();
 
