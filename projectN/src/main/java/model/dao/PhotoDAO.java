@@ -10,9 +10,9 @@ public class PhotoDAO {
 		
 	}
 	//写真を追加するメソッド
-	public int insertPhoto(int album_id, int area_id, String photo_data) throws ClassNotFoundException, SQLException {
+	public int insertPhoto(String photo_data) throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO t_photo(album_id, area_id, photo_data) VALUES ( ?, ?, ?)";
+		String sql = "INSERT INTO t_photo VALUES (null, 1, 1, null, 0, ?)";
 
 		int cnt = 0;
 		
@@ -22,9 +22,9 @@ public class PhotoDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			// プレースホルダへの値の設定
-			pstmt.setInt(1, album_id);
-			pstmt.setInt(2, area_id);
-			pstmt.setString(3, photo_data);
+			//pstmt.setInt(1, album_id);
+			//pstmt.setInt(2, area_id);
+			pstmt.setString(1, photo_data);
 
 			// SQLステートメントの実行
 			cnt = pstmt.executeUpdate();

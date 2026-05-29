@@ -76,7 +76,7 @@ public class AlbumPhotoAddServlet extends HttpServlet {
 		
 		try {
 			//insertメソッド
-			cnt = photodao.insertPhoto(album_id, area_id, photo_data);
+			cnt = photodao.insertPhoto(photo_data);
 		} catch (ClassNotFoundException | SQLException e){
 			e.printStackTrace();
 		}
