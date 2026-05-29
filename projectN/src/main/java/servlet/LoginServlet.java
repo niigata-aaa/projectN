@@ -43,13 +43,13 @@ public class LoginServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-		String id = request.getParameter("id");
+		String user_id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
 		try {
 			UserDAO userDao = new UserDAO();
 			
-			if(userDao.login(user)) {
+			if(userDao.login(user_id,password)) {
 				url = "user-index.jsp";
 				
 				HttpSession session = request.getSession();
