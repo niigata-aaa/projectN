@@ -5,7 +5,7 @@ public class PhotoBean {
 	private int photo_id;
 	private int is_published;
 	private String photo_title;
-	private String area_id;
+	private int area_id;
 	private String area_name;
 	private int album_id;
 		
@@ -44,11 +44,11 @@ public class PhotoBean {
 		this.photo_title = photo_title;
 	}
 
-	public String getArea_id() {
+	public int getArea_id() {
 		return area_id;
 	}
 
-	public void setArea_id(String area_id) {
+	public void setArea_id(int area_id) {
 		this.area_id = area_id;
 	}
 

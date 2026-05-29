@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ログインエラー</title>
+<title>Insert title here</title>
 </head>
 <body>
-	ログインできませんでした<br>
-	<a href = "login.jsp">ログイン画面に戻る</a>
+
 </body>
 </html>

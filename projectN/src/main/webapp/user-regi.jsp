@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ログイン</title>
+<title>ユーザ登録画面</title>
 </head>
 <body>
-	<form action="login" method="POST">
-		ID<input type = "text" name = "id"><br>
+	<form action="user-register" method="POST">
+		ID<input type = "text" name = "user_id"><br>
 		パスワード<input type = "password" name = "password"><br>
-		<input type = "submit" value = "ログイン">
+		<input type = "submit" value = "会員登録">
 	</form>
 </body>
 </html>
