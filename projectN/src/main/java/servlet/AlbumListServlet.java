@@ -46,16 +46,23 @@ public class AlbumListServlet extends HttpServlet {
 		String url = null;
 
 		request.setCharacterEncoding("UTF-8");
-
-		int areaId = Integer.parseInt(request.getParameter("municipalityCode"));
-		String areaName = request.getParameter("municipalityName");
-		
 		HttpSession session = request.getSession();
 		session.removeAttribute("album_id");
+		
+		int areaId;
+		String areaName;
+		if(request.getParameter("municipalityCode") == null) {
+			areaId = (Integer)session.getAttribute("areaId");
+			areaName = (String)session.getAttribute("areaName");
+		}else {
+			areaId = Integer.parseInt(request.getParameter("municipalityCode"));
+			areaName = request.getParameter("municipalityName");
+			
+			session.setAttribute("areaId", areaId);
+			session.setAttribute("areaName", areaName);
+		}
+		
 		UserBean user = (UserBean)session.getAttribute("loginUser");
-
-		session.setAttribute("areaId", areaId);
-		session.setAttribute("areaName", areaName);
 
 		try {
 			AlbumDAO dao = new AlbumDAO();
