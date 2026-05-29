@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>にいカイブ｜トップ画面</title>
 </head>
 <body>
-
+	<jsp:include page="header.jsp" />
 </body>
 </html>

@@ -35,6 +35,8 @@ public class GeneralUserTopServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO 色付け処理
+		
 		RequestDispatcher rd = request.getRequestDispatcher("user-index.jsp");
 		rd.forward(request, response);
 	}

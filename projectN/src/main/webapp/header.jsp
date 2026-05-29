@@ -44,8 +44,8 @@
 				if (user == null) {
 					// ログインしていない場合
 				%>
-				<li><a href="user-regi.jsp">ログイン</a></li>
-				<li><a href="login.jsp">会員登録</a></li>
+				<li><a href="login.jsp">ログイン</a></li>
+				<li><a href="user-regi.jsp">会員登録</a></li>
 				<%
 				} else {
 				%>

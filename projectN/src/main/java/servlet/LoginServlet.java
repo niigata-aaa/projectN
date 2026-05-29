@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.UserDAO;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class LoginServlet
@@ -50,11 +51,13 @@ public class LoginServlet extends HttpServlet {
 			UserDAO userDao = new UserDAO();
 			
 			if(userDao.login(user_id,password)) {
-				url = "user-index.jsp";
+				url = "general-user-top";
 				
 				HttpSession session = request.getSession();
 				
-				session.setAttribute("id","password");
+				UserBean user = userDao.displaySelectUser(user_id);
+				
+				session.setAttribute("loginUser", user);
 				
 			}else {
 				url = "login-error.jsp";

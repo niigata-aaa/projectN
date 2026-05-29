@@ -52,10 +52,10 @@ public class AlbumListServlet extends HttpServlet {
 		String areaName = request.getParameter("municipalityName");
 		
 		HttpSession session = request.getSession();
-		//UserBean user = (UserBean)session.getAttribute("LoginUser");
-		UserBean user = new UserBean();
-		user.setUser_id("adminUSER");
-		user.setPost_id(2);
+		UserBean user = (UserBean)session.getAttribute("loginUser");
+//		UserBean user = new UserBean();
+//		user.setUser_id("adminUSER");
+//		user.setPost_id(2);
 		
 		session.setAttribute("areaId", areaId);
 		session.setAttribute("areaName", areaName);

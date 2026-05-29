@@ -7,6 +7,10 @@
 <title>ログイン</title>
 </head>
 <body>
+	<jsp:include page="header.jsp">
+		<jsp:param value="general-user-top" name="path" />
+	</jsp:include>
+	
 	<form action="login" method="POST">
 		ID<input type = "text" name = "id"><br>
 		パスワード<input type = "password" name = "password"><br>
