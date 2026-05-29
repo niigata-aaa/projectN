@@ -5,12 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class PhotoDAO {
+	
+	public PhotoDAO(String photo_data) {
+		
+	}
 	//写真を追加するメソッド
 	public int insertPhoto(int album_id, int area_id, String photo_data) throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO t_photo VALUES (null, ?, ?. ?, 0, null)";
+		String sql = "INSERT INTO t_photo(album_id, area_id, photo_data) VALUES ( ?, ?. ?)";
 
 		int cnt = 0;
+		
+		
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
