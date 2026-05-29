@@ -69,30 +69,27 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 		return false;
 	}
 	
-//	public class Proen {//新しいユーザの登録
-//		
-//		public int insert(String user_id,String password)throws SQLException,ClassNotFoundException{
-//			int count = 0;
-//			
-//			String sql = "INSERT INTO m_user VALUE(?,?)";//役職名はここではつかう？
-//			
-//			try(Connection con = ConnectionManager.getConnection();
-//					PreparedStatement pstmt = con.prepareStatement(sql)){
-//				
-//				String user_id = user.getUser_id();
-//				String password = user.getPassword();
-//				
-//				pstmt.setString(1,user_id);
-//				pstmt.setString(2,password);
-//				
-//				count = pstmt.executeUpdate();
-//				
-//				}
-//			
-//				return count;
-//			}
-//
-//	}
-}
+
+		
+		public int insertUser(String user_id,String password)throws SQLException,ClassNotFoundException{
+			int count = 0;
+			
+			String sql = "INSERT INTO m_user VALUE(?,?)";
+			
+			try(Connection con = ConnectionManager.getConnection();
+					PreparedStatement pstmt = con.prepareStatement(sql)){
+				
+				pstmt.setString(1,user_id);
+				pstmt.setString(2,password);
+				
+				count = pstmt.executeUpdate();
+				
+				}
+			
+				return count;
+			}
+
+	}
+
 
 

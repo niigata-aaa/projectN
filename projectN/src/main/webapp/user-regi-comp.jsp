@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ユーザ登録完了画面</title>
 </head>
 <body>
-
+	会員登録できました
+		<a href="login.jsp">
+			<button type="botton">ログイン画面にすすむ</button>
+		</a>
+	</form>
 </body>
 </html>
