@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者トップ</title>
 </head>
 <body>
-<a href ="user-list">aaa</a>
+	管理者ページ<br>
+	<a href = "admin-photo-publish">公開写真登録</a>
+	<form action= "admin-photo-list" method = "POST">
+		<input type = "submit" value = "公開写真一覧">
+	</form>
+	<a href = "admin-member-regi">ユーザ登録</a>
+	<form action="user-list" method = "POST">
+		<input type = "submit" value = "ユーザ一覧">
+	</form>
 </body>
 </html>
