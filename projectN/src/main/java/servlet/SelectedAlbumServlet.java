@@ -46,9 +46,14 @@ public class SelectedAlbumServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		int albumId = Integer.parseInt(request.getParameter("album_id"));
-		
 		HttpSession session = request.getSession();
+		int albumId;
+		if(session.getAttribute("selectAlbum") == null) {
+			albumId = Integer.parseInt(request.getParameter("album_id"));
+		}else {
+			AlbumBean sessionAlbum = (AlbumBean)session.getAttribute("selectAlbum");
+			albumId = sessionAlbum.getAlbum_id();
+		}
 		
 		try {
 			PhotoDAO photoDao = new PhotoDAO();
