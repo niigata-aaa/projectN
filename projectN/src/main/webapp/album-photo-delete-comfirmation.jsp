@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	  この写真を削除しますか？<br>
+		<input type="button" onclick="location.href='album-photo-delete.jsp'" value="キャンセル">
+	  
+	  <form action="album-photo-delete" method="POST">
+		<input type="submit" value="削除する">
+	  </form>
 </body>
 </html>

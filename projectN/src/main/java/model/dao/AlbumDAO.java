@@ -39,7 +39,37 @@ public class AlbumDAO {
 		return processingNumber;
 	}
 
-	// 各市町村のアルバム一覧を表示する
+	// 指定したアルバムIDのアルバム情報を取得する
+	public AlbumBean selectAlbum(int album_id)  throws SQLException, ClassNotFoundException {
+		AlbumBean album = new AlbumBean();
+
+		String sql = "SELECT album_id, user_id, t_album.area_id, m_area.area_name, trip_start, trip_end, album_name, companion, memo "
+				+ "FROM t_album INNER JOIN m_area ON t_album.area_id = m_area.area_id "
+				+ "WHERE album_id = ?;";
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setInt(1, album_id);
+
+			ResultSet res = pstmt.executeQuery();
+
+			while (res.next()) {
+				album.setAlbum_id(res.getInt("album_id"));
+				album.setUser_id(res.getString("user_id"));
+				album.setArea_id(res.getInt("area_id"));
+				album.setArea_name(res.getString("area_name"));
+				album.setTrip_start(res.getDate("trip_start").toLocalDate());
+				album.setTrip_end(res.getDate("trip_end").toLocalDate());
+				album.setAlbum_name(res.getString("album_name"));
+				album.setCompanion(res.getString("companion"));
+				album.setMemo(res.getString("memo"));
+			}
+		}
+		return album;
+	}
+	
+	// 各市町村のアルバム一覧を取得する
 	public List<AlbumBean> displayAllAlbum(UserBean user, int area_id) throws SQLException, ClassNotFoundException {
 		List<AlbumBean> albumList = new ArrayList<AlbumBean>();
 

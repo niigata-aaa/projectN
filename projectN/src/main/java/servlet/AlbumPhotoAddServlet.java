@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 import model.dao.PhotoDAO;
+import model.entity.AlbumBean;
 
 /**
  * Servlet implementation class AlbumPhotoAddServlet
@@ -52,16 +53,16 @@ public class AlbumPhotoAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int cnt = 0;
 		
+		
 		//セッション取得
 		HttpSession session = request.getSession();
 		
-		//album_id取得
-		//int album_id = (Integer)session.getAttribute("album_id");
-		//area_id取得
-		//int area_id = (Integer)session.getAttribute("area_id");
+		AlbumBean albumbean = (AlbumBean)session.getAttribute("selectAlbum");
 		
-		int album_id = 1;
-		int area_id = 1;
+		//album_id取得
+		int album_id = albumbean.getAlbum_id();
+		//area_id取得
+		int area_id = albumbean.getArea_id();
 		
 		Part part = request.getPart("photo");
 		String photo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
@@ -83,7 +84,7 @@ public class AlbumPhotoAddServlet extends HttpServlet {
 		
 		request.setAttribute("cnt", cnt);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("album-photo-add.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("album-photo-add-comp.jsp");
 		rd.forward(request, response);
 		
 	}

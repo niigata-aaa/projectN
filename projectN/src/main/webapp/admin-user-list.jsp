@@ -7,8 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ一覧画面</title>
+<script src="JavaScript/dailog.js"></script>
 </head>
 <body>
+	<form action="user-list" method = "POST">
+		<input type = "text" name = "post_id">
+		<input type = "submit" value = "表示">
+	</form>
 	<%
 		List<UserBean> userList = (List)request.getAttribute("userList");
 	%>
@@ -16,7 +21,7 @@
 		<tr>
 			<th>user_id</th>
 			<th>post_id</th>
-			<th></th>
+			<th>　</th>
 		</tr>
 		
 		<%
@@ -26,13 +31,19 @@
 		<tr>
 			<td><%=user.getUser_id()%></td>
 			<td><%=user.getPost_id()%></td>
-			<td><dialog open>
+			<td><dialog>
 				<p>本当に削除しますか</p>
-				<button>キャンセル</button>
-				<input type = "submit" value = "削除する">	
+				<button id="close">キャンセル</button>
+				<input type = "submit" value = "削除する">
+			</dialog>
+			<button id="show">削除</button>
+			<td>
+			
 		</tr>
-		
+
 		<%} %>
 	</table>
+	
+
 </body>
 </html>
