@@ -56,12 +56,9 @@ public class AlbumPhotoAddServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		
 		//album_id取得
-		//int album_id = (Integer)session.getAttribute("album_id");
+		int album_id = (Integer)session.getAttribute("album_id");
 		//area_id取得
-		//int area_id = (Integer)session.getAttribute("area_id");
-		
-		int album_id = 1;
-		int area_id = 1;
+		int area_id = (Integer)session.getAttribute("area_id");
 		
 		Part part = request.getPart("photo");
 		String photo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
