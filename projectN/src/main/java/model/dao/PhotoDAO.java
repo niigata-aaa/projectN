@@ -6,13 +6,19 @@ import java.sql.SQLException;
 
 public class PhotoDAO {
 	
-	public PhotoDAO(String photo_data) {
-		
+	
+	public PhotoDAO() {
 	}
-	//写真を追加するメソッド
-	public int insertPhoto(String photo_data) throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO t_photo VALUES (null, 1, 1, null, 0, ?)";
+	
+	public PhotoDAO(String photo_data) {
+	}
+		
+	
+	//写真を追加するメソッド
+	public int insertPhoto(int album_id, int area_id, String photo_data) throws ClassNotFoundException, SQLException {
+
+		String sql = "INSERT INTO t_photo VALUES (null, ?, ?, null, 0, ?)";
 
 		int cnt = 0;
 		
@@ -22,8 +28,8 @@ public class PhotoDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			// プレースホルダへの値の設定
-			//pstmt.setInt(1, album_id);
-			//pstmt.setInt(2, area_id);
+			pstmt.setInt(1, album_id);
+			pstmt.setInt(2, area_id);
 			pstmt.setString(1, photo_data);
 
 			// SQLステートメントの実行
@@ -50,4 +56,27 @@ public class PhotoDAO {
 		}
 		return count;
 	}
+	
+//	public List<PhotoBean> displayAlbumPhoto(int album_id)throws ClassNotFoundException, SQLException {
+//		List<PhotoBean> photolist = new ArrayList<PhotoBean>();
+//		
+//		String sql = "SELECT * FROM t_photo WHERE album_id = ?";
+//		
+//		
+//		try (Connection con = ConnectionManager.getConnection();
+//				PreparedStatement pstmt = con.prepareStatement(sql);) {
+//
+//		
+//		pstmt.setInt(1, album_id);
+//		
+//		ResultSet res =  pstmt.executeUpdate();
+//		
+//		while (res.next()) {
+//			int photo_id = res.getInt("photo_id");
+//			String photo_data = res.getString("photo_data");
+//			
+//		}
+//		
+//		}
+//	}
 }
