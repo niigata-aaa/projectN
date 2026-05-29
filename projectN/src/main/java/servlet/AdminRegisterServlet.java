@@ -59,7 +59,8 @@ public class AdminRegisterServlet extends HttpServlet {
 		request.setAttribute("password",password);
 
 		
-		RequestDispatcher rd = request.getRequestDispatcher("admin_regi_comp");
+		RequestDispatcher rd = request.getRequestDispatcher("admin-regi-comp.jsp");
+		rd.forward(request,response);
 	}
 
 }
