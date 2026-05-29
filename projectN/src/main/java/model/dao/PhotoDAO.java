@@ -10,10 +10,10 @@ public class PhotoDAO {
 
 		String sql = "INSERT INTO t_photo VALUES (null, ?, ?. ?, 0, null)";
 
-		int count = 0;
+		int cnt = 0;
 
 		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement("INSERT INTO m_employee VALUES(?, ?, ?, ?)");) {
+				PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 			// プレースホルダへの値の設定
 			pstmt.setInt(1, album_id);
@@ -21,10 +21,10 @@ public class PhotoDAO {
 			pstmt.setString(3, photo_data);
 
 			// SQLステートメントの実行
-			count = pstmt.executeUpdate();
+			cnt = pstmt.executeUpdate();
 		}
 
-		return count;
+		return cnt;
 	}
 	
 	// 写真を削除する
