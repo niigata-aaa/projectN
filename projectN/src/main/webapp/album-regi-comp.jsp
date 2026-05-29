@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>アルバム登録完了画面</title>
 </head>
 <body>
+<h1>新規アルバムを作成しました！</h1><br>
+<form action="release-photo-list" method="GET">
+<input type="submit" value="戻る">
+</form>
 
 </body>
 </html>
