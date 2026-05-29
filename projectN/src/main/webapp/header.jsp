@@ -63,6 +63,13 @@
 				<%
 				}
 				%>
+				<%
+					if(request.getParameter("path") != null){
+				%>
+				<li><a href="<%= request.getParameter("path") %>">戻る</a></li>
+				<%
+					}
+				%>
 			</ul>
 		</nav>
 	</div>

@@ -143,7 +143,7 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 					user.setUser_id(res.getString("user_id"));
 					user.setPost_id(res.getInt("post_id"));
 					displaySelectUser.add(user);
-				}
+}
 			}
 			return displaySelectUser;
 		}
