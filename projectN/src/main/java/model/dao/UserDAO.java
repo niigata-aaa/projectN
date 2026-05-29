@@ -48,6 +48,27 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 				
 	}
 	
+	//ユーザログイン認証
+	public boolean login(String user_id,String password)throws ClassNotFoundException,SQLException{
+		
+		String sql = "SELECT user_id, password FROM m_user WHERE user_id = ? AND password = ?";
+		
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			
+			pstmt.setString(1,user_id);
+			pstmt.setString(2, password);
+			
+			ResultSet res = pstmt.executeQuery();
+			
+			if(res.next()) {
+				return true;
+			}
+			
+		}
+		return false;
+	}
+	
 //	public class Proen {//新しいユーザの登録
 //		
 //		public int insert(String user_id,String password)throws SQLException,ClassNotFoundException{
