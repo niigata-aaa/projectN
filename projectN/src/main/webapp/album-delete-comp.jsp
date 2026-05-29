@@ -8,7 +8,9 @@
 </head>
 <body>
 <h1>アルバムを削除しました</h1>
-<a href="selected-album">アルバム画面に戻る</a>
+<form action="'selected-album" method="get">
+<input type="submit" value="アルバム画面に戻る">
+</form>
 
 </body>
 </html>

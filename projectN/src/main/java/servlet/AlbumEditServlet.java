@@ -1,11 +1,18 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.dao.AlbumDAO;
+import model.entity.AlbumBean;
 
 /**
  * Servlet implementation class AlbumEditServlet
@@ -35,7 +42,30 @@ public class AlbumEditServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//セッションオブジェクトの取得
+		HttpSession session = request.getSession();
+		
+		//セッションスコープからの属性値の取得
+		AlbumBean album = (AlbumBean)session.getAttribute("album");
+		
+		//DAOの生成
+		AlbumDAO dao = new AlbumDAO();
+		
+		int processingNumber = 0;//処理件数
+		
+		try {
+			//DAOの利用
+			processingNumber = dao.updateAlbum(album);
+		}catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//リクエストスコープへの属性への設定
+		request.setAttribute("processingNumber", processingNumber);
+		
+		//リクエストの転送
+		RequestDispatcher rd = request.getRequestDispatcher("album-edit-comp.jsp");
+		rd.forward(request,response);
 	}
 
 }
