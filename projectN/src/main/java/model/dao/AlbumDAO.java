@@ -1,9 +1,11 @@
 package model.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,42 +13,42 @@ import model.entity.AlbumBean;
 import model.entity.UserBean;
 
 public class AlbumDAO {
-	public int updateAlbum(String user_id, int Album_id)throws SQLException, ClassNotFoundException{
+	public int updateAlbum(String user_id, int Album_id) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
-		
+
 		String sql = "UPDATE t_album SET album_name = ?,trip_start =?, trip_end = ?,companion = ?, memo = ?";
-		
-		try(Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)){
-			
-//			pstmt.setString(1,album_name);
-//			pstmt.setDate(2,trip_start);
-//			pstmt.setDate(3,trip_end);
-//			pstmt.setString(4,companion);
-//			pstmt.setString(5,memo);
-			
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			//			pstmt.setString(1,album_name);
+			//			pstmt.setDate(2,trip_start);
+			//			pstmt.setDate(3,trip_end);
+			//			pstmt.setString(4,companion);
+			//			pstmt.setString(5,memo);
+
 			processingNumber = pstmt.executeUpdate();
-			
+
 		}
 		return processingNumber;
 	}
-	
+
 	// 各市町村のアルバム一覧を表示する
-	public List<AlbumBean> displayAllAlbum(UserBean user, int area_id)throws SQLException, ClassNotFoundException{
+	public List<AlbumBean> displayAllAlbum(UserBean user, int area_id) throws SQLException, ClassNotFoundException {
 		List<AlbumBean> albumList = new ArrayList<AlbumBean>();
-		
+
 		String sql = "SELECT album_id, user_id, t_album.area_id, m_area.area_name, trip_start, trip_end, album_name, companion, memo "
 				+ "FROM t_album INNER JOIN m_area ON t_album.area_id = m_area.area_id "
 				+ "WHERE user_id = ? AND t_album.area_id = ?;";
-		
-		try(Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)){
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
 			pstmt.setString(1, user.getUser_id());
 			pstmt.setInt(2, area_id);
-			
+
 			ResultSet res = pstmt.executeQuery();
-			
+
 			while (res.next()) {
 				AlbumBean album = new AlbumBean();
 				album.setAlbum_id(res.getInt("album_id"));
@@ -58,10 +60,44 @@ public class AlbumDAO {
 				album.setAlbum_name(res.getString("album_name"));
 				album.setCompanion(res.getString("companion"));
 				album.setMemo(res.getString("memo"));
-				
+
 				albumList.add(album);
 			}
 		}
 		return albumList;
+	}
+
+	//アルバムのinsert
+	public int insert(AlbumBean album) throws SQLException, ClassNotFoundException {
+		int count = 0;
+
+		String sql = "INSERT INTO t_album VALUE(?,?,?,?,?,?,?,?)";//インサート内容は8個？
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			int album_id = album.getAlbum_id();
+			String user_id = album.getUser_id();
+			int area_id = album.getArea_id();
+			LocalDate trip_start = album.getTrip_start();
+			LocalDate trip_end = album.getTrip_end();
+			String companion = album.getCompanion();
+			String album_name = album.getAlbum_name();
+			String memo = album.getMemo();
+
+			pstmt.setInt(1, album_id);
+			pstmt.setString(2, user_id);
+			pstmt.setInt(3, area_id);
+			pstmt.setDate(4, Date.valueOf(trip_start));
+			pstmt.setDate(3, Date.valueOf(trip_end));
+			pstmt.setString(3, companion);
+			pstmt.setString(3, album_name);
+			pstmt.setString(3, memo);
+
+			count = pstmt.executeUpdate();
+
+		}
+
+		return count;
 	}
 }

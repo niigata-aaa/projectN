@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>アルバム削除確認画面</title>
 </head>
 <body>
-ああああ
+<form action="album-delete" method="POST">
+
 </body>
 </html>
