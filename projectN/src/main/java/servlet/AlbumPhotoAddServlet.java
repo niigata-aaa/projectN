@@ -83,7 +83,7 @@ public class AlbumPhotoAddServlet extends HttpServlet {
 		
 		request.setAttribute("cnt", cnt);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("album-photo-add.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("album-photo-add-comp.jsp");
 		rd.forward(request, response);
 		
 	}

@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="selected-album">アルバム画面に戻る</a>
 </body>
 </html>
