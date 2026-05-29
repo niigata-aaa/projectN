@@ -33,8 +33,7 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -43,10 +42,15 @@ public class UserListServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<UserBean> userList = null;
 		
+		request.setCharacterEncoding("UTF-8");
+		
+		//int post_id = Integer.parseInt(request.getParameter("post_id"));
+		
+		
 		UserDAO userDao = new UserDAO();
 		
 		try {
-			userList = userDao.displayAllUser(post_id);
+			userList = userDao.displayAllUser();
 		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
