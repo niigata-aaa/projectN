@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.dao.AlbumDAO;
+import model.dao.PhotoDAO;
+import model.entity.AlbumBean;
+import model.entity.PhotoBean;
 
 /**
  * Servlet implementation class SelectedAlbumServlet
@@ -44,18 +50,20 @@ public class SelectedAlbumServlet extends HttpServlet {
 		int albumId = Integer.parseInt(request.getParameter("album_id"));
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("album_id", albumId);
 		
-//		try {
-//			PhotoDAO photoDao = new PhotoDAO();
-//			
-//			List<PhotoBean> photoList = photoDao.displayAlbumPhoto(albumId);
-//			
-//			request.setAttribute("photoList", photoList);
-//			url = "album.jsp";
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+			PhotoDAO photoDao = new PhotoDAO();
+			
+			List<PhotoBean> photoList = photoDao.displayAlbumPhoto(albumId);
+			
+			AlbumDAO albumDAO = new AlbumDAO();
+			AlbumBean album = albumDAO.selectAlbum(albumId);
+			request.setAttribute("photoList", photoList);
+			session.setAttribute("selectAlbum", album);
+			url = "album.jsp";
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
