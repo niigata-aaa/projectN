@@ -53,10 +53,7 @@ public class AlbumListServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		UserBean user = (UserBean)session.getAttribute("loginUser");
-//		UserBean user = new UserBean();
-//		user.setUser_id("adminUSER");
-//		user.setPost_id(2);
-		
+
 		session.setAttribute("areaId", areaId);
 		session.setAttribute("areaName", areaName);
 

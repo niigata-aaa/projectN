@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>アルバム画面</title>
 </head>
 <body>
-
+	<jsp:include page="header.jsp">
+		<jsp:param value="general-user-top" name="path" />
+	</jsp:include>
 </body>
 </html>
