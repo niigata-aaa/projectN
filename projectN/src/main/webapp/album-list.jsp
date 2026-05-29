@@ -11,7 +11,7 @@
 <body>
 	<%
 	List<AlbumBean> albumList = (List<AlbumBean>) request.getAttribute("albumList");
-	String areaName = (String) session.getAttribute("areaName");
+	String areaName = (String) session.getAttribute("area_name");
 	%>
 	<jsp:include page="header.jsp">
 		<jsp:param value="general-user-top" name="path" />
