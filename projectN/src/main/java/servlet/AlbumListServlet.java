@@ -52,14 +52,14 @@ public class AlbumListServlet extends HttpServlet {
 		int areaId;
 		String areaName;
 		if(request.getParameter("municipalityCode") == null) {
-			areaId = (Integer)session.getAttribute("areaId");
-			areaName = (String)session.getAttribute("areaName");
+			areaId = (Integer)session.getAttribute("area_id");
+			areaName = (String)session.getAttribute("area_name");
 		}else {
 			areaId = Integer.parseInt(request.getParameter("municipalityCode"));
 			areaName = request.getParameter("municipalityName");
 			
-			session.setAttribute("areaId", areaId);
-			session.setAttribute("areaName", areaName);
+			session.setAttribute("area_id", areaId);
+			session.setAttribute("area_name", areaName);
 		}
 		
 		UserBean user = (UserBean)session.getAttribute("loginUser");
