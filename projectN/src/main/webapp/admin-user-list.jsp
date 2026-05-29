@@ -9,6 +9,10 @@
 <title>ユーザ一覧画面</title>
 </head>
 <body>
+	<form action="user-list" method = "POST">
+		<input type = "text" name = "post_id">
+		<input type = "submit" value = "表示">
+	</form>
 	<%
 		List<UserBean> userList = (List)request.getAttribute("userList");
 	%>
