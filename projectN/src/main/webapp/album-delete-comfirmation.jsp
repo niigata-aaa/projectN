@@ -7,11 +7,7 @@
 <title>アルバム削除確認画面</title>
 </head>
 <body>
-<form action="album-delete" method="POST">
-<p>テスト</p>
-<script>
-ret=window.confirm("アルバムを削除しますか？");
-document.write(ret);
+<
 </script>
 
 </body>
