@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
 	// データベースURL
-	private static final String URL = "jdbc:mysql://localhost:3306/projectn_db";
+	private static final String URL = "jdbc:mysql://localhost:3306/projectN_db";
 
 	 // ユーザ
 	private static final String USER = "HIRO";

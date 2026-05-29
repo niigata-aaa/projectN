@@ -12,7 +12,7 @@ public class PhotoDAO {
 	//写真を追加するメソッド
 	public int insertPhoto(int album_id, int area_id, String photo_data) throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO t_photo(album_id, area_id, photo_data) VALUES ( ?, ?. ?)";
+		String sql = "INSERT INTO t_photo(album_id, area_id, photo_data) VALUES ( ?, ?, ?)";
 
 		int cnt = 0;
 		
