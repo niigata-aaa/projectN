@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	  <input type="button" onclick="location.href='album-photo-delete-comfirmation.jsp'" value="削除する">
 </body>
 </html>
