@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者登録画面</title>
 </head>
 <body>
-
+	<form action="user-register" method = POST>
+		ID<input type = "text" name = id><br>
+		パスワード<input type = "password" name = "password"><br>
+		<input type = "submit" value = 登録>
+	</form>
 </body>
 </html>
