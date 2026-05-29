@@ -91,10 +91,10 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 	
 		
 		//ユーザの登録（管理者）
-		public int insertAdmin(String user_id,String password,int post_id)throws SQLException,ClassNotFoundException{
+		public int insertAdmin(String user_id,String password)throws SQLException,ClassNotFoundException{
 				int count = 0;
 					
-				String sql = "INSERT INTO m_user VALUE(?,?,?)";
+				String sql = "INSERT INTO m_user VALUE(?,?,2)";
 					
 				try(Connection con = ConnectionManager.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(sql)){
@@ -102,7 +102,7 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 						
 					pstmt.setString(1,user_id);
 					pstmt.setString(2,password);
-					pstmt.setInt(3,post_id);
+			
 						
 					count = pstmt.executeUpdate();
 						

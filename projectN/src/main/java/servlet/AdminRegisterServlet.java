@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -48,15 +49,15 @@ public class AdminRegisterServlet extends HttpServlet {
 		int count = 0;
 		
 		try {
-			count = userDao.insertAdmin(user_id,password,post_id);
+			count = userDao.insertAdmin(user_id,password);
 			
-		}catch(ClassNotFoundException e) {
+		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
 		
 		request.setAttribute("user_id",user_id);
 		request.setAttribute("password",password);
-		request.setAttribute("post_id",post_id);
+
 		
 		RequestDispatcher rd = request.getRequestDispatcher("admin_regi_comp");
 	}
