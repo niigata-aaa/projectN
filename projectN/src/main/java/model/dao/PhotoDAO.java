@@ -35,7 +35,7 @@ public class PhotoDAO {
 			// プレースホルダへの値の設定
 			pstmt.setInt(1, album_id);
 			pstmt.setInt(2, area_id);
-			pstmt.setString(1, photo_data);
+			pstmt.setString(3, photo_data);
 
 			// SQLステートメントの実行
 			cnt = pstmt.executeUpdate();
@@ -137,21 +137,21 @@ public class PhotoDAO {
 	}
 	
 	//写真の公開設定を切り替える（公開なら非公開、非公開なら公開）
-	public int setteingCahngePhoto (int photo_id, int is_published)throws ClassNotFoundException, SQLException {
-		int cnt = 0;
-		
-		String sql = "UPDATE t_photo SET is published = ? WHERE photo_id = ?";
-		
-		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql);) { 
-			
-			pstmt.setInt(2, photo_id);
-			
-			if (is_published == 0);{
-				pstmt.setInt(1, 1);
-			} else {
-				pstmt.setInt(1, 0);
-			}
-		}
-	}
+//	public int setteingCahngePhoto (int photo_id, int is_published)throws ClassNotFoundException, SQLException {
+//		int cnt = 0;
+//		
+//		String sql = "UPDATE t_photo SET is published = ? WHERE photo_id = ?";
+//		
+//		try (Connection con = ConnectionManager.getConnection();
+//				PreparedStatement pstmt = con.prepareStatement(sql);) { 
+//			
+//			pstmt.setInt(2, photo_id);
+//			
+//			if (is_published == 0);{
+//				pstmt.setInt(1, 1);
+//			} else {
+//				pstmt.setInt(1, 0);
+//			}
+//		}
+//	}
 }
