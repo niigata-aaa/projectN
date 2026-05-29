@@ -25,7 +25,7 @@
 		
 		<tr>
 			<td><%=user.getUser_id()%></td>
-			<td><%=user.post_id()%></td>
+			<td><%=user.getPost_id()%></td>
 			<td><dialog open>
 				<p>本当に削除しますか</p>
 				<button>キャンセル</button>
