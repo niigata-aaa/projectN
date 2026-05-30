@@ -53,6 +53,7 @@ public class UserRegisterServlet extends HttpServlet {
 		
 		try {
 			count =userDao.insertUser(user_id,password);
+			
 		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -62,6 +63,8 @@ public class UserRegisterServlet extends HttpServlet {
 		}else {
 			url = "user-regi-error.jsp";
 		}
+		
+		request.setAttribute("count",count);
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request,response);

@@ -74,7 +74,7 @@ public class UserDAO {//指定されたuser_idのユーザを削除するDAO
 		public int insertUser(String user_id,String password)throws SQLException,ClassNotFoundException{
 			int count = 0;
 			
-			String sql = "INSERT INTO m_user VALUE(?,?)";
+			String sql = "INSERT INTO m_user VALUES(?,?,1)";
 			
 			try(Connection con = ConnectionManager.getConnection();
 					PreparedStatement pstmt = con.prepareStatement(sql)){
