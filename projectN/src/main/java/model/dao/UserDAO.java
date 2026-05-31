@@ -10,7 +10,9 @@ import java.util.List;
 
 import model.entity.UserBean;
 
-public class UserDAO {//指定されたuser_idのユーザを削除するDAO
+public class UserDAO {
+	
+	//指定されたuser_idのユーザを削除するDAO
 	public int deleteUser(String user_id) throws SQLException,ClassNotFoundException{
 		int count = 0;
 		

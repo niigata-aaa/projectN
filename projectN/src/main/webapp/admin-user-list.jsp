@@ -31,17 +31,21 @@
 		<tr>
 			<td><%=user.getUser_id()%></td>
 			<td><%=user.getPost_id()%></td>
-			<td><dialog>
-				<p>本当に削除しますか</p>
-				<button id="close">キャンセル</button>
+<!--			<td><dialog>-->
+<!--				<p>本当に削除しますか</p>-->
+<!--				<button id="close">キャンセル</button>-->
+<!--				<form action = "user-delete" method = "GET">-->
+<!--					<input type = "hidden" name = "user=id" value = "<%=user.getUser_id()%>">-->
+<!--					<input type = "submit" value = "削除する">-->
+<!--				</form>-->
+<!--			</dialog>-->
+<!--			<button id="show">削除</button>-->
+<!--			<td>-->
+			<td>
 				<form action = "user-delete" method = "GET">
-					<input type = "hidden" name = "user=id" value = "<%=user.getUser_id()%>">
+					<input type = "hidden" name = "user_id" value = "<%=user.getUser_id()%>">
 					<input type = "submit" value = "削除する">
 				</form>
-			</dialog>
-			<button id="show">削除</button>
-			<td>
-			
 		</tr>
 
 		<%} %>

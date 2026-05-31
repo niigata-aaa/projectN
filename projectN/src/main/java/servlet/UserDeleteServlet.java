@@ -1,7 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,11 +33,21 @@ public class UserDeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
-		int user_id = Integer.parseInt(request.getParameter("user_id"));
-		
+		String user_id = request.getParameter("user_id");
+				
 		UserDAO userDao = new UserDAO();
 		
+		int count = 0;
 		
+		try {
+			count = userDao.deleteUser(user_id);
+		}catch(ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher("admin-user-delete-comp.jsp");
+        rd.forward(request, response);
 	}
 
 	/**
