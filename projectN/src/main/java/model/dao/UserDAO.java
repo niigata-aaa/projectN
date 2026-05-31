@@ -11,7 +11,7 @@ import java.util.List;
 import model.entity.UserBean;
 
 public class UserDAO {//指定されたuser_idのユーザを削除するDAO
-	public int delete(String user_id) throws SQLException,ClassNotFoundException{
+	public int deleteUser(String user_id) throws SQLException,ClassNotFoundException{
 		int count = 0;
 		
 		String sql = "DELETE FROM m_user WHERE user_id = ?";

@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.UserDAO;
+
 /**
  * Servlet implementation class UserDeleteServlet
  */
@@ -27,8 +29,13 @@ public class UserDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.setCharacterEncoding("UTF-8");
+		
+		int user_id = Integer.parseInt(request.getParameter("user_id"));
+		
+		UserDAO userDao = new UserDAO();
+		
+		
 	}
 
 	/**

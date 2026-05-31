@@ -34,7 +34,10 @@
 			<td><dialog>
 				<p>本当に削除しますか</p>
 				<button id="close">キャンセル</button>
-				<input type = "submit" value = "削除する">
+				<form action = "user-delete" method = "GET">
+					<input type = "hidden" name = "user=id" value = "<%=user.getUser_id()%>">
+					<input type = "submit" value = "削除する">
+				</form>
 			</dialog>
 			<button id="show">削除</button>
 			<td>
