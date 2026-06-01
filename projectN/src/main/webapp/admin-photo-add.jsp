@@ -12,18 +12,17 @@
 	<form action="admin-photo-add" method="POST">
 		タイトル<input type="text" name="title">
 		写真挿入まだ
+		<select name="area">
 	   <%
 	   	  List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");
 	      for(AreaBean area : areaList){
 	   %>
-		<select name="area">
 			<option value<%=area.getArea_id() %>><%=area.getArea_name() %></option>
-		</select>
 		
 		<%
 	      }
 		%>
-		
+		</select>
 	</form>
 	<button type="submit" class="admin-photo-add-comp">登録</button>
 

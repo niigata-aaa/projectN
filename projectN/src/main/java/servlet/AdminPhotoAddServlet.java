@@ -53,7 +53,7 @@ public class AdminPhotoAddServlet extends HttpServlet {
 		}
 		request.setAttribute("areaList",areaList);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("admin-published-photo-list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("admin-photo-add.jsp");
 		rd.forward(request, response);
 	}
 

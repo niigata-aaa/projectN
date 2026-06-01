@@ -21,7 +21,7 @@ public class AreaDAO {
 			while(res.next()) {
 				AreaBean area = new AreaBean();
 				area.setArea_id(res.getInt("area_id"));
-				area.setArea_id(res.getInt("area_name"));
+				area.setArea_name(res.getString("area_name"));
 				areaList.add(area);
 		}
 	}
