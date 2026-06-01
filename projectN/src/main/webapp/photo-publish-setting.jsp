@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>変更完了</title>
 </head>
 <body>
 <div>
@@ -26,15 +26,19 @@
 <form action="release-setting-comp" method="POST">
 <!--タイトル：<input type="text" name="photo_title">-->
 	<% if(photo.getIs_published() == 1) {%>
-			<input type="radio" name="is_published" value="0">非公開にする
+			<input type="hidden" name="is_published" value="0">
+			<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
+			<input type="submit" value="非公開にする">
 		<% } else { %>
 		タイトル：<input type="text" name="photo_title">
-			<input type="radio" name="is_published" value="1">公開にする
+			<input type="hidden" name="is_published" value="1">公開にする
+			<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
+			<input type="submit" value="公開にする">
 		<% } %>
 <!--<input type="radio" name="is_published" value="0">非公開-->
 <!--<input type="radio" name="is_published" value="1">公開-->
-<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
-<input type="submit" value="登録">
+<!--<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">-->
+<!--<input type="submit" value="登録">-->
 </form>
 </div>		
 </body>
