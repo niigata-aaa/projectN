@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>アルバムを削除しました</h1>
-<form action="selected-album" method="get">
+<form action="album-list" method="get">
 <input type="submit" value="アルバム画面に戻る">
 </form>
 
