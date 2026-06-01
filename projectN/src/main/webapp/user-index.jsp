@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>にいカイブ｜ユーザートップ画面</title>
-<link rel="stylesheet" href="Style.css">
+<link rel="stylesheet" href="CSS/Style.css">
 </head>
 <body>
 	<jsp:include page="header.jsp" />
