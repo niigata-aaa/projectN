@@ -104,7 +104,7 @@ public class AlbumDAO {
 	}
 
 	//アルバムのinsert
-	public int insert(AlbumBean album) throws SQLException, ClassNotFoundException {
+	public int insertAlbum(AlbumBean album) throws SQLException, ClassNotFoundException {
 		int count = 0;
 
 		String sql = "INSERT INTO t_album VALUE(?,?,?,?,?,?,?,?)";//インサート内容は8個？
@@ -134,6 +134,22 @@ public class AlbumDAO {
 
 		}
 
+		return count;
+	}
+	
+	//アルバムの削除
+	public int deleteAlbum(int album_id)throws SQLException,ClassNotFoundException{
+		int count = 0;
+		
+		String sql = "DELETE FROM t_album WHERE album_id = ?";
+		
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)){
+			
+			pstmt.setInt(1,album_id);
+			
+			count = pstmt.executeUpdate();
+		}
 		return count;
 	}
 }
