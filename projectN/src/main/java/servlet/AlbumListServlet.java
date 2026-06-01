@@ -54,6 +54,7 @@ public class AlbumListServlet extends HttpServlet {
 		if(request.getParameter("municipalityCode") == null) {
 			areaId = (Integer)session.getAttribute("area_id");
 			areaName = (String)session.getAttribute("area_name");
+			session.removeAttribute("selectAlbum");
 		}else {
 			areaId = Integer.parseInt(request.getParameter("municipalityCode"));
 			areaName = request.getParameter("municipalityName");

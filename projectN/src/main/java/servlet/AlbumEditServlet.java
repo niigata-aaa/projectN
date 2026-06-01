@@ -35,11 +35,12 @@ public class AlbumEditServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String url = null;
 		//セッションオブジェクトの取得
 		HttpSession session = request.getSession();
 
 		//セッションスコープからの属性値の取得
-		AlbumBean album = (AlbumBean) session.getAttribute("selectAlbum");
+		AlbumBean album = (AlbumBean) session.getAttribute("editAlbum");
 
 		//DAOの生成
 		AlbumDAO dao = new AlbumDAO();
@@ -49,6 +50,9 @@ public class AlbumEditServlet extends HttpServlet {
 		try {
 			//DAOの利用
 			processingNumber = dao.updateAlbum(album);
+			
+			session.removeAttribute("editAlbum");
+			url = "album-edit-comp.jsp";
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -57,7 +61,7 @@ public class AlbumEditServlet extends HttpServlet {
 		request.setAttribute("processingNumber", processingNumber);
 
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher("album-edit-comp.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
 
