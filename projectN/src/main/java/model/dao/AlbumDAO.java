@@ -108,12 +108,12 @@ public class AlbumDAO {
 
 	//アルバムのinsert
 	public int insertAlbum(AlbumBean album) throws SQLException, ClassNotFoundException {
-		int count = 0;
+		int key = 0;
 
 		String sql = "INSERT INTO t_album VALUE(null,?,?,?,?,?,?,?)";//インサート内容は8個？
 
 		try (Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)) {
+				PreparedStatement pstmt = con.prepareStatement(sql, java.sql.Statement.RETURN_GENERATED_KEYS)) {
 
 			String user_id = album.getUser_id();
 			int area_id = album.getArea_id();
@@ -131,11 +131,19 @@ public class AlbumDAO {
 			pstmt.setString(6, companion);
 			pstmt.setString(7, memo);
 
-			count = pstmt.executeUpdate();
+			int affectedRows = pstmt.executeUpdate();
+			
+			if(affectedRows > 0) {
+				try(ResultSet generatedkeys = pstmt.getGeneratedKeys()){
+					if(generatedkeys.next()) {
+						key = generatedkeys.getInt(1);
+					}
+				}
+			}
 
 		}
 
-		return count;
+		return key;
 	}
 	
 	//アルバムの削除
