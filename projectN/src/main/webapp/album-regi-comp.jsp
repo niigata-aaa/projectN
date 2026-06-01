@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>新規アルバムを作成しました！</h1><br>
-<form action="release-photo-list" method="GET">
+<form action="album-list" method="GET">
 <input type="submit" value="戻る">
 </form>
 
