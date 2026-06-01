@@ -7,11 +7,15 @@
 <head>
 <meta charset="UTF-8">
 <title>ユーザ一覧画面</title>
-<script src="JavaScript/dailog.js"></script>
 </head>
 <body>
 	<form action="user-list" method = "POST">
-		<input type = "text" name = "post_id">
+		<input type = "text" name = "user_id"><br>
+		<select name = "post_id">
+			<option value = "0">すべて表示</option>
+			<option value = "1">ユーザ</option>
+			<option value = "2">管理者</option>
+		</select>
 		<input type = "submit" value = "表示">
 	</form>
 	<%

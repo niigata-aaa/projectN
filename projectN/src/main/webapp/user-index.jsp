@@ -14,7 +14,7 @@
         <h1>新潟県市町村マップ</h1>
         
         	<form action="release-photo-list" method="POST">
-		<input type = "submit" value = "公開写真一覧">
+		<input type = "submit" value = "公開写真一覧" style="margin:0 auto;">
 		</form>
 		
         <div class="map-name-display">
