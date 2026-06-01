@@ -1,12 +1,16 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.dao.PhotoDAO;
 
 /**
  * Servlet implementation class AdminPhotoDeleteServlet
@@ -35,8 +39,23 @@ public class AdminPhotoDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		int photo_id = Integer.parseInt(request.getParameter("photo_id"));
+		
+		PhotoDAO dao = new PhotoDAO();
+		
+		int count = 0;
+		
+		try {
+			count = dao.deletePhoto(photo_id);
+		}catch(ClassNotFoundException | SQLException e) {
+			e.printStackTrace();    
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("admin-published-photo-delete-comp.jsp");
+		rd.forward(request, response);
 	}
 
 }

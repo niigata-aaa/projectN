@@ -4,9 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>管理者公開写真 削除確認画面 </title>
 </head>
 <body>
+		本当に削除しますか？<br>
+		<form action = "admin-photo-list" method="POST">
+			<input type = "submit" value = "キャンセル">
+		</form>
+		  
+		<form action = "admin-photo-delete" method="POST">
+			<input type = "submit" value = "削除する">
+		</form>
 
 </body>
 </html>
