@@ -21,20 +21,20 @@ public class AlbumDAO {
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
-				
-				String album_name = album.getAlbum_name();
-				LocalDate trip_start = album.getTrip_start();
-				LocalDate trip_end = album.getTrip_end();
-				String companion = album.getCompanion();
-				String memo = album.getMemo();
-				int album_id = album.getAlbum_id();
 
-				pstmt.setString(1,album_name);
-				pstmt.setDate(2, Date.valueOf(trip_start));
-				pstmt.setDate(3,Date.valueOf(trip_end));
-				pstmt.setString(4,companion);
-				pstmt.setString(5,memo);
-				pstmt.setInt(6, album_id);
+			String album_name = album.getAlbum_name();
+			LocalDate trip_start = album.getTrip_start();
+			LocalDate trip_end = album.getTrip_end();
+			String companion = album.getCompanion();
+			String memo = album.getMemo();
+			int album_id = album.getAlbum_id();
+
+			pstmt.setString(1, album_name);
+			pstmt.setDate(2, Date.valueOf(trip_start));
+			pstmt.setDate(3, Date.valueOf(trip_end));
+			pstmt.setString(4, companion);
+			pstmt.setString(5, memo);
+			pstmt.setInt(6, album_id);
 
 			processingNumber = pstmt.executeUpdate();
 
@@ -43,7 +43,7 @@ public class AlbumDAO {
 	}
 
 	// 指定したアルバムIDのアルバム情報を取得する
-	public AlbumBean selectAlbum(int album_id)  throws SQLException, ClassNotFoundException {
+	public AlbumBean selectAlbum(int album_id) throws SQLException, ClassNotFoundException {
 		AlbumBean album = new AlbumBean();
 
 		String sql = "SELECT album_id, user_id, t_album.area_id, m_area.area_name, trip_start, trip_end, album_name, companion, memo "
@@ -71,7 +71,7 @@ public class AlbumDAO {
 		}
 		return album;
 	}
-	
+
 	// 各市町村のアルバム一覧を取得する
 	public List<AlbumBean> displayAllAlbum(UserBean user, int area_id) throws SQLException, ClassNotFoundException {
 		List<AlbumBean> albumList = new ArrayList<AlbumBean>();
@@ -132,10 +132,10 @@ public class AlbumDAO {
 			pstmt.setString(7, memo);
 
 			int affectedRows = pstmt.executeUpdate();
-			
-			if(affectedRows > 0) {
-				try(ResultSet generatedkeys = pstmt.getGeneratedKeys()){
-					if(generatedkeys.next()) {
+
+			if (affectedRows > 0) {
+				try (ResultSet generatedkeys = pstmt.getGeneratedKeys()) {
+					if (generatedkeys.next()) {
 						key = generatedkeys.getInt(1);
 					}
 				}
@@ -145,18 +145,18 @@ public class AlbumDAO {
 
 		return key;
 	}
-	
+
 	//アルバムの削除
-	public int deleteAlbum(int album_id)throws SQLException,ClassNotFoundException{
+	public int deleteAlbum(int album_id) throws SQLException, ClassNotFoundException {
 		int count = 0;
-		
+
 		String sql = "DELETE FROM t_album WHERE album_id = ?";
-		
-		try(Connection con = ConnectionManager.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql)){
-			
-			pstmt.setInt(1,album_id);
-			
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setInt(1, album_id);
+
 			count = pstmt.executeUpdate();
 		}
 		return count;

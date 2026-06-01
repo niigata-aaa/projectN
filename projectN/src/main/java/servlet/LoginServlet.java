@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 				
 				HttpSession session = request.getSession();
 				
-				UserBean user = userDao.displaySelectUser(user_id);
+				UserBean user = userDao.selectUser(user_id);
 				
 				session.setAttribute("loginUser", user);
 				
