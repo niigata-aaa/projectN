@@ -17,10 +17,14 @@
 		<jsp:param value="general-user-top" name="path" />
 	</jsp:include>
 
-	<form action="mission" method="post"></form>
+	<form action="mission" method="post">
+		<input type="submit" value="ミッションを確認する">
+	</form>
 
 	<h2><%=areaName%></h2>
-	<a href="album-regi.jsp"></a>
+	<form action="album-regi.jsp" method="post">
+		<input type="submit" value="アルバムを作成する">
+	</form>
 	<%
 	if (albumList.size() != 0) {
 		for (AlbumBean album : albumList) {
