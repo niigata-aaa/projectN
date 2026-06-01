@@ -8,7 +8,9 @@
 </head>
 <body>
 	管理者ページ<br>
-	<a href = "admin-photo-publish">公開写真登録</a>
+	<form action= "admin-photo-add" method = "POST">
+		<input type = "submit" value = "公開写真登録">
+	</form>
 	<form action= "admin-photo-list" method = "POST">
 		<input type = "submit" value = "公開写真一覧">
 	</form>
