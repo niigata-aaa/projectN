@@ -1,3 +1,4 @@
+<%@page import="model.entity.PhotoBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,6 +8,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div>
+<%
+		PhotoBean photo = (PhotoBean)request.getAttribute("photo");
+	%>
+<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" >
+</div>
+<div>
 
+	<% if(photo.getIs_published() == 0) {%>
+			現在：非公開
+		<% } else { %>
+			現在：公開
+		<% } %>
+</div>
+<div>
+<form action="release-setting-comp" method="POST">
+タイトル：<input type="text" name="photo_title">
+<input type="radio" name="is_published" value="0">非公開
+<input type="radio" name="is_published" value="1">公開
+<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
+<input type="submit" value="登録">
+</form>
+</div>		
 </body>
 </html>

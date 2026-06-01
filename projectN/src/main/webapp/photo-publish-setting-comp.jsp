@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>登録完了</title>
 </head>
 <body>
-
+<% int cnt = (Integer)request.getAttribute("cnt");%>
+<%if(cnt == 1){ %>
+<p>登録完了
+<%} %>
+<a href="album.jsp">modoru</a>
 </body>
 </html>

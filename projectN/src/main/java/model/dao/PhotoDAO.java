@@ -136,22 +136,29 @@ public class PhotoDAO {
 		return publishedphotolist;
 	}
 	
-	//写真の公開設定を切り替える（公開なら非公開、非公開なら公開）
-	public int setteingChangePhoto (int photo_id, int is_published)throws ClassNotFoundException, SQLException {
+	//写真の公開設定を切り替える&タイトルを付与する（公開なら非公開、非公開なら公開）
+	public int setteingChangePhoto (int photo_id, int is_published, String photo_title)throws ClassNotFoundException, SQLException {
 		int cnt = 0;
 		
-		String sql = "UPDATE t_photo SET is_published = ? WHERE photo_id = ?";
+		
+		String sql = "UPDATE t_photo SET is_published = ?, photo_title = ? WHERE photo_id = ?";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);) { 
 			
-			pstmt.setInt(2, photo_id);
+			pstmt.setInt(3, photo_id);
+			
+			cnt = pstmt.executeUpdate();
 
 			if (is_published == 0){
-				pstmt.setInt(1, 1);
+				int num = 1;
+				pstmt.setInt(1, num);
+				pstmt.setString(2, photo_title);
 				cnt = pstmt.executeUpdate();
 			} else {
-				pstmt.setInt(1, 0);
+				int num = 0;
+				pstmt.setInt(1, num);
+				pstmt.setString(2, photo_title);
 				cnt = pstmt.executeUpdate();
 			}
 			
@@ -159,7 +166,9 @@ public class PhotoDAO {
 		}
 	}
 	
-	public PhotoBean displaySelectPhoto(int origin_photo_id)throws ClassNotFoundException, SQLException {
+	
+	//photo_idで写真を選ぶ
+	public PhotoBean displaySelectPhoto(String origin_photo_id)throws ClassNotFoundException, SQLException {
 		
 		
 		String sql = "SELECT * FROM t_photo WHERE photo_id = ?";
@@ -169,7 +178,7 @@ public class PhotoDAO {
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
 
 		
-		pstmt.setInt(1, origin_photo_id);
+		pstmt.setString(1, origin_photo_id);
 		
 		ResultSet res =  pstmt.executeQuery();
 		
