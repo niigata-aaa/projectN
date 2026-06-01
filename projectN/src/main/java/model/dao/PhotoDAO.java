@@ -146,21 +146,12 @@ public class PhotoDAO {
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);) { 
 			
+			pstmt.setInt(1, is_published);
+			pstmt.setString(2, photo_title);
 			pstmt.setInt(3, photo_id);
-			
 			cnt = pstmt.executeUpdate();
+			
 
-			if (is_published == 0){
-				int num = 1;
-				pstmt.setInt(1, num);
-				pstmt.setString(2, photo_title);
-				cnt = pstmt.executeUpdate();
-			} else {
-				int num = 0;
-				pstmt.setInt(1, num);
-				pstmt.setString(2, photo_title);
-				cnt = pstmt.executeUpdate();
-			}
 			
 			return cnt;
 		}

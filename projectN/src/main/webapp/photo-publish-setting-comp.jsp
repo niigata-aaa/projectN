@@ -11,6 +11,6 @@
 <%if(cnt == 1){ %>
 <p>登録完了
 <%} %>
-<a href="album.jsp">modoru</a>
+<a href="selected-album">modoru</a>
 </body>
 </html>
