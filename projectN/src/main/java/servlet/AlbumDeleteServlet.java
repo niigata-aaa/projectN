@@ -45,9 +45,10 @@ public class AlbumDeleteServlet extends HttpServlet {
 		
 		AlbumDAO albumDao = new AlbumDAO();
 		
-		int count = 0;
+//		int count = 0;
 		
 		try {
+			int count = 0;
 			count = albumDao.deleteAlbum(album_id);
 			
 		}catch(ClassNotFoundException | SQLException e) {
