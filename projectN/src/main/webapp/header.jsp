@@ -2,35 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="model.entity.UserBean"%>
 
-<!--cssファイルに書く予定-->
-<style>
-    body {
-        font-family: sans-serif;
-        margin: 0;
-    }
-    .site-header {
-        background-color: #333;
-        color: #fff;
-        padding: 15px;
-    }
-    .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1000px;
-        margin: 0 auto;
-    }
-    .global-nav ul {
-        list-style: none;
-        display: flex;
-        gap: 15px;
-        padding: 0;
-    }
-    .global-nav a {
-        color: #fff;
-        text-decoration: none;
-    }
-</style>
+<link rel="stylesheet" href="Style.css">
 
 <header class="site-header">
 	<div class="header-container">

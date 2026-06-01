@@ -5,56 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>にいカイブ｜ユーザートップ画面</title>
-
-<!--cssファイルに書く予定-->
-<style>
-        .map-container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .niigata-map {
-            width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-        }
-
-        /* pathに適用するCSS */
-        .municipality {
-            fill: #ffffff;
-            stroke: #8d8d8d;
-            stroke-width: 1.5;
-            stroke-dasharray: 3 3;
-            cursor: pointer;
-        }
-
-        /* 地図マウスホバー時 */
-        .municipality.floating {
-            stroke-dasharray: none;
-            stroke: #000000;
-            stroke-width: 2;
-            fill: color-mix(in srgb, inherit, #000000 5%);
-            transform: translate(-1px, -1px);
-            filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.4));
-            fill: color-mix(in srgb, inherit, #000000 5%);
-            pointer-events: none;
-        }
-
-        .map-name-display {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            padding: 10px;
-        }
-
-        #selected-city-name {
-            color: #ff7f00;
-        }
-    </style>
-
+<link rel="stylesheet" href="Style.css">
 </head>
 <body>
 	<jsp:include page="header.jsp" />
