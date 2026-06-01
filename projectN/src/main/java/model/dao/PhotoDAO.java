@@ -106,7 +106,9 @@ public class PhotoDAO {
 	public List<PhotoBean> displayAllPublishedPhoto() throws ClassNotFoundException, SQLException {
 		List<PhotoBean> publishedphotolist = new ArrayList<PhotoBean>();
 		
-		String sql = "SELECT * FROM t_photo WHERE is_published = 1";
+		String sql = "SELECT t_photo.photo_id, t_photo.area_id, m_area.area_name, t_photo.photo_title, t_photo.is_published, t_photo.photo_data "
+				+ "FROM t_photo LEFT JOIN m_area ON t_photo.area_id = m_area.area_id "
+				+ "WHERE is_published = 1";
 		
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
@@ -120,6 +122,7 @@ public class PhotoDAO {
 			String photo_title = res.getString("photo_title");
 			int is_published = res.getInt("is_published");
 			String photo_data = res.getString("photo_data");
+			String area_name = res.getString("area_name");
 			
 			PhotoBean photobean = new PhotoBean();
 			photobean.setPhoto_id(photo_id);
@@ -127,6 +130,7 @@ public class PhotoDAO {
 			photobean.setPhoto_title(photo_title);
 			photobean.setIs_published(is_published);
 			photobean.setPhoto_data(photo_data);
+			photobean.setArea_name(area_name);
 			
 			publishedphotolist.add(photobean);
 		}

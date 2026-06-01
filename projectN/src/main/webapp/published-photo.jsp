@@ -18,13 +18,18 @@
 		if (photoList != null && !photoList.isEmpty()){
 	%>
 	<h3>写真一覧</h3>
+	<div>
 	<%
 		for (PhotoBean photo : photoList){
 	%>
 		<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" >
+		<%=photo.getArea_name ()%>:
 		<%=photo.getPhoto_title ()%>
 	<%
 		}
+	%>
+	</div>
+	<% 
 	
 	} else {
 	%>
