@@ -17,7 +17,7 @@ public class AlbumDAO {
 		int processingNumber = 0;
 
 		String sql = "UPDATE t_album SET album_name = ?,trip_start =?, trip_end = ?,companion = ?, memo = ? "
-				+ "WHERE album_id = ?";
+				+ "WHERE album_id = ?;";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
