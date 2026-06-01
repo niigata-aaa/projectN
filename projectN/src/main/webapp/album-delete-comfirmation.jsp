@@ -7,8 +7,13 @@
 <title>アルバム削除確認画面</title>
 </head>
 <body>
-<
-</script>
+<h3>アルバムを削除しますか</h3>
+	<form action="album.jsp" method = "POST">
+		<input type = "submit" value = "キャンセル">
+	</form>
+	<form action="album-delete" method = "POST">
+		<input type = "submit" value = "削除する">
+	</form>
 
 </body>
 </html>
