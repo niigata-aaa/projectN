@@ -158,4 +158,37 @@ public class PhotoDAO {
 			return cnt;
 		}
 	}
+	
+	public PhotoBean displaySelectPhoto(int origin_photo_id)throws ClassNotFoundException, SQLException {
+		
+		
+		String sql = "SELECT * FROM t_photo WHERE photo_id = ?";
+		PhotoBean photobean = new PhotoBean();
+		
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);) {
+
+		
+		pstmt.setInt(1, origin_photo_id);
+		
+		ResultSet res =  pstmt.executeQuery();
+		
+			while (res.next()) {
+				int photo_id = res.getInt("photo_id");
+				int album_id = res.getInt("album_id");
+				int area_id = res.getInt("area_id");
+				String photo_title = res.getString("photo_title");
+				int is_published = res.getInt("is_published");
+				String photo_data = res.getString("photo_data");
+			
+				photobean.setPhoto_id(photo_id);
+				photobean.setAlbum_id(album_id);
+				photobean.setArea_id(area_id);
+				photobean.setPhoto_title(photo_title);
+				photobean.setIs_published(is_published);
+				photobean.setPhoto_data(photo_data);
+			}	
+		}
+		return photobean;
+	}
 }

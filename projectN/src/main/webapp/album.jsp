@@ -25,7 +25,9 @@
 	同行者：<%=album.getCompanion()%><br>
 	メモ：<%=album.getMemo() %><br>
 	<!-- 確認はポップアップ？ -->
-	
+	<a href="album-delete-comfirmation">アルバム削除</a>
+	<a href="album-photo-add.jsp">写真追加</a>
+	<a href="album-photo-delete">写真削除</a>
 	
 	<%
 		if (photoList != null && !photoList.isEmpty()){
@@ -42,7 +44,10 @@
 		<% } else { %>
 			未設定
 		<% } %><br>
-		公開設定：
+		<form action="release-setting" method="POST">
+		<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
+		<input type="submit" value="公開設定">
+		</form>
 		<% if(photo.getIs_published() == 0) {%>
 			非公開
 		<% } else { %>
