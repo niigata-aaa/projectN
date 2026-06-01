@@ -25,7 +25,7 @@
 	同行者：<%=album.getCompanion()%><br>
 	メモ：<%=album.getMemo() %><br>
 	<!-- 確認はポップアップ？ -->
-	<a href="album-delete-comfirmation">アルバム削除</a>
+	<a href="album-delete-comfirmation.jsp">アルバム削除</a>
 	<a href="album-photo-add.jsp">写真追加</a>
 	<a href="album-photo-delete">写真削除</a>
 	
