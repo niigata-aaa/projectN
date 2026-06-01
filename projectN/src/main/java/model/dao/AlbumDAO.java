@@ -110,12 +110,11 @@ public class AlbumDAO {
 	public int insertAlbum(AlbumBean album) throws SQLException, ClassNotFoundException {
 		int count = 0;
 
-		String sql = "INSERT INTO t_album VALUE(?,?,?,?,?,?,?,?)";//インサート内容は8個？
+		String sql = "INSERT INTO t_album VALUE(null,?,?,?,?,?,?,?)";//インサート内容は8個？
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-			int album_id = album.getAlbum_id();
 			String user_id = album.getUser_id();
 			int area_id = album.getArea_id();
 			LocalDate trip_start = album.getTrip_start();
@@ -124,14 +123,13 @@ public class AlbumDAO {
 			String album_name = album.getAlbum_name();
 			String memo = album.getMemo();
 
-			pstmt.setInt(1, album_id);
-			pstmt.setString(2, user_id);
-			pstmt.setInt(3, area_id);
-			pstmt.setDate(4, Date.valueOf(trip_start));
-			pstmt.setDate(3, Date.valueOf(trip_end));
-			pstmt.setString(3, companion);
-			pstmt.setString(3, album_name);
-			pstmt.setString(3, memo);
+			pstmt.setString(1, user_id);
+			pstmt.setInt(2, area_id);
+			pstmt.setDate(3, Date.valueOf(trip_start));
+			pstmt.setDate(4, Date.valueOf(trip_end));
+			pstmt.setString(5, companion);
+			pstmt.setString(6, album_name);
+			pstmt.setString(7, memo);
 
 			count = pstmt.executeUpdate();
 
