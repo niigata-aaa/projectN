@@ -18,7 +18,7 @@
 		<jsp:param value="album-list" name="path" />
 	</jsp:include>
 
-	<a href="photo-publish-setting.jsp">アルバム設定</a><br>
+	<a href="album-edit.jsp">アルバム設定</a><br>
 	期間：<%=album.getTrip_start()%>~
 	<%=album.getTrip_end()%><br> 
 	タイトル:<%=album.getAlbum_name()%><br>
@@ -36,7 +36,21 @@
 	<%
 		for (PhotoBean photo : photoList){
 	%>
-		<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" >
+		<div>
+		<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" ><br>
+		タイトル：
+		<% if(photo.getPhoto_title() != null) {%>
+			<%= photo.getPhoto_title() %>
+		<% } else { %>
+			未設定
+		<% } %><br>
+		公開設定：
+		<% if(photo.getIs_published() == 0) {%>
+			非公開
+		<% } else { %>
+			公開
+		<% } %>
+		</div>
 	<%
 		}
 	} else {
