@@ -16,7 +16,8 @@ public class AlbumDAO {
 	public int updateAlbum(AlbumBean album) throws SQLException, ClassNotFoundException {
 		int processingNumber = 0;
 
-		String sql = "UPDATE t_album SET album_name = ?,trip_start =?, trip_end = ?,companion = ?, memo = ?";
+		String sql = "UPDATE t_album SET album_name = ?,trip_start =?, trip_end = ?,companion = ?, memo = ? "
+				+ "WHERE album_id = ?";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
@@ -26,12 +27,14 @@ public class AlbumDAO {
 				LocalDate trip_end = album.getTrip_end();
 				String companion = album.getCompanion();
 				String memo = album.getMemo();
+				int album_id = album.getAlbum_id();
 
 				pstmt.setString(1,album_name);
 				pstmt.setDate(2, Date.valueOf(trip_start));
 				pstmt.setDate(3,Date.valueOf(trip_end));
 				pstmt.setString(4,companion);
 				pstmt.setString(5,memo);
+				pstmt.setInt(6, album_id);
 
 			processingNumber = pstmt.executeUpdate();
 
