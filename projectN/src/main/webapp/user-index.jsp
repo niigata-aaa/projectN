@@ -62,9 +62,9 @@
 	<div class="map-container">
         <h1>新潟県市町村マップ</h1>
         
-        <a href="/release-photo-list">公開写真一覧</a>
         	<form action="release-photo-list" method="POST">
-		<input type = "submit" value = "ログイン">
+		<input type = "submit" value = "公開写真一覧">
+		</form>
 		
         <div class="map-name-display">
             選択中の地域: <span id="selected-city-name">未選択</span>
