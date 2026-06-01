@@ -137,10 +137,10 @@ public class PhotoDAO {
 	}
 	
 	//写真の公開設定を切り替える（公開なら非公開、非公開なら公開）
-//	public int setteingCahngePhoto (int photo_id, int is_published)throws ClassNotFoundException, SQLException {
+//	public int setteingChangePhoto (int photo_id, int is_published)throws ClassNotFoundException, SQLException {
 //		int cnt = 0;
 //		
-//		String sql = "UPDATE t_photo SET is published = ? WHERE photo_id = ?";
+//		String sql = "UPDATE t_photo SET is_published = ? WHERE photo_id = ?";
 //		
 //		try (Connection con = ConnectionManager.getConnection();
 //				PreparedStatement pstmt = con.prepareStatement(sql);) { 
@@ -149,6 +149,7 @@ public class PhotoDAO {
 //			
 //			if (is_published == 0);{
 //				pstmt.setInt(1, 1);
+//				
 //			} else {
 //				pstmt.setInt(1, 0);
 //			}
