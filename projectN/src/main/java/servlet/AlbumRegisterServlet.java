@@ -54,12 +54,9 @@ public class AlbumRegisterServlet extends HttpServlet {
 		String memo = request.getParameter("memo");
 		String photoRegistration = request.getParameter("photoRegistration");
 		
-		
 		//DAOの生成
 		AlbumDAO albumdao = new AlbumDAO();
-		
 		int processingNumber = 0; //処理件数
-		
 		//セッションオブジェクトの取得
 		HttpSession session = request.getSession();
 		//セッションスコープからの属性値の取得
@@ -67,18 +64,15 @@ public class AlbumRegisterServlet extends HttpServlet {
 		//ログインユーザのセッションも
 		UserBean loginUser = (UserBean)session.getAttribute("loginUser");
 		
-		
 		AlbumBean albumbean = new AlbumBean();
 		
 		albumbean.setArea_id(area_id);
 		albumbean.setUser_id(loginUser.getUser_id());
-		albumbean.setArea_id(area_id);
 		albumbean.setTrip_start(trip_start);
 		albumbean.setTrip_end(trip_end);
 		albumbean.setCompanion(companion);
 		albumbean.setAlbum_name(album_name);
 		albumbean.setMemo(memo);
-		
 		
 		try {
 			//DAOの利用

@@ -127,8 +127,8 @@ public class AlbumDAO {
 			pstmt.setInt(2, area_id);
 			pstmt.setDate(3, Date.valueOf(trip_start));
 			pstmt.setDate(4, Date.valueOf(trip_end));
-			pstmt.setString(5, companion);
-			pstmt.setString(6, album_name);
+			pstmt.setString(5, album_name);
+			pstmt.setString(6, companion);
 			pstmt.setString(7, memo);
 
 			count = pstmt.executeUpdate();
