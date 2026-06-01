@@ -119,14 +119,14 @@ public class UserDAO {
 			//SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();
 			//結果の操作
-			if(res.next()) {
+			if (res.next()) {
 				selectUser.setUser_id(res.getString("user_id"));
 				selectUser.setPost_id(res.getInt("post_id"));
 			}
 		}
 		return selectUser;
 	}
-	
+
 	//displaySelectUser(String user_id)のDAO
 	public List<UserBean> displaySelectUser(String user_id) throws SQLException, ClassNotFoundException {
 		List<UserBean> displaySelectUser = new ArrayList<UserBean>();
