@@ -168,7 +168,7 @@ public class AlbumDAO {
 	public Map<Integer, Integer> albumCount(String user_id)  throws SQLException, ClassNotFoundException {
 		Map<Integer, Integer> rawAlbumCounts = new HashMap<>();
 		
-		String sql = "m_area.area_id, COUNT(t_album.area_id) AS albumCount"
+		String sql = "SELECT m_area.area_id, COUNT(t_album.area_id) AS albumCount "
 				+ "FROM t_album RIGHT OUTER JOIN m_area ON t_album.area_id = m_area.area_id AND user_id = ? "
 				+ " GROUP BY m_area.area_id;";
 

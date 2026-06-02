@@ -50,48 +50,49 @@ public class GeneralUserTopServlet extends HttpServlet {
 		if(session.getAttribute("loginUser") != null) {
 			user = (UserBean)session.getAttribute("loginUser");
 			url = "user-index.jsp";
+			
+
+			String user_id = user.getUser_id();
+			
+			try {
+				AlbumDAO dao = new AlbumDAO();
+				// ログインユーザーの各市町村アルバム数カウント(area_id, カウント数)
+				Map<Integer, Integer> rawAlbumCounts = dao.albumCount(user_id);
+				
+				// 各市町村の「ステータス（クラス名用）」を格納するMap
+			    Map<String, String> cityStatusMap = new HashMap<>();
+			    
+			    // すべての市町村データをループしてステータスを判定
+			    for (Map.Entry<Integer, Integer> entry : rawAlbumCounts.entrySet()) {
+			        int cityCode = entry.getKey();
+			        int count = entry.getValue();
+			        String status = "0";
+			        
+			        // アルバム数に応じたステータスの判定
+			        if (count >= 10) {
+			            status = "count-10";
+			        } else if (count >= 5) {
+			            status = "count-5";
+			        } else if (count >= 3) {
+			            status = "count-3";
+			        } else if(count >= 1){
+			            status = "count-1";
+			        } else {
+			        	status = "count-0";
+			        }
+			        
+			        // Mapに「市町村コード」と「ステータス文字列」を紐付ける
+			        cityStatusMap.put(String.valueOf(cityCode), status);
+			    }
+			    
+			    // 3. ステータス判定済みのMapをJSPに渡す
+			    request.setAttribute("cityStatusMap", cityStatusMap);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else {
 			url = "index.jsp"; // servletに飛ばすべき？
-		}
-		
-		String user_id = user.getUser_id();
-		
-		try {
-			AlbumDAO dao = new AlbumDAO();
-			// ログインユーザーの各市町村アルバム数カウント(area_id, カウント数)
-			Map<Integer, Integer> rawAlbumCounts = dao.albumCount(user_id);
-			
-			// 各市町村の「ステータス（クラス名用）」を格納するMap
-		    Map<Integer, String> cityStatusMap = new HashMap<>();
-		    
-		    // すべての市町村データをループしてステータスを判定
-		    for (Map.Entry<Integer, Integer> entry : rawAlbumCounts.entrySet()) {
-		        int cityCode = entry.getKey();
-		        int count = entry.getValue();
-		        String status = "0";
-		        
-		        // アルバム数に応じたステータスの判定
-		        if (count >= 10) {
-		            status = "count-10";
-		        } else if (count >= 5) {
-		            status = "count-5";
-		        } else if (count >= 3) {
-		            status = "count-3";
-		        } else if(count >= 1){
-		            status = "count-1";
-		        } else {
-		        	status = "count-0";
-		        }
-		        
-		        // Mapに「市町村コード」と「ステータス文字列」を紐付ける
-		        cityStatusMap.put(cityCode, status);
-		    }
-		    
-		    // 3. ステータス判定済みのMapをJSPに渡す
-		    request.setAttribute("cityStatusMap", cityStatusMap);
-
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
