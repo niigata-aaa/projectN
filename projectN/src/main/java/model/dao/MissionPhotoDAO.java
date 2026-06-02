@@ -27,7 +27,7 @@ public class MissionPhotoDAO {
 				String mission_photo_data = res.getString("mission_photo_data");
 
 				MissionPhotoBean missionPhoto = new MissionPhotoBean();
-				missionPhoto.setMission_photo_data("mittion_photo_data");
+				missionPhoto.setMission_photo_data("mission_photo_data");
 
 				MissonPhotoList.add(missionPhoto);
 			}
@@ -57,7 +57,7 @@ public class MissionPhotoDAO {
 				missionPhoto.setUser_id(res.getString("user_id"));
 				missionPhoto.setArea_id(res.getInt("area_id"));
 				missionPhoto.setMission_id(res.getInt("mission_id"));
-				missionPhoto.setUser_id(res.getString("mission_photo_data"));
+				missionPhoto.setMission_photo_data(res.getString("mission_photo_data"));
 				
 				missionPhotoList.add(missionPhoto);
 			}
