@@ -26,15 +26,24 @@
 		同行者：<%=album.getCompanion()%><br>
 		メモ：<%=album.getMemo() %><br>
 		<!-- 確認はポップアップ？ -->
-		<form action="album-delete-comfirmation.jsp" method="POST">
-		<input type="hidden" name="deleteAlbum_id" value="<%= album.getAlbum_id()%>">
-		<input type="hidden" name="deleteAlbum_name" value="<%= album.getAlbum_name()%>">
-		<div class="loginForm-button-design">
+			<form action="album-delete-comfirmation.jsp" method="POST">
+			<input type="hidden" name="deleteAlbum_id" value="<%= album.getAlbum_id()%>">
+			<input type="hidden" name="deleteAlbum_name" value="<%= album.getAlbum_name()%>">
+		<div class="loginForm-Button-design">
 			<input type="submit" value="アルバム削除">
 		</div>
-		</form>
-		<a href="album-photo-add.jsp">写真追加</a>
-		<a href="album-photo-delete">写真削除</a>
+			</form>
+			<form action="album-photo-add.jsp" method = "POST">
+				<div class="loginForm-albumButton-design">
+					<input type = "submit" value = "写真追加">
+				</div>
+			</form>
+			<form action="album-photo-delete" method = "POST">
+				<div class="loginForm-albumButton-design">
+					<input type = "submit" value = "写真削除">
+				</div>
+			</form>
+		</div>
 		<%
 			if (photoList != null && !photoList.isEmpty()){
 		%>
@@ -52,7 +61,7 @@
 			<% } %><br>
 			<form action="release-setting" method="POST">
 			<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
-			<div class="loginForm-button-design">
+			<div style = ""class="loginForm-button-design">
 				<input type="submit" value="公開設定">
 			</div>
 			</form>
