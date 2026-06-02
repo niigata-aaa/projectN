@@ -187,14 +187,14 @@
 	        if (photoData && photoData.path) {
 	            popupImg.src = photoData.path;
 	            
-	            // 写真のタイトルをポップアップの各種属性（説明用）にセット
+	            // 写真のタイトルをポップアップにセット
 	            popupImg.title = photoData.title;
 	            popupImg.alt = photoData.title ? photoData.title : currentTown.dataset.name + "の写真";
 	            
-	            // ★追加：新設したタイトルエリアのテキストを書き換える
+	            // タイトルエリアのテキストを書き換える
 	            popupTitle.textContent = photoData.title ? photoData.title : "（タイトルなし）";
 	            
-	            // ★修正：displayではなく、CSSに合わせて「visibility」を表示（visible）にする
+	            // 「visibility」を表示（visible）にする
 	            photoPopup.style.visibility = 'visible'; 
 	        }
 
@@ -215,12 +215,12 @@
 	    town.addEventListener('mouseleave', (e) => {
 	        nameDisplay.textContent = '未選択';
 	        
-	        // ★修正：displayではなく「visibility」を非表示（hidden）にする
+	        // 「visibility」を非表示（hidden）にする
 	        photoPopup.style.visibility = 'hidden';
 	        
 	        popupImg.src = ''; 
 	        popupImg.title = '';
-	        // ★追加：離れたらタイトル文字も空っぽにする
+	        // 離れたらタイトル文字も空にする
 	        popupTitle.textContent = ''; 
 
 	        hoverLayer.innerHTML = '';
