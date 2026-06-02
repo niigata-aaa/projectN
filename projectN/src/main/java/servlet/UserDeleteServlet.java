@@ -53,24 +53,24 @@ public class UserDeleteServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		String user_id = request.getParameter("user_id");
-		
-		UserDAO Userdao = new UserDAO();
-		
-		int count = 0;
-		
-		try {
-			count = Userdao.deleteUser(user_id);
-		}catch(ClassNotFoundException | SQLException e) {
-			e.printStackTrace();    
-		}
-		
-		RequestDispatcher rd = request.getRequestDispatcher("admin-published-photo-delete-comp.jsp");
-		rd.forward(request, response);
-	}
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		
+//		request.setCharacterEncoding("UTF-8");
+//		
+//		String user_id = request.getParameter("user_id");
+//		
+//		UserDAO Userdao = new UserDAO();
+//		
+//		int count = 0;
+//		
+//		try {
+//			count = Userdao.deleteUser(user_id);
+//		}catch(ClassNotFoundException | SQLException e) {
+//			e.printStackTrace();    
+//		}
+//		
+//		RequestDispatcher rd = request.getRequestDispatcher("admin-published-photo-delete-comp.jsp");
+//		rd.forward(request, response);
+//	}
 
 }
