@@ -14,7 +14,7 @@
 <form action="album-photo-add" method="POST" enctype="multipart/form-data">
 <label for="logo">画像:</label>
 	<div class="td" style="text-align:center">
-		<input type="file" id="photo" name="photo" multiple>
+		<input type="file" id="photo" name="photo" multiple required accept="image/*">
 		<div class="loginForm-button-design"><input type="submit" value="登録"></div>
 	</div>
 </body>
