@@ -39,8 +39,8 @@
 	<form action="selected-album" method="post">
 		<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
 		<button type="submit" class="btn btn-danger btn-sm">
-			<p1>タイトル:
-			<%=album.getAlbum_name()%></p1><br> 期間：
+			タイトル:
+			<%=album.getAlbum_name()%><br> 期間：
 			<%=album.getTrip_start()%>
 			~
 			<%=album.getTrip_end()%><br> 同行者：
