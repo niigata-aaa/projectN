@@ -39,8 +39,10 @@
 			<% }%>
 		</form>
 	</div>
-	<input type="button" onclick="location.href"
-		='admin-published-photo-delete.jsp' value="削除する">
+	<form action="admin-published-photo-delete.jsp" method="POST">
+		<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
+		<input type="submit" value="削除する">
+	</form>
 		
 	<%
 		}

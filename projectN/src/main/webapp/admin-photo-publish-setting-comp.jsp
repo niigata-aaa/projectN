@@ -7,6 +7,7 @@
 <title>管理者写真公開設定完了画面</title>
 </head>
 <body>
+		非公開にできました
         <a href="admin-index.jsp">管理者ページに戻る</a>
 		  
 		<form action = "admin-photo-list" method="POST">

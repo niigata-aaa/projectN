@@ -8,8 +8,7 @@
 </head>
 <body>
 		削除できました<br>
-		<input type="button" onclick = "location.href" 
-		  ='admin-index.jsp' value="管理者ページに戻る">
+		<a href="admin-index.jsp">管理者ページに戻る</a>
 		  
 		<form action = "admin-photo-list" method="POST">
 			<input type = "submit" value = "公開写真一覧に戻る">
