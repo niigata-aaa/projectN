@@ -46,37 +46,37 @@ position: absolute; /* ページ内で絶対位置指定 */
 		</jsp:include>
 		
 		<div id = "albumHeader">
-		<div id="albumInfo">
-		<span class = "albumInfoTitle">期間</span>：<%=album.getTrip_start()%>~
-		<%=album.getTrip_end()%><br> 
-		<span class = "albumInfoTitle">タイトル</span>:<%=album.getAlbum_name()%><br>
-		<span class = "albumInfoTitle">同行者</span>：<%=album.getCompanion()%><br>
-		<span class = "albumInfoTitle">メモ</span>：<%=album.getMemo() %><br>
-		</div>
-		<div id = "albumButton-position">
-			<form action="album-edit.jsp" method = "POST">
-			<div class = loginForm-button-design>
-				<input type = "submit" value = "アルバム設定">
+			<div id="albumInfo">
+				<span class = "albumInfoTitle">期間</span>：<%=album.getTrip_start()%>~
+				<%=album.getTrip_end()%><br> 
+				<span class = "albumInfoTitle">タイトル</span>:<%=album.getAlbum_name()%><br>
+				<span class = "albumInfoTitle">同行者</span>：<%=album.getCompanion()%><br>
+				<span class = "albumInfoTitle">メモ</span>：<%=album.getMemo() %><br>
 			</div>
-			</form>
-			<form action="album-delete-comfirmation.jsp" method="POST">
-			<input type="hidden" name="deleteAlbum_id" value="<%= album.getAlbum_id()%>">
-			<input type="hidden" name="deleteAlbum_name" value="<%= album.getAlbum_name()%>">
-			<div class = loginForm-button-design>
-				<input type="submit" value="アルバム削除">
-			</div>	
+			<div id = "albumButton-position">
+				<form action="album-edit.jsp" method = "POST">
+					<div class = loginForm-button-design>
+						<input type = "submit" value = "アルバム設定">
+					</div>
+				</form>
+				<form action="album-delete-comfirmation.jsp" method="POST">
+					<input type="hidden" name="deleteAlbum_id" value="<%= album.getAlbum_id()%>">
+					<input type="hidden" name="deleteAlbum_name" value="<%= album.getAlbum_name()%>">
+					<div class = loginForm-button-design>
+						<input type="submit" value="アルバム削除">
+					</div>	
 				</form>
 				<form action="album-photo-add.jsp" method = "POST">
 					<div class = "loginForm-button-design">
 						<input type = "submit" value = "写真追加">
 					</div>
 				</form>
-				<form action="album-photo-delete" method = "POST">
-			<div class = "loginForm-button-design">
-				<input type="submit" value="写真削除">
+				<form action="album-photo-delete" method = "GET">
+					<div class = "loginForm-button-design">
+						<input type="submit" value="写真削除">
+					</div>
+				</form>
 			</div>
-		</form>
-		</div>
 		</div>
 	
 		<%
