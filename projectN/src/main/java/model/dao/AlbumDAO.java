@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import model.entity.AlbumBean;
 import model.entity.UserBean;
@@ -160,5 +162,28 @@ public class AlbumDAO {
 			count = pstmt.executeUpdate();
 		}
 		return count;
+	}
+	
+	// 各市町村のアルバム数カウント
+	public Map<Integer, Integer> albumCount(String user_id)  throws SQLException, ClassNotFoundException {
+		Map<Integer, Integer> rawAlbumCounts = new HashMap<>();
+		
+		String sql = "m_area.area_id, COUNT(t_album.area_id) AS albumCount"
+				+ "FROM t_album RIGHT OUTER JOIN m_area ON t_album.area_id = m_area.area_id AND user_id = ? "
+				+ " GROUP BY m_area.area_id;";
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+
+			pstmt.setString(1, user_id);
+
+			ResultSet res = pstmt.executeQuery();
+
+			while (res.next()) {
+				rawAlbumCounts.put(res.getInt("area_id"), res.getInt("albumCount"));
+			}
+		}
+		
+		return rawAlbumCounts;
 	}
 }
