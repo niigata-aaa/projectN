@@ -19,7 +19,7 @@
 		<input type = "submit" value = "表示">
 	</form>
 	<%
-		List<UserBean> userList = (List)request.getAttribute("userList");
+		List<UserBean> userList = (List<UserBean>)request.getAttribute("userList");
 	%>
 	<table>
 		<tr>
