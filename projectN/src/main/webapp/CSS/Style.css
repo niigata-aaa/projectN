@@ -403,6 +403,10 @@ p1:after {
 .text-center{
 	text-align: center;
 }
+/* ボタンを横並びにするCSS*/
+.text-flex{
+	display:flex;
+}
 
 
 /*}*/
