@@ -19,21 +19,21 @@
 	<div class="album-regi-style">
 		<form action="album-register" method="POST"  enctype="multipart/form-data">
 			<div class="form-group">
-				<label>アルバム名</label><input type="text" name="albumName"><br>
+				<label>アルバム名</label><input type="text" name="albumName" maxlength="50" required><br>
 			</div>
 			<div class="form-group">
-				<label>日付</label><input type="date" name="startDate">～ <input
-					type="date" name="endDate"><br>
+				<label>日付</label><input type="date" name="startDate" required>～ <input
+					type="date" name="endDate" required><br>
 			</div>
 			<div class="form-group">
-				<label>同行者</label><input type="text" name="companion"><br>
+				<label>同行者</label><input type="text" name="companion" maxlength="100"><br>
 			</div>
 			<div class="form-group">
 				<label>メモ</label>
-				<textarea name="memo"></textarea>
+				<textarea name="memo" maxlength="200"></textarea>
 				<br>
 			</div>
-			<label>写真登録</label><input type="file" name="photoRegistration"  multiple>
+			<label>写真登録</label><input type="file" name="photoRegistration"  multiple required accept="image/*">
 			<br>
 			<div class = "loginForm-button-design">
 			<input type="submit" value="作成" style="margin:0 auto; margin-top:5px;">

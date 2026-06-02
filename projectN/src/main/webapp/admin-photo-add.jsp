@@ -35,7 +35,7 @@
 	<h2>公開写真登録</h2>
 	<div class="admin-div">
 	 <form action="admin-photo-add-comp" method="POST" enctype="multipart/form-data">
-		 タイトル:<input type="text" name="title"><br>
+		 タイトル:<input type="text" name="title" required maxlength="50"><br>
 		 <select name="area_id">
 	    <%
 	   	   List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");
@@ -48,7 +48,7 @@
 		 %>
 		 </select>
 		 <br>
-		 <input type="file" id="photo" name="photo">
+		 <input type="file" id="photo" name="photo" required accept="image/*">
 		 <br>
 		 <input type="submit" value="登録" class="admin-margin">
 	 </form>
