@@ -1,4 +1,5 @@
-	<%@page import="model.entity.AlbumBean"%>
+
+<%@page import="model.entity.AlbumBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -16,20 +17,26 @@
 	<jsp:include page="header.jsp">
 		<jsp:param value="general-user-top" name="path" />
 	</jsp:include>
-	
-	<h2 style="text-align:center;"><%=areaName%></h2>
+
+	<h2 style="text-align: center;" class="areaName"><%=areaName%></h2>
 	<form action="mission" method="post">
-		<input type="submit" value="ミッションを確認する">
+		<div class="loginForm-button-design">
+			<input type="submit" value="ミッションを確認する">
+		</div>
 	</form>
-	
+
 	<form action="album-regi.jsp" method="post">
-		<input type="submit" value="アルバムを作成する">
+		<div class="loginForm-button-design">
+			<input type="submit" value="アルバムを作成する">
+		</div>
 	</form>
 	<%
 	if (albumList.size() != 0) {
 		for (AlbumBean album : albumList) {
 	%>
-	<form action="selected-album" method="post">
+
+	<form action="selected-album" method="post" class="album-select">
+	<div class="sample_box12_tape"> </div>
 		<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
 		<button type="submit" class="btn btn-danger btn-sm">
 			タイトル:
@@ -40,7 +47,7 @@
 			<%=album.getCompanion()%><br>
 		</button>
 	</form>
-
+	
 	<%
 	}
 	} else {
