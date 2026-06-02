@@ -21,7 +21,7 @@
 	<%
 		List<UserBean> userList = (List<UserBean>)request.getAttribute("userList");
 	%>
-	<table>
+	<table border="1">
 		<tr>
 			<th>user_id</th>
 			<th>post_id</th>
