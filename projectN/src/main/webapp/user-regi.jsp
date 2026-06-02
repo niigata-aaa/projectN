@@ -8,6 +8,9 @@
 <link rel="stylesheet" href="Style.css">
 </head>
 <body>
+	<jsp:include page="header.jsp">
+		<jsp:param value="main-top" name="path" />
+	</jsp:include>
 	<form action="user-register" method="POST">
 		<div class="loginForm-design">
 			ID<input type = "text" name = "user_id"><br>

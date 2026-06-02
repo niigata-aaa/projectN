@@ -92,7 +92,7 @@ public class GeneralUserTopServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {
-			url = "index.jsp"; // servletに飛ばすべき？
+			url = "main-top"; // servletに飛ばすべき？
 		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(url);
