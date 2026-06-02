@@ -9,7 +9,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="general-user-top" name="path" />
+		<jsp:param value="album-list" name="path" />
 	</jsp:include>
 	<h1>新規アルバム作成</h1>
 

@@ -7,6 +7,7 @@
 <title>アルバム登録完了画面</title>
 </head>
 <body>
+<jsp:include page="header.jsp" />
 <h1>新規アルバムを作成しました！</h1><br>
 <form action="album-list" method="GET">
 <input type="submit" value="戻る">
