@@ -10,7 +10,17 @@ import java.util.List;
 
 import model.entity.MissionPhotoBean;
 
+
+
 public class MissionPhotoDAO {
+	
+	
+	public MissionPhotoDAO() {
+	}
+
+
+	public MissionPhotoDAO(String photo_data) {
+	}
 //displayAllPhoto()のDAO
 	public List<MissionPhotoBean> displayAllPhoto()
 			throws SQLException, ClassNotFoundException{

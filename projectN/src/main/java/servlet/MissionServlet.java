@@ -44,8 +44,10 @@ public class MissionServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		
+		
+		
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		RequestDispatcher rd = request.getRequestDispatcher("mission.jsp");
 		rd.forward(request, response);
 	}
 
