@@ -7,8 +7,9 @@
 <title>アルバム削除完了画面</title>
 </head>
 <body>
-	  <form action="album-photo-delete" method="POST">
-		<h3>写真を削除しました</h3>
+	<jsp:include page="header.jsp" />
+	<h3>写真を削除しました</h3>
+	  <form action="album-photo-delete" method="get">
 		<input type="submit" value="写真削除画面に戻る">
 	  </form>
 	  

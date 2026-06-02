@@ -37,7 +37,7 @@ public class AlbumPhotoDeleteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = null;
+		String url = "album-photo-delete.jsp";
 
 		request.setCharacterEncoding("UTF-8");
 
@@ -51,7 +51,21 @@ public class AlbumPhotoDeleteServlet extends HttpServlet {
 
 			List<PhotoBean> photoList = photoDao.displayAlbumPhoto(albumId);
 			request.setAttribute("photoList", photoList);
-			url = "album-photo-delete.jsp";
+			
+			String indexStr = request.getParameter("index");
+	        if (indexStr != null) {
+	            int index = Integer.parseInt(indexStr);
+	            
+	            // 念のため範囲内かチェック
+	            if (photoList != null && index >= 0 && index < photoList.size()) {
+	                PhotoBean selectedPhoto = photoList.get(index);
+	                request.setAttribute("selectDeletePhoto", selectedPhoto);
+	                
+	                // インデックスがある場合は、確認画面へ遷移先を切り替える
+	                url = "album-photo-delete-comfirmation.jsp";
+	            }
+	        }
+	        
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -68,7 +82,7 @@ public class AlbumPhotoDeleteServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
-		int photo_id = Integer.parseInt(request.getParameter("photo_id"));
+		int photo_id = Integer.parseInt(request.getParameter("deletePhoto"));
 
 		PhotoDAO dao = new PhotoDAO();
 
@@ -80,7 +94,7 @@ public class AlbumPhotoDeleteServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("admin-published-photo-delete-comp.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("album-photo-delete-comp.jsp");
 		rd.forward(request, response);
 	}
 

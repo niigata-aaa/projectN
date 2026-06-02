@@ -16,7 +16,7 @@
 	List<PhotoBean> photoList = (List<PhotoBean>) request.getAttribute("photoList");
 	// ボタンが押された（インデックスが送信されてきた）場合の処理
 	String indexStr = request.getParameter("index");
-	if (indexStr != null) {
+	if (indexStr != null && photoList != null) {
 		int index = Integer.parseInt(indexStr);
 		PhotoBean selectedPhoto = photoList.get(index);
 
@@ -24,6 +24,7 @@
 	%>
 	<jsp:forward page="album-photo-delete-comfirmation.jsp" />
 	<%
+		return;
 		}
 	%>
 	<h3>写真削除</h3>
@@ -57,7 +58,7 @@
 		<%
 		}
 		%>
-		<a href="album-photo-delete.jsp?index=<%= photoList.indexOf(photo) %>">削除する</a>
+		<a href="album-photo-delete?index=<%= photoList.indexOf(photo) %>">削除する</a>
 	</div>
 	<%
 	}
@@ -67,8 +68,5 @@
 	<%
 	}
 	%>
-	<input type="button"
-		onclick="location.href='album-photo-delete-comfirmation.jsp'"
-		value="削除する">
 </body>
 </html>
