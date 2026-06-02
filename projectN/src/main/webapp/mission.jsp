@@ -28,7 +28,7 @@
 	
 		<h2 style="text-align:center;"><%=areaName%></h2>
 <div>
-①ゆるキャラ:<% if(yurucharaCnt > 1){ %>ミッション達成
+①ゆるキャラ:<% if(yurucharaCnt >= 1){ %>ミッション達成
 <%} else{ %>ミッション未達成<%} %>
 <h3>写真一覧</h3>
 	<%
@@ -47,10 +47,10 @@
 		<input type="submit" value="登録">
 	</div>
 </form>
-</div
+</div>
 
 <div>
-②グルメ:<% if(gurmentCnt > 1){ %>ミッション達成
+②グルメ:<% if(gurmentCnt >= 1){ %>ミッション達成
 <%} else{ %>ミッション未達成<%}%>
 
 <h3>写真一覧</h3>
@@ -74,7 +74,7 @@
 </div>
 
 <div>
-③観光:<% if(sightseeCnt > 1){ %>
+③観光:<% if(sightseeCnt >= 1){ %>
 			ミッション達成
 		<% } else { %>
 		ミッション未達成
