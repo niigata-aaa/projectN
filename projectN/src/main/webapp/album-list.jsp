@@ -30,6 +30,7 @@
 			<input type="submit" value="アルバムを作成する">
 		</div>
 	</form>
+	アルバム一覧<br>
 	<%
 	if (albumList.size() != 0) {
 		for (AlbumBean album : albumList) {
@@ -51,7 +52,7 @@
 					~
 					<%=album.getTrip_end()%><br> 同行者：
 					<%=album.getCompanion()%></p><br>
-					ここをクリック！
+				
 				<br>
 			</button>
 		</div>
