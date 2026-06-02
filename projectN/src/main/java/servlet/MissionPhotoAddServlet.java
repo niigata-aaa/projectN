@@ -1,6 +1,8 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,9 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 import model.dao.MissionPhotoDAO;
 import model.entity.MissionPhotoBean;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class MissionPhotoAddServlet
@@ -49,11 +53,23 @@ public class MissionPhotoAddServlet extends HttpServlet {
 		
 		int cnt = 0;
 		
-		String user_id = (String)session.getAttribute("user_id");
+		UserBean user  = (UserBean)session.getAttribute("loginUser");
+		
+		String user_id = user.getUser_id();
 		int area_id = (Integer)session.getAttribute("area_id");
 		
 		int mission_id = Integer.parseInt(request.getParameter("mission_id"));
-		String mission_photo_data = request.getParameter("mission_photo");
+		Part part = request.getPart("mission_photo");
+		String photo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
+		String mission_photo_data = photo.isEmpty() ? "" : photo;
+		
+		String path = getServletContext().getRealPath("/photo");
+		part.write(path + File.separator + mission_photo_data);
+		
+		System.out.println(user_id);
+		System.out.println(area_id);
+		System.out.println(mission_id);
+		System.out.println(mission_photo_data);
 		
 		MissionPhotoBean bean = new MissionPhotoBean();
 		bean.setUser_id(user_id);
