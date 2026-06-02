@@ -34,6 +34,14 @@ position: absolute; /* ページ内で絶対位置指定 */
   top: 150px;          /* ヘッダーの高さ分だけ下げる */
   right: 20px; /* 右端から20px */
   }
+  
+#albumPhoto{
+display: flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+margin-left:50px;
+}
 </style>
 </head>
 <body>
@@ -83,7 +91,7 @@ position: absolute; /* ページ内で絶対位置指定 */
 			if (photoList != null && !photoList.isEmpty()){
 		%>
 		<h2>＜写真一覧＞</h2>
-		<div class = "text-flex">
+		<div id = "albumPhoto">
 		<%
 			for (PhotoBean photo : photoList){
 		%>
@@ -115,7 +123,7 @@ position: absolute; /* ページ内で絶対位置指定 */
 		<%
 		}
 		%>
-<!--		</div>-->
+		</div>
 	
 </body>
 </html>
