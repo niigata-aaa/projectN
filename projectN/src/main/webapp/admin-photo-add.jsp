@@ -8,8 +8,10 @@
 <meta charset="UTF-8">
 <title>管理者公開写真登録</title>
 </head>
-<body>
 
+	
+<body>
+	<h2>公開写真登録</h2>
 	<form action="admin-photo-add-comp" method="POST" enctype="multipart/form-data">
 		タイトル:<input type="text" name="title">
 <br>
