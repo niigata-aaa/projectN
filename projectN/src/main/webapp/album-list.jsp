@@ -17,11 +17,11 @@
 		<jsp:param value="general-user-top" name="path" />
 	</jsp:include>
 	
+	<h2 style="text-align:center;"><%=areaName%></h2>
 	<form action="mission" method="post">
 		<input type="submit" value="ミッションを確認する">
 	</form>
 	
-	<h2 style="text-align:center;"><%=areaName%></h2>
 	<form action="album-regi.jsp" method="post">
 		<input type="submit" value="アルバムを作成する">
 	</form>
