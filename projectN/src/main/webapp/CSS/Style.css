@@ -249,7 +249,10 @@ input[type="submit"] {
 	font-size: 1.5em;
 	color: #7172ac;
 }
-
+/*　ｈ２タグの編集　*/
+h2{
+	text-align: center;
+}
 
 /*アルバムのデザイン*/
 /*ボタンのデザイン*/
@@ -270,6 +273,7 @@ input[type="submit"] {
 	z-index: 1;
 	border-radius: 5px;
 	margin-bottom: 4%;
+	
 }
 
 .album-select-design:before {
@@ -281,6 +285,7 @@ input[type="submit"] {
 	z-index: -1;
 	border: 2px solid #000;
 	border-radius: 5px;
+	
 }
 
 .album-select-design:after {
@@ -300,11 +305,13 @@ input[type="submit"] {
 	-webkit-box-shadow: 0 0.6rem 0 0 rgb(0 0 0 / 20%);
 	box-shadow: 0 0.4rem 0 0 rgb(0 0 0 / 20%);
 	z-index: -2;
+	
 }
 
 .album-select-design:i {
 	position: absolute;
 	right: 9px;
+	
 }
 
 .album-select-design:hover {
@@ -316,66 +323,77 @@ input[type="submit"] {
 	box-shadow: 0 0.2rem 0 0 rgb(0 0 0 / 20%);
 
 }
-button のデザイン
-button{
-	 1.形をきめる 
+
+/*button のデザイン*/
+button {
+	/* 1.形をきめる */
 	width: 240px;
-	height:200px;
+	height: 200px;
 	border: none;
-	 2.背景色をきめる 
+	
+	/*	 2.背景色をきめる */
 	background: lightsalmon;
-	 3.文字の配置をきめる 
+	/*	 3.文字の配置をきめる */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	 4.文字のスタイルを設定 
+	/*	 4.文字のスタイルを設定 */
 	color: #ffffff;
 	font-size: 15px;
 	font-weight: bold;
-	 5.クリックできることを示すためのカーソルポインターを設定 
+	/*	 5.クリックできることを示すためのカーソルポインターを設定 */
 	cursor: pointer;
+	}
+.album-select-design{
+	/*横並びにする*/
+	display:inline-block;
+	flex-wrap:wrap;
+	margin:5%;
 	
-/*}*/
-/*button{*/
-/*	width: 260px;*/
-/*	 紙の横幅 100%にすると全幅表示に */
-/*	padding: 15px;*/
-/*	margin: 2em auto;*/
-/*	background: #fbc7f5;*/
-/*	 紙の色 */
-/*	color: #000;*/
-/*	 文字色 */
-/*	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.03);*/
-/*	transform: rotate(2deg);*/
-/*	word-break: break-all;*/
-/*	text-align: center;*/
 	
-/*}*/
+	}
 
-/*.album-select {*/
-/*	margin: 0;*/
-/*	padding: 0;*/
-/*	font-size: 0.9em;*/
-/*}*/
 
-/*.album-select {*/
-/*	width: 25%;*/
-/*	height: 35px;*/
-/*	margin: -25px auto 0;*/
-/*	background: rgba(251, 234, 144, 0.5);*/
-/*	 テープの色 */
-/*	transform: rotate(-3deg);*/
-/*	opacity: 0.9;*/
-/*}*/
+	/*}*/
+	/*button{*/
+	/*	width: 260px;*/
+	/*	 紙の横幅 100%にすると全幅表示に */
+	/*	padding: 15px;*/
+	/*	margin: 2em auto;*/
+	/*	background: #fbc7f5;*/
+	/*	 紙の色 */
+	/*	color: #000;*/
+	/*	 文字色 */
+	/*	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.03);*/
+	/*	transform: rotate(2deg);*/
+	/*	word-break: break-all;*/
+	/*	text-align: center;*/
 
-/*.album-select {*/
-/*    text-align: center;*/
-/*    font-size: 1.3em!important;*/
-/*    margin-top: 10px!important;*/
-/*}*/
-/*.album-select {*/
-/*    text-align: center;*/
-/*    font-size: 0.7em!important;*/
-/*    margin-bottom: 1em!important;*/
-/*}*/
+	/*}*/
 
+	/*.album-select {*/
+	/*	margin: 0;*/
+	/*	padding: 0;*/
+	/*	font-size: 0.9em;*/
+	/*}*/
+
+	/*.album-select {*/
+	/*	width: 25%;*/
+	/*	height: 35px;*/
+	/*	margin: -25px auto 0;*/
+	/*	background: rgba(251, 234, 144, 0.5);*/
+	/*	 テープの色 */
+	/*	transform: rotate(-3deg);*/
+	/*	opacity: 0.9;*/
+	/*}*/
+
+	/*.album-select {*/
+	/*    text-align: center;*/
+	/*    font-size: 1.3em!important;*/
+	/*    margin-top: 10px!important;*/
+	/*}*/
+	/*.album-select {*/
+	/*    text-align: center;*/
+	/*    font-size: 0.7em!important;*/
+	/*    margin-bottom: 1em!important;*/
+	/*}*/
