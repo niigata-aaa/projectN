@@ -27,9 +27,9 @@
 	<!-- 確認はポップアップ？ -->
 	<form action="album-delete-comfirmation.jsp" method="POST">
 	<input type="hidden" name="deleteAlbum_id" value="<%= album.getAlbum_id()%>">
+	<input type="hidden" name="deleteAlbum_name" value="<%= album.getAlbum_name()%>">
 	<input type="submit" value="アルバム削除">
 	</form>
-	<a href="album-delete-comfirmation.jsp">アルバム削除</a>
 	<a href="album-photo-add.jsp">写真追加</a>
 	<a href="album-photo-delete">写真削除</a>
 	

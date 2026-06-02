@@ -42,6 +42,7 @@ public class AlbumDeleteServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int album_id = Integer.parseInt(request.getParameter("album_id"));
+		String album_name = request.getParameter("album_name");
 		
 		AlbumDAO albumDao = new AlbumDAO();
 		
