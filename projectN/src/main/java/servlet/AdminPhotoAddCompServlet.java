@@ -52,7 +52,7 @@ public class AdminPhotoAddCompServlet extends HttpServlet {
 
 		int cnt = 0;
 		
-		
+		request.setCharacterEncoding("UTF-8");
 		//セッション取得
 		//HttpSession session = request.getSession();
 		
