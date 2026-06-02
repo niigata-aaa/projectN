@@ -16,7 +16,6 @@
 		}
 	</style>
 <body>
-<<<<<<< HEAD
 	<jsp:include page="header.jsp">
 		<jsp:param value="selected-album" name="path" />
 	</jsp:include>
@@ -29,12 +28,11 @@
 		 <input type = "submit" value = 登録 class="admin-margin">
 	    </div>
 	  </form>
-=======
 	<form action="admin-register" method = POST>
 		ID<input type="text" name="id" required maxlength="100"><br>
 		パスワード<input type="password" name ="password" required minlength="8"><br>
 		<input type ="submit" value ="登録">
 	</form>
->>>>>>> branch 'master' of https://github.com/niigata-aaa/projectN.git
+	
 </body>
 </html>
