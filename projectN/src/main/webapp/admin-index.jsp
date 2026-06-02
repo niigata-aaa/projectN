@@ -6,8 +6,17 @@
 <meta charset="UTF-8">
 <title>管理者トップ</title>
 </head>
+	<style>
+		
+	
+	
+	
+	
+	
+	
+	</style>
 <body>
-	管理者ページ<br>
+	<h2>管理者ページ</h2><br>
 	<form action= "admin-photo-add" method = "POST">
 		<input type = "submit" value = "公開写真登録">
 	</form>
