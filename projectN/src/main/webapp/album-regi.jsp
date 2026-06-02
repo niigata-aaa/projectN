@@ -32,7 +32,9 @@
 			</div>
 			<label>写真登録</label><input type="file" name="photoRegistration"  multiple>
 			<br>
+			<div class = "loginForm-button-design">
 			<input type="submit" value="作成" style="margin:0 auto; margin-top:5px;">
+			</div>
 	</form>
 	</div>
 </body>
