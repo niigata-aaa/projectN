@@ -18,9 +18,8 @@
 	   	  List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");
 	      for(AreaBean area : areaList){
 	   %>
-	   <p><%=area.getArea_id() %>
-			<option value="<%=area.getArea_id() %>"><%=area.getArea_name() %></option>
-		
+	     <%int id = area.getArea_id(); %>
+			<option value="<%=id%>"><%=area.getArea_id() %>:<%=area.getArea_name() %></option>
 		<%
 	      }
 		%>

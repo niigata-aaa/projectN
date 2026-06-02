@@ -58,10 +58,12 @@ public class AdminPhotoAddCompServlet extends HttpServlet {
 		
 		
 		//album_id取得
-		String title = (String)request.getAttribute("title");
+		String photo_title = (String)request.getParameter("title");
 		//area_id取得
-//		int area_id = (Integer)request.getAttribute("area_id");
-		int area_id = 1;
+		System.out.println(request.getParameter("area_id"));
+		int area_id = Integer.parseInt(request.getParameter("area_id"));
+		//System.out.println(area_id);
+		//写真データ登録
 		Part part = request.getPart("photo");
 		String photo = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 		String photo_data = photo.isEmpty() ? "" : photo;
@@ -75,15 +77,15 @@ public class AdminPhotoAddCompServlet extends HttpServlet {
 		
 		try {
 			//insertメソッド
-			cnt = photodao.adminInsertPhoto(title, area_id, photo_data);
+			cnt = photodao.adminInsertPhoto(photo_title, area_id, photo_data);
 		} catch (ClassNotFoundException | SQLException e){
 			e.printStackTrace();
 		}
 		
 		request.setAttribute("cnt", cnt);
 		
-		System.out.println(cnt);
-		RequestDispatcher rd = request.getRequestDispatcher("album-photo-add-comp.jsp");
+//		System.out.println(cnt);
+		RequestDispatcher rd = request.getRequestDispatcher("admin-photo-add-comp.jsp");
 		rd.forward(request, response);
 		
 		

@@ -44,9 +44,11 @@ public class PhotoDAO {
 		return cnt;
 	}
 	
+	
+	//管理者が写真を登録する
 	public int adminInsertPhoto(String photo_title, int area_id, String photo_data) throws ClassNotFoundException, SQLException {
 
-		String sql = "INSERT INTO t_photo VALUES (null, 1, ?, ?, 1, ?)";
+		String sql = "INSERT INTO t_photo VALUES (null, null, ?, ?, 1, ?)";
 
 		int cnt = 0;
 		
