@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-<h2>会員登録</h2>
 	<jsp:include page="header.jsp">
 		<jsp:param value="main-top" name="path" />
 	</jsp:include>
+	<h2>会員登録</h2>
 	<form action="user-register" method="POST">
 		<div class="loginForm-design">
 			<label class="login-id">ID</label><input type = "text" name = "user_id"><br>
