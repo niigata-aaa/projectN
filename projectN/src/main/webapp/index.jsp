@@ -7,61 +7,12 @@
 <meta charset="UTF-8">
 <title>にいカイブ｜トップ画面</title>
 <link rel="stylesheet" href="Style.css">
-<style>
-.map-container.map-with-sidebar {
-	display: flex;
-	align-items: flex-start; 
-	justify-content: center;
-	gap: 40px;
-	max-width: 1200px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-}
-
-.map-container.map-with-sidebar .niigata-map {
-	flex-grow: 1;
-	max-width: 750px;
-}
-
-.map-info-panel {
-	width: 300px;
-	flex-shrink: 0;
-	text-align: center;
-}
-
-#map-photo-popup {
-	margin-top: 20px;
-	background: rgba(255, 255, 255, 0.95);
-	border: 1px solid #ccc;
-	padding: 10px;
-	border-radius: 8px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	/* visibilityにすることで非表示時もスペースがキープされ、写真が出た瞬間の画面のガタつきを防ぎます */
-	visibility: hidden;
-	pointer-events: none;
-}
-
-#map-photo-popup img {
-	width: 100%;
-	height: auto;
-	display: block;
-	border-radius: 4px;
-}
-
-#popup-title {
-	margin-top: 8px;
-	font-size: 14px;
-	font-weight: bold;
-	color: #333;
-	word-break: break-all;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
 
 	<div class="map-container map-with-sidebar">
-		<div class="map-info-panel">
+		<div class="user-index-left-container">
 			<form action="release-photo-list" method="POST">
 				<div class="loginForm-button-design">
 					<input type="submit" value="公開写真一覧" style="margin: 0 auto;">
@@ -78,7 +29,8 @@
 				<div id="popup-title"></div>
 			</div>
 		</div>
-
+			
+		<div  class="user-index-right-container">
 		<svg class="niigata-map" viewBox="0 0 800 642"
 			paint-order="fill stroke markers" xmlns="http://www.w3.org/2000/svg">
             <g id="niigata-prefecture">
@@ -181,6 +133,7 @@
             <!-- ホバー時に<path>のコピーを入れる -->
             <g id="hover-layer"></g>
         </svg>
+        </div>
 	</div>
 <script>
 	// spanタグを取得

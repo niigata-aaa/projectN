@@ -3,9 +3,15 @@
 /* 地図(user-index.jsp)のCSS */
 .map-container {
 	width: 100%;
-	max-width: 900px;
 	margin: 0 auto;
 	text-align: center;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 40px;
+	max-width: 1200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .niigata-map {
@@ -13,6 +19,20 @@
 	height: auto;
 	border: 1px solid #ccc;
 	background-color: #f9f9f9;
+	flex-grow: 1;
+	max-width: 750px;
+}
+
+/*user-index画面の配置*/
+.user-index-left-container {
+	width: 300px;
+	flex-shrink: 0;
+	text-align: center;
+}
+
+.user-index-right-container {
+	flex-grow: 1;
+	max-width: 750px;
 }
 
 /* pathに適用するCSS */
@@ -45,6 +65,33 @@
 
 #selected-city-name {
 	color: #ff7f00;
+}
+
+/* トップ画面(index.jsp)のマウスホバー写真表示 */
+#map-photo-popup {
+	margin-top: 20px;
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+	visibility: hidden;
+	pointer-events: none;
+}
+
+#map-photo-popup img {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 4px;
+}
+
+#popup-title {
+	margin-top: 8px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	word-break: break-all;
 }
 
 
@@ -520,14 +567,3 @@ button {
 /*    font-size: 1em!important;*/
 /*    margin-bottom: 1em!important;*/
 /*}*/
-
-
-
-/*user-index画面の配置*/
-.user-index-left-container {
-	text-align: left;
-}
-
-.user-index-right-container {
-	text-align: right;
-}

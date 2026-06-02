@@ -17,28 +17,26 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<div class="user-index-left-container">
+	
 	<div class="map-container">
-		<h1>新潟県市町村マップ</h1>
-
-		<form action="release-photo-list" method="POST">
-			<div class="loginForm-button-design">
-				<input type="submit" value="公開写真一覧" style="margin: 0 auto;">
+		<div class="user-index-left-container">
+			<form action="release-photo-list" method="POST">
+				<div class="loginForm-button-design">
+					<input type="submit" value="公開写真一覧" style="margin: 0 auto;">
+				</div>
+			</form>
+			<h1>新潟県市町村マップ</h1>
+			<div class="map-name-display">
+				選択中の地域: <span id="selected-city-name">未選択</span>
 			</div>
-		</form>
-
-		<div class="map-name-display">
-			選択中の地域: <span id="selected-city-name">未選択</span>
+			
+			<!-- データを送るフォーム。 JavaScriptで中身を選択によって変える-->
+			<form id="mapForm" action="album-list" method="POST">
+				<input type="hidden" id="municipalityCode" name="municipalityCode"
+					value=""> <input type="hidden" id="municipalityName"
+					name="municipalityName" value="">
+			</form>
 		</div>
-
-
-		<!-- データを送るフォーム。 JavaScriptで中身を選択によって変える-->
-		<form id="mapForm" action="album-list" method="POST">
-			<input type="hidden" id="municipalityCode" name="municipalityCode"
-				value=""> <input type="hidden" id="municipalityName"
-				name="municipalityName" value="">
-		</form>
-</div>
 		<div class="user-index-right-container">
 		<svg class="niigata-map" viewBox="0 0 800 642"
 			paint-order="fill stroke markers" xmlns="http://www.w3.org/2000/svg">
