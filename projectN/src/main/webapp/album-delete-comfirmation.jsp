@@ -12,14 +12,22 @@ request.setCharacterEncoding("UTF-8");
 int album_id = Integer.parseInt(request.getParameter("deleteAlbum_id"));
 String album_name = request.getParameter("deleteAlbum_name");
 %>
-<h3>アルバム『<%=album_name %>』を削除しますか</h3>
+<jsp:include page="header.jsp">
+		<jsp:param value="general-user-top" name="path" />
+	</jsp:include>
+	
+<h2>アルバム『<%=album_name %>』を削除しますか</h2>
 	<form action="selected-album" method = "POST">
-		<input type = "submit" value = "キャンセル">
+		<div class = "loginForm-button-design">
+			<input type = "submit" value = "キャンセル">
+		</div>
 	</form>
 	<form action = "album-delete" method = "POST">
 	<input type = "hidden" name = "album_id" value = "<%=album_id %>">
 	<input type = "hidden" name = "album_name" value = "<%=album_name %>">
-		<input type = "submit" value = "削除する">
+		<div class = "loginForm-button-design">
+			<input type = "submit" value = "削除する">
+		</div>
 	</form>
 
 </body>

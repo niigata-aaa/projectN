@@ -8,7 +8,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp">
-	<jsp:param value="album-list" name="path" />
+	<jsp:param value="selected-album" name="path" />
 </jsp:include>
 <!--<form action="" method="POST" enctype="multipart/form-data">-->
 <form action="album-photo-add" method="POST" enctype="multipart/form-data">

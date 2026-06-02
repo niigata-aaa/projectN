@@ -1,3 +1,4 @@
+<%@page import="model.entity.UserBean"%>
 <%@page import="model.entity.PhotoBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,7 +10,18 @@
 <title>公開写真一覧</title>
 </head>
 <body>
-
+	<%
+	UserBean loginUser = (UserBean)session.getAttribute("loginUser");
+	String url = "";
+	if(loginUser != null){
+		url = "general-user-top";
+	}else{
+		url = "main-top";
+	}
+	%>
+	<jsp:include page="header.jsp">
+		<jsp:param value="<%= url %>" name="path" />
+	</jsp:include>
 	<%
 		List<PhotoBean> photoList = (List<PhotoBean>)request.getAttribute("photoList");
 	%>

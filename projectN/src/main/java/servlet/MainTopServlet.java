@@ -10,19 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.entity.UserBean;
-
 /**
- * Servlet implementation class AdminTopServlet
+ * Servlet implementation class MainTopServlet
  */
-@WebServlet("/admin-top")
-public class AdminTopServlet extends HttpServlet {
+@WebServlet("/main-top")
+public class MainTopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminTopServlet() {
+    public MainTopServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,13 +38,16 @@ public class AdminTopServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = null;
 		HttpSession session = request.getSession();
-		UserBean loginUser = (UserBean)session.getAttribute("loginUser");
-		if(loginUser.getPost_id() == 2) {
-			url = "admin-index.jsp";
-		}else {
-			url = "general-user-top";
-		}
 		
+		
+		if(session.getAttribute("loginUser") != null) {
+			url = "general-user-top";
+		}else {
+			url = "index.jsp";
+			
+			// TODO トップ画面の写真ポップアップ
+		}	
+
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}

@@ -34,8 +34,9 @@
 	if (albumList.size() != 0) {
 		for (AlbumBean album : albumList) {
 	%>
-
-	<form action="selected-album" method="post" class="loginForm-button-design">
+	
+	<div class="album-select-design">
+	<form action="selected-album" method="post">
 		<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
 		<button type="submit" class="btn btn-danger btn-sm">
 			タイトル:
@@ -46,7 +47,7 @@
 			<%=album.getCompanion()%><br>
 		</button>
 	</form>
-	
+	</div>
 	<%
 	}
 	} else {
