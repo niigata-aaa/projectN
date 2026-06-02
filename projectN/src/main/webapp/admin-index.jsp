@@ -6,34 +6,29 @@
 <meta charset="UTF-8">
 <title>管理者トップ</title>
 </head>
-<!--	<style>-->
-<!--		h2 {-->
-<!--			text-align:center;-->
-<!--		}-->
-<!--		form{-->
-<!--			display:inline-block;-->
-<!--		}-->
-<!--		div{-->
-<!--			text-align:center;-->
-<!--		}-->
-<!--		input[type="submit"] {-->
-<!--			/* 1.形をきめる */-->
-<!--			width: 280px;-->
-<!--			height: 55px;-->
-<!--			border: none;-->
-<!--		}-->
-<!--	</style>-->
+	 <style>
+		form{
+			display:inline-block;
+		}
+		.admin-div{
+			text-align:center;
+		}
+	</style>
 <body>
+	<jsp:include page="header.jsp">
+		<jsp:param value="selected-album" name="path" />
+	</jsp:include>
+	
 	<h2>管理者ページ</h2><br>
-	 <div class="btn1">
-	   <form action= "admin-photo-add" method = "POST">
+	 <div class="admin-div">
+	   <form action= "admin-photo-add" method = "POST" class="admin-form">
 		 <input type = "submit" value = "公開写真登録" >
 	   </form>
 	   <form action= "admin-photo-list" method = "POST">
 		 <input type = "submit" value = "公開写真一覧" >
 	   </form>
 	 </div><br>
-	 <div>
+	 <div class="admin-div">
 	 	<form action= "admin-regi.jsp" >
 		 <input type="submit" value="管理者登録" >
 	   </form>
