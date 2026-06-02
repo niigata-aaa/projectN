@@ -35,8 +35,7 @@
 		for (AlbumBean album : albumList) {
 	%>
 
-	<form action="selected-album" method="post" class="album-select">
-	<div class="sample_box12_tape"> </div>
+	<form action="selected-album" method="post" class="loginForm-button-design">
 		<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
 		<button type="submit" class="btn btn-danger btn-sm">
 			タイトル:

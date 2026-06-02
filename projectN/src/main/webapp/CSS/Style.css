@@ -130,7 +130,7 @@ input[type="submit"] {
 }
 
 
-/*submitのデザイン*/
+/*ボタンのデザイン*/
 .loginForm-button-design {
 	background: #6bb6ff;
 	border-radius: 3px;
@@ -243,51 +243,55 @@ input[type="submit"] {
 	box-shadow: 0 0 5px rgba(160, 123, 92, 0.2);
 }
 
+/*画面設計書　10 アルバム一覧画面（各市町村画面）*/
 /*市町村名のデザイン*/
 .areaName:first-letter {
 	font-size: 1.5em;
 	color: #7172ac;
 }
 
+
 /*アルバムのデザイン*/
-button{
-	width: 260px;
-	/* 紙の横幅 100%にすると全幅表示に */
-	padding: 15px;
-	margin: 2em auto;
-	background: #fbc7f5;
-	/* 紙の色 */
-	color: #000;
-	/* 文字色 */
-	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.03);
-	transform: rotate(2deg);
-	word-break: break-all;
-}
+/*button{*/
+/*	width: 260px;*/
+/*	 紙の横幅 100%にすると全幅表示に */
+/*	padding: 15px;*/
+/*	margin: 2em auto;*/
+/*	background: #fbc7f5;*/
+/*	 紙の色 */
+/*	color: #000;*/
+/*	 文字色 */
+/*	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.03);*/
+/*	transform: rotate(2deg);*/
+/*	word-break: break-all;*/
+/*	text-align: center;*/
+	
+/*}*/
 
-.album-select {
-	margin: 0;
-	padding: 0;
-	font-size: 0.9em;
-}
+/*.album-select {*/
+/*	margin: 0;*/
+/*	padding: 0;*/
+/*	font-size: 0.9em;*/
+/*}*/
 
-.album-select {
-	width: 25%;
-	height: 35px;
-	margin: -25px auto 0;
-	background: rgba(251, 234, 144, 0.5);
-	/* テープの色 */
-	transform: rotate(-3deg);
-	opacity: 0.9;
-}
+/*.album-select {*/
+/*	width: 25%;*/
+/*	height: 35px;*/
+/*	margin: -25px auto 0;*/
+/*	background: rgba(251, 234, 144, 0.5);*/
+/*	 テープの色 */
+/*	transform: rotate(-3deg);*/
+/*	opacity: 0.9;*/
+/*}*/
 
-.album-select {
-	text-align: center;
-	font-size: 1.3em !important;
-	margin-top: 10px !important;
-}
+/*.album-select {*/
+/*    text-align: center;*/
+/*    font-size: 1.3em!important;*/
+/*    margin-top: 10px!important;*/
+/*}*/
+/*.album-select {*/
+/*    text-align: center;*/
+/*    font-size: 0.7em!important;*/
+/*    margin-bottom: 1em!important;*/
+/*}*/
 
-.album-select {
-	text-align: center;
-	font-size: 0.7em !important;
-	margin-bottom: 1em !important;
-}
