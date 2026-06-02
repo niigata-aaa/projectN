@@ -11,9 +11,15 @@
 	request.setCharacterEncoding("UTF-8");
 	String album_name = request.getParameter("album_name");
 %>
-<h1>アルバム『<%=album_name %>』を削除しました</h1>
+<jsp:include page="header.jsp">
+		<jsp:param value="general-user-top" name="path" />
+</jsp:include>
+	
+<h2>アルバム『<%=album_name %>』を削除しました</h2>
 <form action="album-list" method="get">
-<input type="submit" value="アルバム画面に戻る">
+<div class = "loginForm-button-design">
+	<input type="submit" value="アルバム画面に戻る">
+</div>
 </form>
 
 </body>
