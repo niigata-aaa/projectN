@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.dao.MissionPhotoDAO;
+import model.entity.MissionPhotoBean;
+import model.entity.UserBean;
 
 /**
  * Servlet implementation class MissionServlet
@@ -39,12 +45,49 @@ public class MissionServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String url = null;
+		
+		List<MissionPhotoBean> yurucharaPhotoList = new ArrayList<MissionPhotoBean>();
+		List<MissionPhotoBean> gurmentPhotoList = new ArrayList<MissionPhotoBean>();
+		List<MissionPhotoBean> sightseePhotoList = new ArrayList<MissionPhotoBean>();
+
+		
+		int yurucharaCnt = 0;
+		int gurmentCnt = 0;
+		int sightseeCnt = 0;
 		
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		
+		UserBean user  = (UserBean)session.getAttribute("loginUser");
 		
+		String user_id = user.getUser_id();
+		int area_id = (Integer)session.getAttribute("area_id");
+		
+		try {
+			MissionPhotoDAO missionphotoDao = new MissionPhotoDAO();
+			
+			yurucharaPhotoList = missionphotoDao.displayCategoryPhoto(1, user_id, area_id);
+			gurmentPhotoList = missionphotoDao.displayCategoryPhoto(2, user_id, area_id);
+			sightseePhotoList = missionphotoDao.displayCategoryPhoto(3, user_id, area_id);
+			
+			yurucharaCnt = missionphotoDao.photoCount(1, user_id, area_id);
+			gurmentCnt = missionphotoDao.photoCount(2, user_id, area_id);
+			sightseeCnt = missionphotoDao.photoCount(3, user_id, area_id);
+			
+			System.out.println(yurucharaCnt);
+			System.out.println(gurmentCnt);
+			System.out.println(sightseeCnt);
+			
+			request.setAttribute("yurucharaPhotoList", yurucharaPhotoList);
+			request.setAttribute("gurmentPhotoList", gurmentPhotoList);
+			request.setAttribute("sightseePhotoList", sightseePhotoList);
+			
+			request.setAttribute("yurucharaCnt", yurucharaCnt);
+			request.setAttribute("gurmentCnt", gurmentCnt);
+			request.setAttribute("sightseeCnt", sightseeCnt);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		//リクエストの転送
 		RequestDispatcher rd = request.getRequestDispatcher("mission.jsp");

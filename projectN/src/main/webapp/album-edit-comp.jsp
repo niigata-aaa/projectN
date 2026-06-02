@@ -14,11 +14,11 @@
 		int cnt = (Integer)request.getAttribute("processingNumber");
 	%>
 	<% if(cnt == 0){ %>
-	アルバム情報の変更に失敗しました<br>
+	<h2>アルバム情報の変更に失敗しました</h2><br>
 	<% } else { %>
-	アルバム情報を変更しました<br>
+	<h2>アルバム情報を変更しました</h2><br>
 	<% } %>
-	<form action="selected-album" method="post">
+	<form action="selected-album" method="post" class="loginForm-button-design">
 		<input type="submit" value="アルバム画面に戻る">
 	</form>
 </body>

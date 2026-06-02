@@ -9,12 +9,17 @@
 <title>ミッション</title>
 </head>
 
-<!--	<%-->
-<!--	List<AlbumBean> albumList = (List<AlbumBean>) request.getAttribute("albumList");-->
-<!--%>-->
-	<%	
+	<%
+	List<MissionPhotoBean> yurucharaPhotoList = (List<MissionPhotoBean>) request.getAttribute("yurucharaPhotoList");
+	List<MissionPhotoBean> gurmentPhotoList = (List<MissionPhotoBean>) request.getAttribute("gurmentPhotoList");
+	List<MissionPhotoBean> sightseePhotoList = (List<MissionPhotoBean>) request.getAttribute("sightseePhotoList");
+	int yurucharaCnt = (Integer) request.getAttribute("yurucharaCnt");
+	int gurmentCnt = (Integer) request.getAttribute("gurmentCnt");
+	int sightseeCnt = (Integer) request.getAttribute("sightseeCnt");
 	String areaName = (String) session.getAttribute("area_name");
 	%>
+
+
 
 <body>
 	<jsp:include page="header.jsp">
@@ -23,8 +28,19 @@
 	
 		<h2 style="text-align:center;"><%=areaName%></h2>
 <div>
-①ゆるキャラ
-<form action="mission-photo-add" method="POST">
+①ゆるキャラ:<% if(yurucharaCnt > 1){ %>ミッション達成
+<%} else{ %>ミッション未達成<%} %>
+<h3>写真一覧</h3>
+	<%
+		for (MissionPhotoBean photo : yurucharaPhotoList){
+	%>
+		<div>
+		<img src="${pageContext.request.contextPath}/photo/<%=photo.getMission_photo_data()%>" ><br>
+		</div>
+	<%
+		}
+	%>
+<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
 		<input type="file" id="missin_photo" name="mission_photo" multiple>
 		<input type="hidden" id="mission_id" name="mission_id" value="1">
@@ -34,8 +50,21 @@
 </div
 
 <div>
-②グルメ
-<form action="mission-photo-add" method="POST">
+②グルメ:<% if(gurmentCnt > 1){ %>ミッション達成
+<%} else{ %>ミッション未達成<%}%>
+
+<h3>写真一覧</h3>
+	<%
+		for (MissionPhotoBean photo : gurmentPhotoList){
+	%>
+		<div>
+		<img src="${pageContext.request.contextPath}/photo/<%=photo.getMission_photo_data()%>" ><br>
+		</div>
+	<%
+		}
+	%>
+	
+<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
 		<input type="file" id="missin_photo" name="mission_photo" multiple>
 		<input type="hidden" id="mission_id" name="mission_id" value="2">
@@ -45,8 +74,24 @@
 </div>
 
 <div>
-③観光
-<form action="mission-photo-add" method="POST">
+③観光:<% if(sightseeCnt > 1){ %>
+			ミッション達成
+		<% } else { %>
+		ミッション未達成
+		<% } %>
+
+<h3>写真一覧</h3>
+	<%
+		for (MissionPhotoBean photo : sightseePhotoList){
+	%>
+		<div>
+		<img src="${pageContext.request.contextPath}/photo/<%=photo.getMission_photo_data()%>" ><br>
+		</div>
+	<%
+		}
+	%>
+	
+<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
 		<input type="file" id="missin_photo" name="mission_photo" multiple>
 		<input type="hidden" id="mission_id" name="mission_id" value="3">

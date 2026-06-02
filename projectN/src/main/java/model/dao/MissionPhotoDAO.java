@@ -76,6 +76,7 @@ public class MissionPhotoDAO {
 		
 		return missionPhotoList;
 	}
+
 	
 	// ミッション写真を登録する
 	public int insertMissionPhoto(MissionPhotoBean missionPhoto) throws SQLException, ClassNotFoundException{
@@ -118,7 +119,7 @@ public class MissionPhotoDAO {
 		int cnt = 0;
 		
 		String sql = "SELECT COUNT(mission_photo_id) AS photoCount FROM t_mission_photo "
-				+ "WHERE mission_id = ? AND user_id = ? AND area_id = ?"
+				+ "WHERE mission_id = ? AND user_id = ? AND area_id = ? "
 				+ "GROUP BY mission_id;";
 
 		try(Connection con = ConnectionManager.getConnection();
