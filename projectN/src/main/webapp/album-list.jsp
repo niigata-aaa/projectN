@@ -34,20 +34,29 @@
 	if (albumList.size() != 0) {
 		for (AlbumBean album : albumList) {
 	%>
-	
-	<div class="album-select-design">
+
+
 	<form action="selected-album" method="post">
 		<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
-		<button type="submit" class="btn btn-danger btn-sm">
-			タイトル:
-			<%=album.getAlbum_name()%><br> 期間：
-			<%=album.getTrip_start()%>
-			~
-			<%=album.getTrip_end()%><br> 同行者：
-			<%=album.getCompanion()%><br>
-		</button>
+		<div class="sample_box12">
+			<div class="sample_box12_tape"></div>
+			<button type="submit" class="btn btn-danger btn-sm">
+				<p class="sample_box12_title">
+					タイトル:
+					<%=album.getAlbum_name()%></p>
+				<br>
+				<p class="sample_box12_subtitle">
+					期間：
+					<%=album.getTrip_start()%>
+					~
+					<%=album.getTrip_end()%><br> 同行者：
+					<%=album.getCompanion()%></p>
+				<br>
+			</button>
+		</div>
 	</form>
-	</div>
+
+
 	<%
 	}
 	} else {

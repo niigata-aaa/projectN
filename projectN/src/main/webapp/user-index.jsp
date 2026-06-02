@@ -17,7 +17,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	
+	<div class="user-index-left-container">
 	<div class="map-container">
 		<h1>新潟県市町村マップ</h1>
 
@@ -38,8 +38,8 @@
 				value=""> <input type="hidden" id="municipalityName"
 				name="municipalityName" value="">
 		</form>
-
-
+</div>
+		<div class="user-index-right-container">
 		<svg class="niigata-map" viewBox="0 0 800 642"
 			paint-order="fill stroke markers" xmlns="http://www.w3.org/2000/svg">
             <g id="niigata-prefecture">
@@ -142,6 +142,7 @@
             <!-- ホバー時に<path>のコピーを入れる -->
             <g id="hover-layer"></g>
         </svg>
+        </div>
 	</div>
 
 	<script>
