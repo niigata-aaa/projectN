@@ -8,6 +8,7 @@
 </head>
 <body>
 <%
+request.setCharacterEncoding("UTF-8");
 int album_id = Integer.parseInt(request.getParameter("deleteAlbum_id"));
 String album_name = request.getParameter("deleteAlbum_name");
 %>
