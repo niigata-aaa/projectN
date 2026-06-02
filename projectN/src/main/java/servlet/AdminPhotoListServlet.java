@@ -52,12 +52,11 @@ public class AdminPhotoListServlet extends HttpServlet {
 			List<PhotoBean> photoList = photoDao.displayAllPublishedPhoto();
 
 			request.setAttribute("photoList", photoList);
-			url = "published-photo.jsp";
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		//リクエストの転送
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		RequestDispatcher rd = request.getRequestDispatcher("admin-published-photo-list.jsp");
 		rd.forward(request, response);
 	}
 

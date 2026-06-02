@@ -55,7 +55,7 @@ public class AdminReleaseSettingServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("photo-publish-setting-comp.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("admin-photo-publish-setting-comp.jsp");
 		rd.forward(request,response);
 	}
 
