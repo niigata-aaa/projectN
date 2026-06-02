@@ -249,8 +249,9 @@ input[type="submit"] {
 	font-size: 1.5em;
 	color: #7172ac;
 }
+
 /*　ｈ２タグの編集　*/
-h2{
+h2 {
 	text-align: center;
 }
 
@@ -273,7 +274,7 @@ h2{
 	z-index: 1;
 	border-radius: 5px;
 	margin-bottom: 4%;
-	
+
 }
 
 .album-select-design:before {
@@ -285,7 +286,7 @@ h2{
 	z-index: -1;
 	border: 2px solid #000;
 	border-radius: 5px;
-	
+
 }
 
 .album-select-design:after {
@@ -305,13 +306,13 @@ h2{
 	-webkit-box-shadow: 0 0.6rem 0 0 rgb(0 0 0 / 20%);
 	box-shadow: 0 0.4rem 0 0 rgb(0 0 0 / 20%);
 	z-index: -2;
-	
+
 }
 
 .album-select-design:i {
 	position: absolute;
 	right: 9px;
-	
+
 }
 
 .album-select-design:hover {
@@ -330,7 +331,7 @@ button {
 	width: 240px;
 	height: 200px;
 	border: none;
-	
+
 	/*	 2.背景色をきめる */
 	background: lightsalmon;
 	/*	 3.文字の配置をきめる */
@@ -343,57 +344,101 @@ button {
 	font-weight: bold;
 	/*	 5.クリックできることを示すためのカーソルポインターを設定 */
 	cursor: pointer;
-	}
-.album-select-design{
+
+}
+
+.album-select-design {
 	/*横並びにする*/
-	display:inline-block;
-	flex-wrap:wrap;
-	margin:5%;
-	
-	
-	}
+	display: inline-block;
+	flex-wrap: wrap;
+	margin-left: 12.8%;
+	margin-bottom: 5%;
+}
+
+/*アルバムのタイトル*/
+p1 {
+	display: inline-block;
+	position: relative;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	padding: 7px 0;
+	font-size: 18px;
+	/*文字サイズ*/
+	background: #7f9dfb;
+	/*背景色*/
+	color: #FFF;
+	/*文字色*/
+	box-sizing: border-box;
+}
+
+p1{
+	margin: 0;
+	padding: 0 30px 0 15px;
+	border-top: dashed 1px #FFF;
+	border-bottom: dashed 1px #FFF;
+	line-height: 46px;
+}
+
+p1:after {
+	position: absolute;
+	content: '';
+	z-index: 1;
+	top: 0;
+	right: 0;
+	width: 0px;
+	height: 0px;
+	border-width: 30px 15px 30px 0px;
+	border-color: transparent #fff transparent transparent;
+	border-style: solid;
+}
+
+/* 全体を真ん中にするCSS*/
+.text-center{
+	text-align: center;
+}
 
 
-	/*}*/
-	/*button{*/
-	/*	width: 260px;*/
-	/*	 紙の横幅 100%にすると全幅表示に */
-	/*	padding: 15px;*/
-	/*	margin: 2em auto;*/
-	/*	background: #fbc7f5;*/
-	/*	 紙の色 */
-	/*	color: #000;*/
-	/*	 文字色 */
-	/*	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.03);*/
-	/*	transform: rotate(2deg);*/
-	/*	word-break: break-all;*/
-	/*	text-align: center;*/
+/*}*/
+/*button{*/
+/*	width: 260px;*/
+/*	 紙の横幅 100%にすると全幅表示に */
+/*	padding: 15px;*/
+/*	margin: 2em auto;*/
+/*	background: #fbc7f5;*/
+/*	 紙の色 */
+/*	color: #000;*/
+/*	 文字色 */
+/*	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.03);*/
+/*	transform: rotate(2deg);*/
+/*	word-break: break-all;*/
+/*	text-align: center;*/
 
-	/*}*/
+/*}*/
 
-	/*.album-select {*/
-	/*	margin: 0;*/
-	/*	padding: 0;*/
-	/*	font-size: 0.9em;*/
-	/*}*/
+/*.album-select {*/
+/*	margin: 0;*/
+/*	padding: 0;*/
+/*	font-size: 0.9em;*/
+/*}*/
 
-	/*.album-select {*/
-	/*	width: 25%;*/
-	/*	height: 35px;*/
-	/*	margin: -25px auto 0;*/
-	/*	background: rgba(251, 234, 144, 0.5);*/
-	/*	 テープの色 */
-	/*	transform: rotate(-3deg);*/
-	/*	opacity: 0.9;*/
-	/*}*/
+/*.album-select {*/
+/*	width: 25%;*/
+/*	height: 35px;*/
+/*	margin: -25px auto 0;*/
+/*	background: rgba(251, 234, 144, 0.5);*/
+/*	 テープの色 */
+/*	transform: rotate(-3deg);*/
+/*	opacity: 0.9;*/
+/*}*/
 
-	/*.album-select {*/
-	/*    text-align: center;*/
-	/*    font-size: 1.3em!important;*/
-	/*    margin-top: 10px!important;*/
-	/*}*/
-	/*.album-select {*/
-	/*    text-align: center;*/
-	/*    font-size: 0.7em!important;*/
-	/*    margin-bottom: 1em!important;*/
-	/*}*/
+/*.album-select {*/
+/*    text-align: center;*/
+/*    font-size: 1.3em!important;*/
+/*    margin-top: 10px!important;*/
+/*}*/
+/*.album-select {*/
+/*    text-align: center;*/
+/*    font-size: 0.7em!important;*/
+/*    margin-bottom: 1em!important;*/
+/*}*/
