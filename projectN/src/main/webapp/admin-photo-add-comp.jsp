@@ -16,7 +16,6 @@
 登録できませんでした
 <% }%>
 
-		公開できました<br>
 		<input type="button" onclick = "location.href" ='admin-index.jsp' value="管理者ページに戻る">
 		  
 		<form action = "admin-photo-add" method="POST">
