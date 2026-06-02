@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form action="admin-register" method = POST>
-		ID<input type = "text" name = id><br>
-		パスワード<input type = "password" name = "password"><br>
-		<input type = "submit" value = 登録>
+		ID<input type="text" name="id" required maxlength="100"><br>
+		パスワード<input type="password" name ="password" required minlength="8"><br>
+		<input type ="submit" value ="登録">
 	</form>
 </body>
 </html>
