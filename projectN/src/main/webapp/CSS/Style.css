@@ -147,7 +147,7 @@ input[type="submit"] {
 	border: 2px solid #000;
 	z-index: 1;
 	border-radius: 5px;
-	margin-top:2%;
+	margin-top: 2%;
 	margin-bottom: 2%;
 }
 
@@ -212,7 +212,7 @@ input[type="submit"] {
 	margin-left: 8%;
 	margin-right: 8%;
 	margin-bottom: 3%;
-	margin-top:1%;
+	margin-top: 1%;
 }
 
 /* 入力フィールドのスタイル */
@@ -222,7 +222,7 @@ input[type="submit"] {
 /*	font-weight: bold;*/
 /*	font-family: 'Courier New', Courier, monospace;*/
 /*}*/
-.album-regi-style{
+.album-regi-style {
 	display: block;
 	margin-bottom: 1px;
 	font-weight: bold;
@@ -353,7 +353,7 @@ h2 {
 /*	font-weight: bold;*/
 /*		 5.クリックできることを示すためのカーソルポインターを設定 */
 /*	cursor: pointer;*/
-	
+
 /*}*/
 
 .album-select-design {
@@ -368,88 +368,166 @@ h2 {
 
 /*アルバム編集などのタイトル*/
 .ribbon5 {
-  display: inline-block;
-  position: relative;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  padding: 7px 0;
-  font-size: 15px;/*文字サイズ*/
-  background: #7f9dfb;/*背景色*/
-  color: #FFF;/*文字色*/
-  box-sizing: border-box;
+	display: inline-block;
+	position: relative;
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+	padding: 7px 0;
+	font-size: 15px;
+	/*文字サイズ*/
+	background: #7f9dfb;
+	/*背景色*/
+	color: #FFF;
+	/*文字色*/
+	box-sizing: border-box;
 }
+
 .ribbon5 h1 {
-  margin: 0;
-  padding: 0 30px 0 15px;
-  border-top: dashed 1px #FFF;
-  border-bottom: dashed 1px #FFF;
-  line-height: 46px;
+	margin: 0;
+	padding: 0 30px 0 15px;
+	border-top: dashed 1px #FFF;
+	border-bottom: dashed 1px #FFF;
+	line-height: 46px;
 }
 
 .ribbon5:after {
-  position: absolute;
-  content: '';
-  z-index: 1;
-  top: 0;
-  right: 0;
-  width: 0px;
-  height: 0px;
-  border-width: 30px 15px 30px 0px;
-  border-color: transparent #fff transparent transparent;
-  border-style: solid;
+	position: absolute;
+	content: '';
+	z-index: 1;
+	top: 0;
+	right: 0;
+	width: 0px;
+	height: 0px;
+	border-width: 30px 15px 30px 0px;
+	border-color: transparent #fff transparent transparent;
+	border-style: solid;
 }
 
 /* 全体を真ん中にするCSS*/
-.text-center{
+.text-center {
 	text-align: center;
 }
+
 /* ボタンを横並びにするCSS*/
-.text-flex{
-	display:flex;
+.text-flex {
+	display: flex;
 }
 
 /*アルバムのデザイン*/
-.sample_box12,button{
-   width: 260px;/* 紙の横幅 100%にすると全幅表示に */
-   padding: 15px;
-   margin: 2em auto;
-   background: #fbc7f5;/* 紙の色 */
-   color: #000;/* 文字色 */
-   box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);
-   word-break: break-all;
-   border:none;
+.btn-square-slant {
+	display: inline-block;
+	position: relative;
+	padding: 0.5em 1.4em;
+	text-decoration: none;
+	background: #668ad8;
+	/*ボタン色*/
+	color: #FFF;
+	border-bottom: solid 5px #36528c;
+	/*ボタン色より暗めに*/
+	border-right: solid 5px #5375bd;
+	/*ボタン色より暗めに*/
 }
-.sample_box12 p {
-    margin: 0; 
-    padding: 0;
-    font-size: 0.9em;
+
+button {
+	display: inline-block;
+	position: relative;
+	padding: 0.5em 1.4em;
+	text-decoration: none;
+	background: #668ad8;
+	/*ボタン色*/
+	color: #FFF;
+	border: none;
 }
-.sample_box12_tape {
-    width: 50%;
-    height: 35px;
-    margin: -25px auto 0;
-    background: rgba(251, 234, 144, 0.5);/* テープの色 */
-    transform: rotate(-3deg);
-    opacity: 0.9;
+
+.btn-square-slant:before {
+	content: " ";
+	position: absolute;
+	bottom: -5px;
+	left: -1px;
+	width: 0;
+	height: 0;
+	border-width: 0 6px 6px 0px;
+	border-style: solid;
+	border-color: transparent;
+	border-bottom-color: #FFF;
 }
-.sample_box12_title {
-    text-align: center;
-    font-size: 1.3em!important;
-    margin-top: 10px!important;
+
+.btn-square-slant:after {
+	content: " ";
+	position: absolute;
+	top: -1px;
+	right: -5px;
+	width: 0;
+	height: 0;
+	border-width: 0px 6px 6px 0px;
+	border-style: solid;
+	border-color: #FFF;
+	border-bottom-color: transparent;
 }
-.sample_box12_subtitle {
-    text-align: center;
-    font-size: 0.7em!important;
-    margin-bottom: 1em!important;
+
+.btn-square-slant:active {
+	/*ボタンを押したとき*/
+	border: none;
+	-webkit-transform: translate(6px, 6px);
+	transform: translate(6px, 6px);
 }
+
+.btn-square-slant:active:after,
+.btn-square-slant:active:before {
+	content: none;
+	/*ボタンを押すと線が消える*/
+}
+
+/*.sample_box12,button{*/
+/*   width: 300px; 紙の横幅 100%にすると全幅表示に */
+/*   padding: 15px;*/
+/*   margin: 2em auto;*/
+/*   background: #fbc7f5; 紙の色 */
+/*   color: #000; 文字色 */
+/*   box-shadow: 4px 4px 4px rgba(0,0,0,0.03);transform:rotate(2deg);*/
+/*   word-break: break-all;*/
+/*   border:none;*/
+/*   文字のスタイルを設定 */
+/*   	color:black;*/
+/*   	font-size: 15px;*/
+/*   	font-weight: bold;*/
+/*   		 5.クリックできることを示すためのカーソルポインターを設定 */
+/*   	cursor: pointer;	*/
+
+/*}*/
+
+/*.sample_box12 p {*/
+/*    margin: 0; */
+/*    padding: 0;*/
+/*    font-size: 0.9em;*/
+/*}*/
+/*.sample_box12_tape {*/
+/*    width: 50%;*/
+/*    height: 35px;*/
+/*    margin: -25px auto 0;*/
+/*    background: rgba(251, 234, 144, 0.5); テープの色 */
+/*    transform: rotate(-3deg);*/
+/*    opacity: 0.9;*/
+/*}*/
+/*.sample_box12_title {*/
+/*    text-align: center;*/
+/*    font-size: 2em!important;*/
+/*    margin-top: 10px!important;*/
+/*}*/
+/*.sample_box12_subtitle {*/
+/*    text-align: center;*/
+/*    font-size: 1em!important;*/
+/*    margin-bottom: 1em!important;*/
+/*}*/
 
 
 
 /*user-index画面の配置*/
-.user-index-left-container{
-	text-align:left;
+.user-index-left-container {
+	text-align: left;
 }
-.user-index-right-container{
-	text-align:right;
+
+.user-index-right-container {
+	text-align: right;
 }
