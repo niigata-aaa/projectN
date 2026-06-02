@@ -8,22 +8,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import model.dao.UserDAO;
-import model.entity.UserBean;
+import model.dao.PhotoDAO;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class AdminReleaseSettingServlet
  */
-@WebServlet("/login")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/AdminReleaseSettingServlet")
+public class AdminReleaseSettingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public AdminReleaseSettingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,33 +38,24 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = null;
-		
+		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
 		
-		String user_id = request.getParameter("id");
-		String password = request.getParameter("password");
+		int cnt = 0;
+		
+		int photo_id = Integer.parseInt(request.getParameter("photo_id"));
+		String photo_title = request.getParameter("photo_title");
+		int is_published = Integer.parseInt(request.getParameter("is_published"));
 		
 		try {
-			UserDAO userDao = new UserDAO();
-			
-			if(userDao.login(user_id,password)) {
-				url = "general-user-top";
-				
-				HttpSession session = request.getSession();
-				
-				UserBean user = userDao.selectUser(user_id);
-				
-				session.setAttribute("loginUser", user);
-				
-			}else {
-				url = "login-error.jsp";
-			}
+			PhotoDAO photodao = new PhotoDAO();
+			cnt = photodao.setteingChangePhoto(photo_id, is_published, photo_title);
+			request.setAttribute("cnt", cnt);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher(url);
+		RequestDispatcher rd = request.getRequestDispatcher("photo-publish-setting-comp.jsp");
 		rd.forward(request,response);
 	}
 

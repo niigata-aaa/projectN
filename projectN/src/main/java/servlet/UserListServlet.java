@@ -41,16 +41,31 @@ public class UserListServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<UserBean> userList = null;
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		//int post_id = Integer.parseInt(request.getParameter("post_id"));
-		
-		
 		UserDAO userDao = new UserDAO();
 		
+		request.setCharacterEncoding("UTF-8");
+		String user_id = "";
+		if(request.getParameter("user_id") != null) {
+			user_id = request.getParameter("user_id");
+		}
+		int post_id = 0;
+		if(request.getParameter("post_id") != null) {
+			post_id = Integer.parseInt(request.getParameter("post_id"));
+		}
+//		String user_id = request.getParameter("user_id");
+//		Integer post_id = Integer.parseInt(request.getParameter("post_id"));
+		
+//		UserDAO userDao = new UserDAO();
+
+		
 		try {
-			userList = userDao.displayAllUser();
+			if(user_id != null && !(user_id.isEmpty())) {
+				userList = userDao.displaySelectUser(user_id);
+			}else if(post_id == 1 || post_id ==  2){
+				userList = userDao.displaySelectUser(post_id);
+			}else {
+				userList = userDao.displayAllUser();
+			}
 		}catch(ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}

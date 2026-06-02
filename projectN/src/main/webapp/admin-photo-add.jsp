@@ -9,22 +9,27 @@
 <title>管理者公開写真登録</title>
 </head>
 <body>
-	<form action="admin-photo-add" method="POST">
-		タイトル<input type="text" name="title">
-		写真挿入まだ
-		<select name="area">
+
+	<form action="admin-photo-add-comp" method="POST" enctype="multipart/form-data">
+		タイトル:<input type="text" name="title">
+<br>
+		<select name="area_id">
 	   <%
 	   	  List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");
 	      for(AreaBean area : areaList){
 	   %>
-			<option value<%=area.getArea_id() %>><%=area.getArea_name() %></option>
-		
+	     <%int id = area.getArea_id(); %>
+			<option value="<%=id%>"><%=area.getArea_id() %>:<%=area.getArea_name() %></option>
 		<%
 	      }
 		%>
 		</select>
+		<br>
+		<input type="file" id="photo" name="photo">
+		<br>
+		<input type="submit" value="登録">
 	</form>
-	<button type="submit" class="admin-photo-add-comp">登録</button>
+
 
 </body>
 </html>

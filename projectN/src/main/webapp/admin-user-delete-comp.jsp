@@ -7,7 +7,11 @@
 <title>削除完了画面</title>
 </head>
 <body>
-	削除できました<br>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String user_id = request.getParameter("user_id");
+%>
+	<%=user_id %>　さんを削除しました<br>
 	<a href = "admin-index.jsp">管理者ページに戻る</a>
 	<form action ="user-list" method = "POST">
 		<input type = "submit" value = "ユーザ一覧画面に戻る">
