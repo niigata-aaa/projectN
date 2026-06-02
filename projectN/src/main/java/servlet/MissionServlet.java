@@ -74,6 +74,10 @@ public class MissionServlet extends HttpServlet {
 			gurmentCnt = missionphotoDao.photoCount(2, user_id, area_id);
 			sightseeCnt = missionphotoDao.photoCount(3, user_id, area_id);
 			
+			System.out.println(yurucharaCnt);
+			System.out.println(gurmentCnt);
+			System.out.println(sightseeCnt);
+			
 			request.setAttribute("yurucharaPhotoList", yurucharaPhotoList);
 			request.setAttribute("gurmentPhotoList", gurmentPhotoList);
 			request.setAttribute("sightseePhotoList", sightseePhotoList);
