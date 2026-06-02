@@ -34,7 +34,7 @@
 				type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
 			<input type="submit" value="非公開にする">
 			<% } else { %>
-			タイトル：<input type="text" name="photo_title"> <input
+			タイトル：<input type="text" name="photo_title" repuired maxlength="50"> <input
 				type="hidden" name="is_published" value="1">公開にする <input
 				type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
 			<input type="submit" value="公開にする">
