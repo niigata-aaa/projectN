@@ -7,11 +7,10 @@
 <title>にいカイブ｜ユーザートップ画面</title>
 <link rel="stylesheet" href="Style.css">
 <style>
-    /* サーブレットから渡されるステータス名とCSSクラス名を完全一致させる */
     .municipality.count-10 { fill: #16a34a; } /* 濃緑 */
     .municipality.count-5 { fill: #4ade80; } /* 緑 */
     .municipality.count-3 { fill: #bbf7d0; } /* 薄緑 */
-    .municipality.count-1 { fill: #f3f4f6; } /* グレー */
+    .municipality.count-1 { fill: #E1FFCE; } /* 薄黄緑 */
     .municipality.count-0 { fill: #ffffff; } /* 白 */
 </style>
 
