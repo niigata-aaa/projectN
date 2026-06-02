@@ -6,11 +6,27 @@
 <meta charset="UTF-8">
 <title>管理者登録画面</title>
 </head>
+	<style>
+		.admin-center{
+			width: 250px;   /* 必須 */
+    		margin: 0 auto;
+		}
+		.admin-margin{
+			margin-top:15px;
+		}
+	</style>
 <body>
-	<form action="admin-register" method = POST>
-		ID<input type = "text" name = id><br>
-		パスワード<input type = "password" name = "password"><br>
-		<input type = "submit" value = 登録>
-	</form>
+	<jsp:include page="header.jsp">
+		<jsp:param value="selected-album" name="path" />
+	</jsp:include>
+	
+	<h2>管理者登録</h2>
+	  <form action="admin-register" method = POST class="loginForm-design">
+		 ID<input type = "text" name = id><br>
+		 パスワード<input type = "password" name = "password"><br>
+		<div class="admin-center">
+		 <input type = "submit" value = 登録 class="admin-margin">
+	    </div>
+	  </form>
 </body>
 </html>

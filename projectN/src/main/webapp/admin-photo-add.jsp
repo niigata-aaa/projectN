@@ -9,9 +9,6 @@
 <title>管理者公開写真登録</title>
 </head>
 	<style>
-		h2 {
-			text-align:center;
-			}
 		form{
 			display:inline-block;
 		}
