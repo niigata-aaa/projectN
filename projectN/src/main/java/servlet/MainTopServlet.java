@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.dao.PhotoDAO;
+import model.entity.PhotoBean;
 
 /**
  * Servlet implementation class MainTopServlet
@@ -46,6 +50,17 @@ public class MainTopServlet extends HttpServlet {
 			url = "index.jsp";
 			
 			// TODO トップ画面の写真ポップアップ
+			try {
+				PhotoDAO dao = new PhotoDAO();
+				// 各市町村ごとの公開写真を一枚ランダムに取得
+				Map<Integer, PhotoBean> ramdomPhotos = dao.publishPhotoMap();
+			    
+			    // MapをJSPに渡す
+			    request.setAttribute("ramdomPhotos", ramdomPhotos);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}	
 
 		RequestDispatcher rd = request.getRequestDispatcher(url);
