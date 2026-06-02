@@ -17,12 +17,14 @@
 	同行者 : <%= editAlbum.getCompanion() %><br> 
 	メモ : <%= editAlbum.getMemo() %><br>
 	以上の項目で編集しますか？<br>
-	<form action="album-edit" method="get">
-		<input type="submit" value="登録">
-	</form>
-	<form action="album-edit.jsp" method="get">
-		<input type="submit" value="キャンセル">
-	</form>
+	<div class="album-select-design">
+		<form action="album-edit" method="get">
+			<input type="submit" value="登録" class="loginForm-button-design">
+		</form>
+		<form action="album-edit.jsp" method="get">
+			<input type="submit" value="キャンセル" class="loginForm-button-design">
+		</form>
+	</div>
 
 </body>
 </html>
