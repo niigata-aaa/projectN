@@ -14,8 +14,9 @@
 	<%
 		AlbumBean album = (AlbumBean)session.getAttribute("selectAlbum");
 	%>
-	<h2>アルバム設定</h2>
+	
 	<form action="album-edit" method="POST" class="album-regi-style">
+	<h2>アルバム編集</h2>
 		アルバム名 : <input type="text" name="albumName" maxlength="50" value="<%=album.getAlbum_name() %>" required><br> 
 		日付 : <input type="date" name="startDate" value="<%=album.getTrip_start() %>" required> ～ 
 			<input type="date"name="endDate" value="<%= album.getTrip_end()%>" required><br> 

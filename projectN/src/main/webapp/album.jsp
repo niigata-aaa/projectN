@@ -98,7 +98,7 @@ padding:10px;
 			<div id = "albumButton-position">
 				<form action="album-edit.jsp" method = "POST">
 					<div class = loginForm-button-design>
-						<input type = "submit" value = "アルバム設定">
+						<input type = "submit" value = "アルバム編集">
 					</div>
 				</form>
 				<form action="album-delete-comfirmation.jsp" method="POST">
@@ -130,7 +130,7 @@ padding:10px;
 		<%
 			if (photoList != null && !photoList.isEmpty()){
 		%>
-		<h2>＜写真一覧＞</h2>
+		<h2>―写真一覧―</h2>
 		<div class = "album-photo-list">
 		<%
 			for (PhotoBean photo : photoList){

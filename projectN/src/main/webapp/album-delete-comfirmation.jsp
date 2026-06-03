@@ -17,16 +17,21 @@ String album_name = request.getParameter("deleteAlbum_name");
 	</jsp:include>
 	
 <h2>アルバム『<%=album_name %>』を削除しますか</h2>
-	<form action="selected-album" method = "POST">
-		<div class = "loginForm-button-design">
-			<input type = "submit" value = "キャンセル">
-		</div>
-	</form>
+<!--	<form action="selected-album" method = "POST">-->
+<!--		<div class = "loginForm-button-design">-->
+<!--			<input type = "submit" value = "キャンセル">-->
+<!--		</div>-->
+<!--	</form>-->
 	<form action = "album-delete" method = "POST">
 	<input type = "hidden" name = "album_id" value = "<%=album_id %>">
 	<input type = "hidden" name = "album_name" value = "<%=album_name %>">
 		<div class = "loginForm-button-design">
 			<input type = "submit" value = "削除する">
+		</div>
+	</form>
+	<form action="selected-album" method = "POST">
+		<div class = "loginForm-button-design">
+			<input type = "submit" value = "キャンセル">
 		</div>
 	</form>
 
