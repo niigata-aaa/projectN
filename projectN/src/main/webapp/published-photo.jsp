@@ -12,14 +12,14 @@
 <link rel="stylesheet" href="Style.css">
 <style>
 .area-narrow-down-field {
-	width: 40%;
+	width: 20%;
 	display: flex;
 	margin: auto;
 }
 
 .area-select-box {
-	font-size: 25px;
-	text-align: center;
+	width:150px;
+	font-size: 20px;
 }
 .area-select-box select{
 	font-size: 20px;
@@ -107,8 +107,8 @@
 		 %>
 		 </select>
 		 </div>
-		 <div class="loginForm-button-design">
-			<input type="submit" value="絞り込み" style="margin: 0 auto;">
+		 <div class="loginForm-button-design" style="width: 150px">
+			<input type="submit" value="絞り込み">
 		</div>
 	</div>
 	</form>
