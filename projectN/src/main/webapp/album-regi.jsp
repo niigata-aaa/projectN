@@ -12,9 +12,9 @@
 		<jsp:param value="album-list" name="path" />
 	</jsp:include>
 	<br>
-	<div class="ribbon5">
-	<h1>新規アルバム作成</h1>
-	</div>
+<!--	<div class="ribbon5">-->
+	<h2>新規アルバム作成</h2>
+<!--	</div>-->
 
 	<div class="album-regi-style">
 		<form action="album-register" method="POST"  enctype="multipart/form-data">

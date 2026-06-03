@@ -305,10 +305,16 @@ input[type="submit"] {
 	color: #7172ac;
 }
 
+.areaName{
+	
+	margin:20%;	
+}
+
 /*　ｈ２タグの編集　*/
 h2 {
 	text-align: center;
 }
+
 
 /*アルバムのデザイン*/
 

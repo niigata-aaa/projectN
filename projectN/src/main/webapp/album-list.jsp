@@ -10,6 +10,7 @@
 <title>アルバム一覧</title>
 </head>
 <body>
+
 	<%
 	List<AlbumBean> albumList = (List<AlbumBean>) request.getAttribute("albumList");
 	String areaName = (String) session.getAttribute("area_name");
@@ -17,8 +18,11 @@
 	<jsp:include page="header.jsp">
 		<jsp:param value="general-user-top" name="path" />
 	</jsp:include>
-
-	<h2 style="text-align: center;" class="areaName"><%=areaName%></h2>
+	
+	<div  class="areaName">
+	<h1><%=areaName%></h1>
+	</div>
+<!--	<h2 style="text-align: center;" class="areaName"><%=areaName%></h2>-->
 	<form action="mission" method="post">
 		<div class="loginForm-button-design">
 			<input type="submit" value="ミッションを確認する">
