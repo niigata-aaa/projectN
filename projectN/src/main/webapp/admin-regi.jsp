@@ -17,7 +17,7 @@
 	</style>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="selected-album" name="path" />
+		<jsp:param value="admin-index.jsp" name="path" />
 	</jsp:include>
 	
 	<% 

@@ -12,7 +12,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="admin-index" name="path" />
+		<jsp:param value="admin-index.jsp" name="path" />
 	</jsp:include>
 	<%
 		List<PhotoBean> adminPhotoList = (List<PhotoBean>)request.getAttribute("photoList");
