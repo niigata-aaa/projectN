@@ -8,7 +8,9 @@
 <head>
 <meta charset="UTF-8">
 <title>管理者公開写真一覧画面</title>
+<style>
 
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp">
