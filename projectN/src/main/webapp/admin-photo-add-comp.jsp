@@ -22,8 +22,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="selected-album" name="path" />
-	</jsp:include>
+
 
 <% int cnt = (Integer)request.getAttribute("cnt"); 
 	if (cnt == 1) {

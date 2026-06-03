@@ -29,7 +29,7 @@
 
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="selected-album" name="path" />
+		<jsp:param value="admin-index" name="path" />
 	</jsp:include>
 	
 	<h2>公開写真登録</h2>

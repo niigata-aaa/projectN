@@ -8,6 +8,11 @@
 <title>管理者公開写真一覧 非公開・削除</title>
 </head>
 <body>
+
+	<jsp:include page="header.jsp">
+		<jsp:param value="admin-index" name="path" />
+	</jsp:include>
+	
 	<div>
 		<%
 		PhotoBean photo = (PhotoBean)request.getAttribute("photo");

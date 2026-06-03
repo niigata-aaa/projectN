@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="header.jsp">
+
 		削除できました<br>
 		<a href="admin-index.jsp">管理者ページに戻る</a>
 		  
