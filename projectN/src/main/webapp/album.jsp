@@ -88,6 +88,12 @@ margin-left:50px;
 			</div>
 		</div>
 	
+	
+		<% 
+		String ErrorMessage = null;
+	 	ErrorMessage = (String)request.getAttribute("ErrorMessage"); 
+		%>
+		
 		<%
 			if (photoList != null && !photoList.isEmpty()){
 		%>

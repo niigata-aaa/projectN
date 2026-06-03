@@ -26,7 +26,7 @@
 	</style>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="general-user-top" name="path" />
+		<jsp:param value="ThisIsAdminPage" name="adminPage" />
 	</jsp:include>
 	
 	<h2>管理者ページ</h2><br>
