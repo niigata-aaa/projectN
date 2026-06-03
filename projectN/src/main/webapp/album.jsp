@@ -15,14 +15,15 @@
 }
 
 #albumInfo{
-width:70%;
+max-width:70%;
 padding:10px;
 font-size:20px;
-line-height:2;
+line-height:1.5;
 background:white;
 border-radius:10px;
 box-shadow:0 2px 10px rgba(0,0,0,0.15);
 overflow-wrap: break-word;
+margin:10px;
 }
 
 .albumInfoTitle{
@@ -36,13 +37,44 @@ position: absolute; /* ページ内で絶対位置指定 */
   right: 20px; /* 右端から20px */
   }
   
-#albumPhoto{
+.album-photo-list{
 display: flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-margin-left:50px;
+	flex-wrap:wrap;
+	justify-content:space-around;
+	height: 500px;
+	overflow: scroll;
 }
+
+.album-photo-card{
+margin-top: 10px;
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid #ccc;
+	padding: 10px;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+	width: 300px;           
+	height: 300px;
+	box-sizing: border-box;
+	display: block;
+}
+
+.album-photo-image{
+	width: 100%;
+	height: 150px;
+	box-sizing: border-box;
+}
+
+.album-photo-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	border-radius: 4px;
+}
+
+.album-padding{
+padding:10px;
+}
+
 </style>
 </head>
 <body>
@@ -98,12 +130,15 @@ margin-left:50px;
 			if (photoList != null && !photoList.isEmpty()){
 		%>
 		<h2>＜写真一覧＞</h2>
-		<div id = "albumPhoto">
+		<div class = "album-photo-list">
 		<%
 			for (PhotoBean photo : photoList){
 		%>
-			<div>
-			<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" ><br>
+		<div class = "album-photo-card">
+			<div class="album-photo-image">
+				<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" ><br>
+			</div>
+		
 			タイトル：
 			<% if(photo.getPhoto_title() != null) {%>
 				<%= photo.getPhoto_title() %>
@@ -112,16 +147,18 @@ margin-left:50px;
 			<% } %><br>
 			<form action="release-setting" method="POST">
 			<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
-<!--			<div style = ""class="loginForm-button-design">-->
+			<div class="loginForm-button-design">
 				<input type="submit" value="公開設定">
-<!--			</div>-->
+			</div>
 			</form>
+			<div class = "album-padding">
 			<% if(photo.getIs_published() == 0) {%>
 				非公開
 			<% } else { %>
 				公開
 			<% } %>
 			</div>
+		</div>
 		<%
 			}
 		} else {

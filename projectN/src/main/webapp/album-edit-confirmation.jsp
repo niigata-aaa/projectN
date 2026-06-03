@@ -6,6 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>アルバム情報編集確認画面</title>
+<style>
+
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -19,13 +22,17 @@
 		同行者 : <%= editAlbum.getCompanion() %><br> 
 		メモ : <%= editAlbum.getMemo() %><br>
 		<p class="text-center">以上の項目で編集しますか？</p><br>
-	  </div >
+	  </div>
 	   <div class="text-center">
 			<form action="album-edit" method="get" >
+			<div class="loginForm-button-design">
 				<input type="submit" value="登録" class="loginForm-button-design">
+			</div>
 			</form>
 			<form action="album-edit.jsp" method="get">
+			<div class="loginForm-button-design">
 				<input type="submit" value="キャンセル" class="loginForm-button-design">
+			</div>
 			</form>
 	   </div >
 	</div>

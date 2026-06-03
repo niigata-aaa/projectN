@@ -21,8 +21,9 @@
 			<input type="date"name="endDate" value="<%= album.getTrip_end()%>" required><br> 
 		同行者 : <input type="text" name="companion" maxlength="100" value="<%=album.getCompanion() %>"><br> 
 		メモ : <textarea name="memo" rows="5" cols="40" maxlength="200" ><%=album.getMemo()%></textarea><br> 
-
-		<input type="submit" value="完了" class="loginForm-button-design" required accept="image/*">
+		<div class="loginForm-button-design">
+			<input type="submit" value="完了" class="loginForm-button-design" required accept="image/*">
+		</div>
 	</form>
 </body>
 </html>
