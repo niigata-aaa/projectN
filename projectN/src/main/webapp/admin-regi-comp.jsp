@@ -19,13 +19,21 @@
 <meta charset="UTF-8">
 <title>管理者登録完了画面</title>
 </head>
-<body>v
+<body>
+
+		 	<%
+		 		String user_id = (String)request.getAttribute("user_id");
+			 	String password = (String)request.getAttribute("password");
+		 	%>
 	<jsp:include page="header.jsp">
 		<jsp:param value="selected-album" name="path" />
 	</jsp:include>
 	
 	<h2>管理者登録が完了しました</h2><br>
 	<div class=admin-center>
+	ID:<%=user_id %>
+	password:<%=password %>
+	
 	  <form action = "admin-index.jsp">
 			<input type = "submit" value = "管理者ページに戻る">
 	  </form>

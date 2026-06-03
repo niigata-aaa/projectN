@@ -20,6 +20,19 @@
 		<jsp:param value="selected-album" name="path" />
 	</jsp:include>
 	
+	<% 
+		String ErrorMessage = null;
+	 	ErrorMessage = (String)request.getAttribute("ErrorMessage"); 
+	%>
+	
+	<%
+		if (ErrorMessage != null){	
+	%>
+		<%=ErrorMessage %>
+	<%
+		}
+	%>
+	
 	<h2>管理者登録</h2>
 	  <form action="admin-register" method = POST class="loginForm-design">
 		 ID<input type = "text" name = id><br>

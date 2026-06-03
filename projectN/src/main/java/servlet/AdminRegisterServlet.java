@@ -41,6 +41,9 @@ public class AdminRegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		
+		String URL;
+		String ErrorMessage;
+		
 		String user_id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
@@ -55,11 +58,21 @@ public class AdminRegisterServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("user_id",user_id);
-		request.setAttribute("password",password);
-
+		System.out.println(count);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("admin-regi-comp.jsp");
+		
+		if (count == 0) {//登録失敗：登録画面に戻る
+			URL = "admin-regi.jsp";
+			ErrorMessage = "そのIDはすでに存在します。";
+			request.setAttribute("ErrorMessage",ErrorMessage);
+		} else {//登録成功：完了画面にとぶ
+			URL = "admin-regi-comp.jsp";
+			request.setAttribute("user_id",user_id);
+			request.setAttribute("password",password);
+		}
+		
+		
+		RequestDispatcher rd = request.getRequestDispatcher(URL);
 		rd.forward(request,response);
 	}
 
