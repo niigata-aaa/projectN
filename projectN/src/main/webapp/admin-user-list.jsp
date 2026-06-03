@@ -43,7 +43,7 @@
 		}
 		
 		.table-area{
-		height:400px;
+		height:330px;
 		overflow-y:auto;
 		scroll-snap-type:y mandatory;
 		}
