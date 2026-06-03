@@ -11,12 +11,13 @@
 	<jsp:include page="header.jsp">
 		<jsp:param value="album-list" name="path" />
 	</jsp:include>
-	<br>
+
 <!--	<div class="ribbon5">-->
-	<h2>新規アルバム作成</h2>
+<!--	<h2>新規アルバム作成</h2>-->
 <!--	</div>-->
 
 	<div class="album-regi-style">
+	<h2>新規アルバム作成</h2>
 		<form action="album-register" method="POST"  enctype="multipart/form-data">
 			<div class="form-group">
 				<label>アルバム名</label><input type="text" name="albumName" maxlength="50" required><br>
