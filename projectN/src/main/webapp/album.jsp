@@ -9,6 +9,10 @@
 <meta charset="UTF-8">
 <title>アルバム画面</title>
 <style>
+body{
+overflow:hidden;
+}
+
 #albumHeader {
 	display: flex;
 	min-height:200px;
@@ -23,7 +27,7 @@ background:white;
 border-radius:10px;
 box-shadow:0 2px 10px rgba(0,0,0,0.15);
 overflow-wrap: break-word;
-margin:10px;
+margin-top:20px;
 margin-left:10%;
 }
 
@@ -34,7 +38,7 @@ font-weight:bold;
 
 #albumButton-position{
 position: absolute; /* ページ内で絶対位置指定 */
-  top: 130px;          /* ヘッダーの高さ分だけ下げる */
+  top: 100px;          /* ヘッダーの高さ分だけ下げる */
   right: 20px; /* 右端から20px */
   }
   
@@ -42,8 +46,9 @@ position: absolute; /* ページ内で絶対位置指定 */
 display: flex;
 	flex-wrap:wrap;
 	justify-content:space-around;
-	height: 500px;
-	overflow: scroll;
+	height:500px;
+	overflow-y: auto;
+	scroll-snap-type:y mandatory;
 }
 
 .album-photo-card{
@@ -54,9 +59,10 @@ margin-top: 10px;
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 	width: 300px;           
-	height: 300px;
+	height: 380px;
 	box-sizing: border-box;
 	display: block;
+	scroll-snap-align:start;
 }
 
 .album-photo-image{

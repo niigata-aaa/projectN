@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>アルバム一覧</title>
 <style>
-.published-photo-list {
+.album-list {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -17,7 +17,7 @@
 	overflow: scroll;
 }
 
-.published-photo-card {
+.album-card {
 	margin-top: 20px;
 	background: rgba(255, 255, 255, 0.95);
 	border: 1px solid #ccc;
@@ -86,7 +86,7 @@
 	
 	<h2 style="margin-top:0px;margin-bottom:1px;">―アルバム一覧―</h2>
 
-	<div class="published-photo-list">
+	<div class="album-list">
 
 		<%
 		if (albumList.size() != 0) {
@@ -97,7 +97,7 @@
 
 			<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
 
-			<div class="published-photo-card">
+			<div class="album-card">
 				<h2>
 				<%=album.getAlbum_name()%></h2>
 				<br> 
