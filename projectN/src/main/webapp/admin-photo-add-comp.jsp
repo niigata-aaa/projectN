@@ -11,10 +11,13 @@
 			width: 250px;   /* 必須 */
     		margin: 0 auto;
 		}
-	
-	
-	
-	
+		.admin-center input[type="submit"]{
+			font-size:17px;
+			width:230px;
+			height:40px;
+		 	border-radius:5px;
+		 	background:#A9A9A9;
+		}
 	</style>
 <meta charset="UTF-8">
 <title>管理者公開写真登録完了画面</title>
