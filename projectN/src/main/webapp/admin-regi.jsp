@@ -35,7 +35,7 @@
 	<%
 		if (ErrorMessage != null){	
 	%>
-		<%=ErrorMessage %>
+		<div class="text-center"><%=ErrorMessage %></div>
 	<%
 		}
 	%>
