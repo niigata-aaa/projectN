@@ -129,7 +129,8 @@ body {
 .site-header {
 	background-color: rgb(33, 203, 37);
 	color: #fff;
-	padding: 8px;
+/*	padding: 2px;*/
+	height: 83.7px;
 }
 
 .header-container {
@@ -539,6 +540,7 @@ h4{
 .text-flex {
 	display: flex;
 	justify-content: space-around;
+	
 }
 
 

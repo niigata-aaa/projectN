@@ -84,7 +84,7 @@
 
 	</div>
 	
-	<h2 style="margin-top:1px;margin-bottom:1px;">―アルバム一覧―</h2>
+	<h2 style="margin-top:0px;margin-bottom:1px;">―アルバム一覧―</h2>
 
 	<div class="published-photo-list">
 
