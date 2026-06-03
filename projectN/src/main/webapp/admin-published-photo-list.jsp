@@ -26,8 +26,9 @@ body{
 	display: flex;
 	flex-wrap:wrap;
 	justify-content:space-around;
-	height: 500px;
+	height: 70vh;
 	overflow: scroll;
+	overflow-x:hidden;
 }
 
 .admin-published-photo-card {
@@ -41,7 +42,7 @@ body{
 	height: 420px;
 	box-sizing: border-box;
 	display: block;
-	pointer-events: none;
+	
 }
 
 .admin-published-photo-image{
