@@ -72,7 +72,7 @@ public class ReleaseSettingCompServlet extends HttpServlet {
 		
 		request.setAttribute("cnt", cnt);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("photo-publish-setting-comp.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(URL);
 		rd.forward(request,response);
 	}
 
