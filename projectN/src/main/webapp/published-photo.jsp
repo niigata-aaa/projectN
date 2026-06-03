@@ -47,11 +47,17 @@
 	pointer-events: none;
 }
 
-.published-photo-card img {
-width: 100%;
-	height: 250px;
+.published-photo-image{
+	width: 100%;
+	height: 275px;
 	box-sizing: border-box;
-	object-fit: cover;
+	
+}
+
+.published-photo-card img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 	border-radius: 4px;
 }
 
@@ -114,7 +120,9 @@ width: 100%;
 		for (PhotoBean photo : photoList){
 	%>
 	<div class="published-photo-card">
-		<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" >
+		<div class="published-photo-image">
+			<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" >
+		</div>
 		<div class="published-photo-info">
 		<%=photo.getArea_name ()%>
 		<div style="text-align: center; font-size: 14px"><%=photo.getPhoto_title ()%></div>
