@@ -7,7 +7,7 @@
 <title>管理者公開写真 削除確認画面 </title>
 </head>
 <body>
-	<jsp:include page="header.jsp">
+	<jsp:include page="header.jsp"/>
 
 	
 		<% request.setCharacterEncoding("UTF-8");

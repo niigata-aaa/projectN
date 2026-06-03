@@ -12,7 +12,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="admin-index.jsp" name="path" />
+		<jsp:param value="admin-index" name="path" />
 	</jsp:include>
 	<%
 		List<PhotoBean> adminPhotoList = (List<PhotoBean>)request.getAttribute("photoList");
@@ -22,7 +22,7 @@
 	if (adminPhotoList != null && !adminPhotoList.isEmpty()){
 	%>
 	
-	<h3>写真一覧</h3>
+	<h2>公開写真一覧</h2>
 	<%
 		for (PhotoBean photo : adminPhotoList){
 	%>
