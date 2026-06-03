@@ -7,6 +7,66 @@
 <meta charset="UTF-8">
 <title>にいカイブ｜トップ画面</title>
 <link rel="stylesheet" href="Style.css">
+<style>
+#map-photo-popup {
+	margin-top: 20px;
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+	
+	width: 300px;           /* パネル幅に合わせた固定値 */
+	height: 235px;          /* ★全体の高さを完全に固定 */
+	box-sizing: border-box;
+	
+	display: block;         /* JSのブロック表示バグを防ぐためblockで固定 */
+	pointer-events: none;
+}
+
+/* ★超重要：画像部分とメッセージ部分、どちらも『最初から高さ140px』を確保する */
+#map-photo-popup img,
+#popup-message {
+	width: 100%;
+	height: 165px;          /* ★140pxより少し調整して120px程度にするとタイトル枠と調度よくなります */
+	box-sizing: border-box;
+}
+
+/* 画像表示時の挙動 */
+#map-photo-popup img {
+	object-fit: cover;      /* 縦横比を保って型抜き */
+	border-radius: 4px;
+}
+
+/* メッセージ表示時（初期案内文など）の文字配置挙動 */
+#popup-message {
+	display: flex;
+	align-items: center;    /* 文字を上下中央に */
+	justify-content: center;/* 文字を左右中央に */
+	color: #666;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 1.5;
+	padding: 0 10px;
+	text-align: center;
+}
+
+/* ==========================================================================
+   3. 写真タイトル用エリア
+   ========================================================================== */
+#popup-title {
+	margin-top: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	word-break: break-all;
+	
+	/* タイトル用に最初から1行〜2行分の高さを下に残しておく（ブレを防ぐ） */
+	min-height: 20px;
+	max-height: 40px;
+	overflow: hidden;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
@@ -25,6 +85,7 @@
 			</div>
 
 			<div id="map-photo-popup">
+				<div id="popup-message" style="display: none; padding: 20px 0; color: #888;">写真が未登録です</div>
 				<img id="popup-img" src="" alt="地域の写真">
 				<div id="popup-title"></div>
 			</div>
@@ -144,7 +205,13 @@
 	const popupImg = document.getElementById('popup-img');
 	// 写真タイトルを表示する要素を取得
 	const popupTitle = document.getElementById('popup-title');
+	const popupMessage = document.getElementById('popup-message');
 
+	popupImg.style.display = 'none';
+	popupMessage.style.display = 'flex'; 
+	popupMessage.textContent = "地図の地域にマウスを合わせると写真が表示されます";
+	popupTitle.textContent = "";
+	
 	const imageMap = {};
 	<%
 	java.util.Map<Integer, PhotoBean> photos = (java.util.Map<Integer, PhotoBean>) request.getAttribute("ramdomPhotos");
@@ -185,17 +252,21 @@
 	        const photoData = imageMap[code]; 
 	        
 	        if (photoData && photoData.path) {
+	        	// 写真がある場合
 	            popupImg.src = photoData.path;
+	            popupImg.style.display = 'block'; // 画像を表示
+	            popupMessage.style.display = 'none'; // メッセージを隠す
 	            
-	            // 写真のタイトルをポップアップにセット
 	            popupImg.title = photoData.title;
 	            popupImg.alt = photoData.title ? photoData.title : currentTown.dataset.name + "の写真";
-	            
-	            // タイトルエリアのテキストを書き換える
 	            popupTitle.textContent = photoData.title ? photoData.title : "（タイトルなし）";
-	            
-	            // 「visibility」を表示（visible）にする
-	            photoPopup.style.visibility = 'visible'; 
+	        } else {
+	        	// 写真がない場合
+	            popupImg.src = '';
+	            popupImg.style.display = 'none'; // 画像を隠す
+	            popupMessage.style.display = 'flex';
+	            popupMessage.style.display = 'block'; // 「写真が未登録です」を表示
+	            popupTitle.textContent = currentTown.dataset.name + "の写真はありません";
 	        }
 
 	        hoverLayer.innerHTML = '';
@@ -214,14 +285,12 @@
 	    // 各市町村ホバー終了時
 	    town.addEventListener('mouseleave', (e) => {
 	        nameDisplay.textContent = '未選択';
-	        
-	        // 「visibility」を非表示（hidden）にする
-	        photoPopup.style.visibility = 'hidden';
-	        
+
 	        popupImg.src = ''; 
-	        popupImg.title = '';
-	        // 離れたらタイトル文字も空にする
-	        popupTitle.textContent = ''; 
+	        popupImg.style.display = 'none';
+	        popupMessage.style.display = 'flex'; 
+	        popupMessage.textContent = "地図の地域にマウスを合わせると写真が表示されます"; 
+	        popupTitle.textContent = ""; 
 
 	        hoverLayer.innerHTML = '';
 	        e.target.style.opacity = '1';
