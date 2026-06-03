@@ -4,6 +4,9 @@
 <html>
 <head>
 <style>
+body{
+	 background:#f5f5f5;
+}
 .admin-margin{
 	margin-top:15px;
 }

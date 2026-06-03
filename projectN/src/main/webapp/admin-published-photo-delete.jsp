@@ -7,6 +7,9 @@
 <title>管理者公開写真 削除確認画面 </title>
 </head>
 <style>
+body{
+	 background:#f5f5f5;
+}
 .admin-margin{
 	margin-top:15px;
 }
