@@ -16,7 +16,7 @@
 	</style>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="selected-album" name="path" />
+		<jsp:param value="general-user-top" name="path" />
 	</jsp:include>
 	
 	<h2>管理者ページ</h2><br>
