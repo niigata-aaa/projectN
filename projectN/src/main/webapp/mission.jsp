@@ -73,7 +73,7 @@ width: auto;
 	
 <form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
-		<input type="file" id="missin_photo" name="mission_photo" multiple required accept="image/*">
+		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
 		<input type="hidden" id="mission_id" name="mission_id" value="1">
 		<input type="submit" value="登録">
 	</div>
@@ -101,7 +101,7 @@ width: auto;
 	
 <form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
-		<input type="file" id="missin_photo" name="mission_photo" multiple required accept="image/*">
+		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
 		<input type="hidden" id="mission_id" name="mission_id" value="2">
 		<input type="submit" value="登録">
 	</div>
@@ -132,7 +132,7 @@ width: auto;
 	
 <form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
-		<input type="file" id="missin_photo" name="mission_photo" multiple required accept="image/*">
+		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
 		<input type="hidden" id="mission_id" name="mission_id" value="3">
 		<input type="submit" value="登録">
 	</div>

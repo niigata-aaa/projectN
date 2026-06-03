@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -88,9 +87,9 @@ public class MissionPhotoAddServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("mission");
-		rd.forward(request, response);
-		
+//		RequestDispatcher rd = request.getRequestDispatcher("mission");
+//		rd.forward(request, response);
+		response.sendRedirect("mission");
 		
 
 //		MissionPhotoDAO missionphotodao = new MissionPhotoDAO()
