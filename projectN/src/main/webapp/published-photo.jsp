@@ -91,9 +91,6 @@
 		List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");
 	%>
 	
-	<%
-		if (photoList != null && !photoList.isEmpty()){
-	%>
 	<form action="release-photo-list" method="POST">
 	<div class="area-narrow-down-field">
 		<div class="area-select-box">
@@ -114,6 +111,9 @@
 		</div>
 	</div>
 	</form>
+	<%
+		if (photoList != null && !photoList.isEmpty()){
+	%>
 	<h3 style="text-align: center;">写真一覧</h3>
 	<div class="published-photo-list">
 	<%
