@@ -207,6 +207,43 @@ public class PhotoDAO {
 		return photobean;
 	}
 
+	// 特定のarea_idの公開写真リストを取得する
+	public List<PhotoBean> areaPublishedPhoto(int selectArea_id) throws ClassNotFoundException, SQLException {
+		List<PhotoBean> publishedphotolist = new ArrayList<PhotoBean>();
+
+		String sql = "SELECT t_photo.photo_id, t_photo.area_id, m_area.area_name, t_photo.photo_title, t_photo.is_published, t_photo.photo_data "
+				+ "FROM t_photo LEFT JOIN m_area ON t_photo.area_id = m_area.area_id "
+				+ "WHERE is_published = 1 AND t_photo.area_id = ?;";
+
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);) {
+			
+			pstmt.setInt(1, selectArea_id);
+			ResultSet res = pstmt.executeQuery();
+
+			while (res.next()) {
+				int photo_id = res.getInt("photo_id");
+				int area_id = res.getInt("area_id");
+				String photo_title = res.getString("photo_title");
+				int is_published = res.getInt("is_published");
+				String photo_data = res.getString("photo_data");
+				String area_name = res.getString("area_name");
+
+				PhotoBean photobean = new PhotoBean();
+				photobean.setPhoto_id(photo_id);
+				photobean.setArea_id(area_id);
+				photobean.setPhoto_title(photo_title);
+				photobean.setIs_published(is_published);
+				photobean.setPhoto_data(photo_data);
+				photobean.setArea_name(area_name);
+
+				publishedphotolist.add(photobean);
+			}
+		}
+
+		return publishedphotolist;
+	}
+
 	//　各市町村ごとのランダムな公開写真を取得
 	public Map<Integer, PhotoBean> publishPhotoMap() throws ClassNotFoundException, SQLException {
 		Map<Integer, PhotoBean> ramdomPhotos = new HashMap<>();
@@ -219,21 +256,20 @@ public class PhotoDAO {
 
 			while (res.next()) {
 				int areaId = res.getInt("area_id");
-			    String photoData = res.getString("photo_data");
-			    String photoTitle = res.getString("photo_title");
-			    
-			    
-			    if (!ramdomPhotos.containsKey(areaId)) {
-			    	PhotoBean photo = new PhotoBean();
-			    	photo.setArea_id(areaId);
-			    	photo.setPhoto_data(photoData);
-			    	photo.setPhoto_title(photoTitle);
-			    	
-			    	ramdomPhotos.put(areaId, photo);
-			    }
+				String photoData = res.getString("photo_data");
+				String photoTitle = res.getString("photo_title");
+
+				if (!ramdomPhotos.containsKey(areaId)) {
+					PhotoBean photo = new PhotoBean();
+					photo.setArea_id(areaId);
+					photo.setPhoto_data(photoData);
+					photo.setPhoto_title(photoTitle);
+
+					ramdomPhotos.put(areaId, photo);
+				}
 			}
 		}
-		
+
 		return ramdomPhotos;
 	}
 }

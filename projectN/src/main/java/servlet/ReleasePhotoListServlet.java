@@ -35,8 +35,7 @@ public class ReleasePhotoListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
 
 	/**
@@ -47,18 +46,28 @@ public class ReleasePhotoListServlet extends HttpServlet {
 		String url = null;
 		
 		request.setCharacterEncoding("UTF-8");
+		int area_id = 0;
+		if(request.getParameter("area_id") != null) {
+			area_id = Integer.parseInt(request.getParameter("area_id"));
+		}
 		
 		try {
-			// 公開写真一覧
-			PhotoDAO photoDao = new PhotoDAO();
-			List<PhotoBean> photoList = photoDao.displayAllPublishedPhoto();
-			request.setAttribute("photoList", photoList);
-			
 			// 地域取得
 			AreaDAO dao = new AreaDAO();
 			List<AreaBean> areaList = dao.allAreaList();
-			
 			request.setAttribute("areaList",areaList);
+			
+			PhotoDAO photoDao = new PhotoDAO();
+			List<PhotoBean> photoList = null;
+			if(area_id > 0) {
+				// 公開写真一覧（市町村絞り込み）
+				photoList = photoDao.areaPublishedPhoto(area_id);
+			} else {
+				// 公開写真一覧
+				photoList = photoDao.displayAllPublishedPhoto();
+				
+			}
+			request.setAttribute("photoList", photoList);
 			
 			url = "published-photo.jsp";
 		} catch (Exception e) {
