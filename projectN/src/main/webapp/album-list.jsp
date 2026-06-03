@@ -97,18 +97,27 @@
 
 			<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
 
-
-			<!--					<button type="submit" class="btn btn-danger btn-sm">-->
-
 			<div class="published-photo-card">
-				<%=album.getAlbum_name()%>
-				<br> 期間：
+				<h2>
+				<%=album.getAlbum_name()%></h2>
+				<br> 
+				<h4 style="text-align:center;">
+				期間：
 				<%=album.getTrip_start()%>
 				~
-				<%=album.getTrip_end()%><br> 同行者：
+				<%=album.getTrip_end()%>
+				
+				<br>
+				 同行者：
 				<%=album.getCompanion()%>
+				</h4>
 				<br> <br>
+				<div class="loginForm-button-design">
+				<input type="submit" value="アルバムを見る" class="btn btn-danger btn-sm">
+				</div>
 			</div>
+
+
 			<!--					</button>-->
 			<!--				</div>-->
 			<!--			</span>-->

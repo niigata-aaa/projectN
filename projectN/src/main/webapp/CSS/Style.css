@@ -75,7 +75,7 @@
 	padding: 15px;
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	width: 300px;           
+	width: 300px;
 	height: 235px;
 	box-sizing: border-box;
 	display: block;
@@ -96,8 +96,10 @@
 
 #popup-message {
 	display: flex;
-	align-items: center;    /* 文字を上下中央に */
-	justify-content: center;/* 文字を左右中央に */
+	align-items: center;
+	/* 文字を上下中央に */
+	justify-content: center;
+	/* 文字を左右中央に */
 	color: #666;
 	font-size: 14px;
 	font-weight: bold;
@@ -180,7 +182,7 @@ body {
 }
 
 /*submitボタンのデザイン*/
-input[type="submit"] {
+input[type="submit"] ,button{
 	/* 1.形をきめる */
 	width: 240px;
 	height: 48px;
@@ -201,7 +203,7 @@ input[type="submit"] {
 
 
 /*ボタンのデザイン*/
-.loginForm-button-design {
+.loginForm-button-design{
 	background: #6bb6ff;
 	border-radius: 3px;
 	position: relative;
@@ -367,15 +369,15 @@ h2 {
 /*}*/
 
 /*アルバム表示画面の市町村名とボタンを横に並べる*/
-.flexbox div{
-  margin: 10px;
-  width: 200px;
-  height: 100px;
+.flexbox div {
+	margin: 10px;
+	width: 200px;
+	height: 100px;
 }
 
-.flexbox{
-  display:flex;
-  
+.flexbox {
+	display: flex;
+
 }
 
 /*ボタンのデザイン*/
@@ -544,15 +546,31 @@ h2 {
 	/*ボタン色より暗めに*/
 }
 
-button {
-	display: inline-block;
+/*button {*/
+/*	display: inline-block;*/
+/*	position: relative;*/
+/*	padding: 0.5em 1.4em;*/
+/*	text-decoration: none;*/
+/*	background: #668ad8;*/
+/*	ボタン色*/
+/*	color: #FFF;*/
+/*	border: none;*/
+/*}*/
+
+.card {
 	position: relative;
-	padding: 0.5em 1.4em;
-	text-decoration: none;
-	background: #668ad8;
-	/*ボタン色*/
-	color: #FFF;
-	border: none;
+}
+
+.card:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	pointer-events: auto;
+	content: "";
+	background-color: transparent;
 }
 
 .btn-square-slant:before {
@@ -593,6 +611,10 @@ button {
 	content: none;
 	/*ボタンを押すと線が消える*/
 }
+
+/*buttonをカード全体に広げる*/
+
+
 
 /*.sample_box12,button{*/
 /*   width: 300px; 紙の横幅 100%にすると全幅表示に */
