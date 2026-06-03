@@ -27,7 +27,7 @@
 		}
 		.admin-back{
 			background: #DDDDDD;
-			width:430px;
+			width:450px;
 			border-radius:20px;
 			background-position:center;
 		}
