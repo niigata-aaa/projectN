@@ -12,7 +12,7 @@
 	List<String> photoDataList = (List<String>)request.getAttribute("photoDataList");
 	%>
 <jsp:include page="header.jsp" />
-<h1>アルバムに写真を追加しました！</h1>
+<h2>アルバムに写真を追加しました！</h2>
 	<%
 		for (String photo : photoDataList){
 	%>
@@ -20,6 +20,8 @@
 	<%
 		}
 	%>
-<a href="selected-album">アルバム画面に戻る</a>
+	<form action="selected-album" method="post">
+	<input type="submit" value="アルバム画面に戻る">
+<!--<a href="selected-album">アルバム画面に戻る</a>-->
 </body>
 </html>
