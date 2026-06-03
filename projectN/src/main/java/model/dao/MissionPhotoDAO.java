@@ -60,8 +60,6 @@ public class MissionPhotoDAO {
 			ResultSet res = pstmt.executeQuery();
 			
 			while(res.next()){
-				String mission_photo_data = res.getString("mission_photo_data");
-
 				MissionPhotoBean missionPhoto = new MissionPhotoBean();
 				missionPhoto.setMission_photo_id(res.getInt("mission_photo_id"));
 				missionPhoto.setUser_id(res.getString("user_id"));
@@ -75,6 +73,34 @@ public class MissionPhotoDAO {
 		}
 		
 		return missionPhotoList;
+	}
+	
+	// 特定のミッション写真を取得
+	public MissionPhotoBean selectMissionPhoto(int mission_photo_id)
+			throws SQLException, ClassNotFoundException{
+
+		MissionPhotoBean missionPhoto = new MissionPhotoBean();
+
+		String sql = "SELECT * FROM t_mission_photo WHERE mission_photo_id = ?;";
+
+		try(Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);){
+
+			pstmt.setInt(1, mission_photo_id);
+			ResultSet res = pstmt.executeQuery();
+			
+			while(res.next()){
+				int select_mission_photo_id = res.getInt("mission_photo_id");
+				String mission_photo_data = res.getString("mission_photo_data");
+				int mission_id = res.getInt("mission_id");
+				missionPhoto.setMission_photo_id(select_mission_photo_id);
+				missionPhoto.setMission_photo_data(mission_photo_data);
+				missionPhoto.setMission_id(mission_id);
+
+			}
+
+		}
+		return missionPhoto;
 	}
 
 	

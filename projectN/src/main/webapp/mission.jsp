@@ -59,13 +59,18 @@ width: auto;
 	<% if(yurucharaCnt >= 1){ %>ミッション達成
 	<%} else{ %>ミッション未達成<%} %>
 	<h3>写真一覧</h3>
-<!--		<div class = "missionPhoto-img">-->
 	<%
 		for (MissionPhotoBean photo : yurucharaPhotoList){
 	%>
 		<div class = "missionPhoto">
 		<img src="${pageContext.request.contextPath}/photo/<%=photo.getMission_photo_data()%>" ><br>
 		</div>
+		<form action="mission-photo-delete" method="get">
+			<input type="hidden" name="mission_photo_id" value="<%= photo.getMission_photo_id() %>">
+			<div class = "loginForm-button-design" style="width: 150px">
+				<input type="submit" value="削除する">
+			</div>
+		</form>
 	<%
 		}
 	%>
