@@ -11,11 +11,13 @@
 	<jsp:include page="header.jsp">
 		<jsp:param value="general-user-top" name="path" />
 	</jsp:include>
-
+	<h2>ログイン画面</h2>
+	<h4>IDとパスワードを入力してください</h4>
 	<form action="login" method="POST">
 		<div class="loginForm-design">
-			<label class="login-id">ID</lavel> <input type="text" name="id" required maxlength="100"><br>
-				<label class="login-id">パスワード</lavel> <input type="password" name="password" required minlength="8"><br>
+			<label class="login-id">ID</lavel> <input type="text" name="id"
+				required maxlength="100"><br> <label class="login-id">パスワード</lavel>
+					<input type="password" name="password" required minlength="8"><br>
 		</div>
 		<div class="loginForm-button-design">
 			<input type="submit" value="ログイン">
