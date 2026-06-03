@@ -24,6 +24,7 @@ border-radius:10px;
 box-shadow:0 2px 10px rgba(0,0,0,0.15);
 overflow-wrap: break-word;
 margin:10px;
+margin-left:10%;
 }
 
 .albumInfoTitle{
