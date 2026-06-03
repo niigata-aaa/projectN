@@ -126,6 +126,9 @@ body {
 	margin: 0;
 }
 
+.site-title {
+	margin: 0;
+}
 .site-header {
 	background-color: rgb(33, 203, 37);
 	color: #fff;
