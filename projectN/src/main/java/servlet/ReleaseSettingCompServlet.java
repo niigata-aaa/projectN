@@ -67,7 +67,7 @@ public class ReleaseSettingCompServlet extends HttpServlet {
 		    request.setAttribute("photo_id", photo_id);
 		    request.setAttribute("ErrorMessage", ErrorMessage);
 	    } else {
-		    URL = "photo-publish-setting-comp.js";
+		    URL = "photo-publish-setting-comp.jsp";
 	    }
 		
 		request.setAttribute("cnt", cnt);
