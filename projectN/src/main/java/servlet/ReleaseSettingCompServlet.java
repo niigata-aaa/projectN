@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.dao.PhotoDAO;
+import model.entity.PhotoBean;
 
 /**
  * Servlet implementation class ReleaseSettingCompServlet
@@ -42,18 +43,34 @@ public class ReleaseSettingCompServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		int cnt = 0;
+		String ErrorMessage;
+		String URL;
 		
 		int photo_id = Integer.parseInt(request.getParameter("photo_id"));
+		String Stringphoto_id = request.getParameter("photo_id");
 		String photo_title = request.getParameter("photo_title");
 		int is_published = Integer.parseInt(request.getParameter("is_published"));
 		
 		try {
 			PhotoDAO photodao = new PhotoDAO();
 			cnt = photodao.setteingChangePhoto(photo_id, is_published, photo_title);
-			request.setAttribute("cnt", cnt);
+			PhotoBean photo = photodao.displaySelectPhoto(Stringphoto_id);
+			request.setAttribute("photo", photo);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		if (cnt == 0) {
+		    URL = "release-setting";
+		    ErrorMessage = "なんでかわかんないけど設定を変更できませんでした";
+		    request.setAttribute("photo_id", photo_id);
+		    request.setAttribute("ErrorMessage", ErrorMessage);
+	    } else {
+		    URL = "photo-publish-setting-comp.js";
+	    }
+		
+		request.setAttribute("cnt", cnt);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("photo-publish-setting-comp.jsp");
 		rd.forward(request,response);
