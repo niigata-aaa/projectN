@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-	<jsp:include page="header.jsp">
+	<jsp:include page="header.jsp"/>
 
 
 <% int cnt = (Integer)request.getAttribute("cnt"); 
