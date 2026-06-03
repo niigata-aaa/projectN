@@ -305,10 +305,11 @@ input[type="submit"] {
 	color: #7172ac;
 }
 
-.areaName{
-	
-	margin:20%;	
+.areaName {
+	margin:3%;
+	margin-left: 10%;
 }
+
 
 /*　ｈ２タグの編集　*/
 h2 {
@@ -317,6 +318,44 @@ h2 {
 
 
 /*アルバムのデザイン*/
+/*.example {*/
+/*	display: flex;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+/*	background: url("../img/page.jpg") no-repeat center center / cover;*/
+/*	height: 500px;*/
+/*	text-decoration: none;*/
+/*}*/
+
+/*.example.button{*/
+/*	display: block;*/
+/*	width: 200px;*/
+/*	box-sizing: border-box;*/
+/*	background: rgba(255, 255, 255, 0.3);*/
+/*	border: 1px solid #FFF;*/
+/*	padding: 15px;*/
+/*	text-align: center;*/
+/*	color: #FFF;*/
+/*	font-size: 120%;*/
+/*	font-weight: bold;*/
+/*	transition: .3s;*/
+/*}*/
+
+/*.example.button:hover>span {*/
+/*	background: rgba(255, 255, 255, 1);*/
+/*	color: #333;*/
+/*}*/
+
+/*アルバム表示画面の市町村名とボタンを横に並べる*/
+.flexbox div{
+  margin: 10px;
+  width: 200px;
+  height: 100px;
+}
+
+.flexbox{
+  display:flex;
+}
 
 /*ボタンのデザイン*/
 /*.album-select-design {*/

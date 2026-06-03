@@ -8,10 +8,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp" />
-<h1>新規アルバムを作成しました！</h1><br>
+<h2>新規アルバムを作成しました！</h2><br>
+<div class="loginForm-button-design">
 <form action="album-list" method="GET">
 <input type="submit" value="戻る">
 </form>
+</div>
 
 </body>
 </html>

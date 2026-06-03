@@ -18,58 +18,64 @@
 	<jsp:include page="header.jsp">
 		<jsp:param value="general-user-top" name="path" />
 	</jsp:include>
-	
-	<div  class="areaName">
-	<h1><%=areaName%></h1>
+
+
+	<div class="flexbox">
+		<div>
+			<h1 class="areaName"><%=areaName%></h1>
+		</div>
+
+		<div>
+			<form action="mission" method="post">
+				<div class="loginForm-button-design">
+					<input type="submit" value="ミッションを確認する">
+				</div>
+			</form>
+		</div>
+		<div>
+			<form action="album-regi.jsp" method="post">
+				<div class="loginForm-button-design">
+					<input type="submit" value="アルバムを作成する">
+				</div>
+			</form>
+		</div>
 	</div>
-<!--	<h2 style="text-align: center;" class="areaName"><%=areaName%></h2>-->
-	<form action="mission" method="post">
-		<div class="loginForm-button-design">
-			<input type="submit" value="ミッションを確認する">
-		</div>
-	</form>
 
-	<form action="album-regi.jsp" method="post">
-		<div class="loginForm-button-design">
-			<input type="submit" value="アルバムを作成する">
-		</div>
-	</form>
-	アルバム一覧<br>
+
+
+	<h2>アルバム一覧</h2>
+	<br>
+<!--	<a href="selected-album" class="example"> -->
 	<%
-	if (albumList.size() != 0) {
-		for (AlbumBean album : albumList) {
-	%>
+ if (albumList.size() != 0) {
+ 	for (AlbumBean album : albumList) {
+ %> <!--	<div class="btn-square-slant" style="display:inline-block;">-->
+		<form action="selected-album" method="post"
+			style="display: inline-block, text-align:center;">
+			<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
+			<!--		<div class="sample_box12">-->
+			<!--			<div class="sample_box12_tape"></div>-->
+			<span>
+				<button type="submit" class="btn btn-danger btn-sm">
+					<!--				<p class="sample_box12_title">-->
 
-	<div class="btn-square-slant" style="display:inline-block;">
-	<form action="selected-album" method="post" style="display:inline-block,text-align:center;">
-		<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
-		<div class="sample_box12">
-			<div class="sample_box12_tape"></div>
-			<button type="submit" class="btn btn-danger btn-sm">
-				<p class="sample_box12_title">
-		
 					<%=album.getAlbum_name()%></p>
-				<br>
-				<p class="sample_box12_subtitle">
+					<br>
+					<!--				<p class="sample_box12_subtitle">-->
 					期間：
 					<%=album.getTrip_start()%>
 					~
 					<%=album.getTrip_end()%><br> 同行者：
-					<%=album.getCompanion()%></p><br>
-				
-				<br>
-			</button>
-		</div>
-	</form>
-	</div>
-
-	<%
-	}
-	} else {
-	%>
-	アルバムが作成されていません。
-	<%
-	}
-	%>
+					<%=album.getCompanion()%></p>
+					<br> <br>
+				</button>
+			</span>
+			<!--		</div>-->
+		</form> <!--	</div>--> <%
+ }
+ } else {
+ %> アルバムが作成されていません。 <%
+ }
+ %>
 </body>
 </html>
