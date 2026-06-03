@@ -53,6 +53,12 @@ public class AlbumPhotoAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		int cnt = 0;
+		
+		String URL;
+		
+		String ErrorMessage;
+		
 		//セッション取得
 		HttpSession session = request.getSession();
 
@@ -83,13 +89,22 @@ public class AlbumPhotoAddServlet extends HttpServlet {
 
 		try {
 			for (String photo_data : photoDataList) {
-				photodao.insertPhoto(album_id, area_id, photo_data);
+				cnt = photodao.insertPhoto(album_id, area_id, photo_data);
 			}
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
+		
+		if (cnt == 0) {
+			URL = "album-photo-add";
+			ErrorMessage = "なんでかわかんないけど写真が追加できませんでした";
+			request.setAttribute("ErrorMessage", ErrorMessage);
+		} else {
+			URL = "album-photo-add-comp.jsp";
+			request.setAttribute("photoDataList", photoDataList);
+		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("album-photo-add-comp.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher(URL);
 		rd.forward(request, response);
 
 	}

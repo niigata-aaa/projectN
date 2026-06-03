@@ -7,66 +7,6 @@
 <meta charset="UTF-8">
 <title>にいカイブ｜トップ画面</title>
 <link rel="stylesheet" href="Style.css">
-<style>
-#map-photo-popup {
-	margin-top: 20px;
-	background: rgba(255, 255, 255, 0.95);
-	border: 1px solid #ccc;
-	padding: 15px;
-	border-radius: 8px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	
-	width: 300px;           /* パネル幅に合わせた固定値 */
-	height: 235px;          /* ★全体の高さを完全に固定 */
-	box-sizing: border-box;
-	
-	display: block;         /* JSのブロック表示バグを防ぐためblockで固定 */
-	pointer-events: none;
-}
-
-/* ★超重要：画像部分とメッセージ部分、どちらも『最初から高さ140px』を確保する */
-#map-photo-popup img,
-#popup-message {
-	width: 100%;
-	height: 165px;          /* ★140pxより少し調整して120px程度にするとタイトル枠と調度よくなります */
-	box-sizing: border-box;
-}
-
-/* 画像表示時の挙動 */
-#map-photo-popup img {
-	object-fit: cover;      /* 縦横比を保って型抜き */
-	border-radius: 4px;
-}
-
-/* メッセージ表示時（初期案内文など）の文字配置挙動 */
-#popup-message {
-	display: flex;
-	align-items: center;    /* 文字を上下中央に */
-	justify-content: center;/* 文字を左右中央に */
-	color: #666;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 1.5;
-	padding: 0 10px;
-	text-align: center;
-}
-
-/* ==========================================================================
-   3. 写真タイトル用エリア
-   ========================================================================== */
-#popup-title {
-	margin-top: 10px;
-	font-size: 14px;
-	font-weight: bold;
-	color: #333;
-	word-break: break-all;
-	
-	/* タイトル用に最初から1行〜2行分の高さを下に残しておく（ブレを防ぐ） */
-	min-height: 20px;
-	max-height: 40px;
-	overflow: hidden;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="header.jsp" />

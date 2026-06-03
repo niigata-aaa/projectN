@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.dao.AreaDAO;
 import model.dao.PhotoDAO;
+import model.entity.AreaBean;
 import model.entity.PhotoBean;
 
 /**
@@ -46,14 +48,18 @@ public class ReleasePhotoListServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("UTF-8");
 		
-//		HttpSession session = request.getSession();
-		
 		try {
+			// 公開写真一覧
 			PhotoDAO photoDao = new PhotoDAO();
-			
 			List<PhotoBean> photoList = photoDao.displayAllPublishedPhoto();
-
 			request.setAttribute("photoList", photoList);
+			
+			// 地域取得
+			AreaDAO dao = new AreaDAO();
+			List<AreaBean> areaList = dao.allAreaList();
+			
+			request.setAttribute("areaList",areaList);
+			
 			url = "published-photo.jsp";
 		} catch (Exception e) {
 			e.printStackTrace();

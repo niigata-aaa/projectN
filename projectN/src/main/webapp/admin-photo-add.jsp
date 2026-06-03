@@ -16,11 +16,12 @@
 			text-align:center;
 			margin-bottom:10px;
 		}
-		input[type="submit"] {
-			/* 1.形をきめる */
-			width: 280px;
-			height: 55px;
-			border: none;
+		.admin-center-mini input[type="submit"]{
+			font-size:17px;
+			width:70px;
+			height:40px;
+		 	border-radius:5px;
+		 	background:#A9A9A9;
 		}
 		.admin-margin{
 			margin-top:15px;
@@ -29,13 +30,13 @@
 
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="selected-album" name="path" />
+		<jsp:param value="admin-index.jsp" name="path" />
 	</jsp:include>
 	
 	<h2>公開写真登録</h2>
-	<div class="admin-div">
+	<div class="loginForm-design">
 	 <form action="admin-photo-add-comp" method="POST" enctype="multipart/form-data">
-		 タイトル:<input type="text" name="title" required maxlength="50"><br>
+		 タイトル<input type="text" name="title" required maxlength="50"><br>
 		 <select name="area_id">
 	    <%
 	   	   List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");
@@ -50,7 +51,9 @@
 		 <br>
 		 <input type="file" id="photo" name="photo" required accept="image/*">
 		 <br>
+		<div class="admin-center-mini"> 
 		 <input type="submit" value="登録" class="admin-margin">
+	    </div>
 	 </form>
 	</div>
 

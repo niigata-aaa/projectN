@@ -14,10 +14,17 @@
 		.admin-margin{
 			margin-top:15px;
 		}
+		.admin-center input[type="submit"]{
+			font-size:17px;
+			width:230px;
+			height:40px;
+		 	border-radius:5px;
+		 	background:#A9A9A9;
+		}
 	</style>
 <body>
 	<jsp:include page="header.jsp">
-		<jsp:param value="selected-album" name="path" />
+		<jsp:param value="admin-index.jsp" name="path" />
 	</jsp:include>
 	
 	<% 
@@ -35,17 +42,11 @@
 	
 	<h2>管理者登録</h2>
 	  <form action="admin-register" method = POST class="loginForm-design">
-		 ID<input type = "text" name = id><br>
-		 パスワード<input type = "password" name = "password"><br>
+		 ID<input type = "text" name ="id" required><br>
+		 パスワード<input type = "password" name = "password" required minlength="8" maxlength="100"><br>
 		<div class="admin-center">
-		 <input type = "submit" value = 登録 class="admin-margin">
+		 <input type = "submit" value ="登録" class="admin-margin">
 	    </div>
 	  </form>
-	<form action="admin-register" method = POST>
-		ID<input type="text" name="id" required maxlength="100"><br>
-		パスワード<input type="password" name ="password" required minlength="8"><br>
-		<input type ="submit" value ="登録">
-	</form>
-	
 </body>
 </html>

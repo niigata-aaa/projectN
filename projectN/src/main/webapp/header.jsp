@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="CSS/Style.css">
 <header class="site-header">
 	<div class="header-container">
-		<h1 class="site-title">にいカイブ</h1>
+		<h1 class="site-title"><a href="general-user-top" style="text-decoration: none; color: #FFF;">にいカイブ</a></h1>
 		<nav class="global-nav">
 			<ul>
 				<%
@@ -19,14 +19,19 @@
 				<%
 				} else {
 				%>
-
 					<%
 					// ログインしている場合
 					// 管理者判定
 					if (user.getPost_id() == 2) {
+						if(request.getParameter("adminPage") != null){
+					%>
+						<li><a href="general-user-top">ユーザートップ</a></li>
+					<%
+						}else{
 					%>
 						<li><a href="admin-top">管理者トップ</a></li>
 					<%
+						}
 					}
 					%>
 					<li><a href="logout">ログアウト</a></li>

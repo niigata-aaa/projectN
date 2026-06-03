@@ -11,19 +11,21 @@
 			width: 250px;   /* 必須 */
     		margin: 0 auto;
 		}
-	
-	
-	
-	
+		.admin-center input[type="submit"]{
+			font-size:17px;
+			width:230px;
+			height:40px;
+		 	border-radius:5px;
+		 	background:#A9A9A9;
+		}
 	</style>
 <meta charset="UTF-8">
 <title>管理者公開写真登録完了画面</title>
 <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-	<jsp:include page="header.jsp">
-		<jsp:param value="selected-album" name="path" />
-	</jsp:include>
+	<jsp:include page="header.jsp"/>
+
 
 <% int cnt = (Integer)request.getAttribute("cnt"); 
 	if (cnt == 1) {
