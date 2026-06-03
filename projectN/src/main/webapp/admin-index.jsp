@@ -7,11 +7,21 @@
 <title>管理者トップ</title>
 </head>
 	 <style>
+	    body{
+	    	background:#f5f5f5;
+	    }
 		form{
 			display:inline-block;
 		}
-		.admin-div{
+		.admin-center{
 			text-align:center;
+		}
+		.admin-center-index input[type="submit"]{
+			font-size:25px;
+			width:400px;
+			height:200px;
+		 	border-radius:20px;
+		 	background:#A9A9A9;
 		}
 	</style>
 <body>
@@ -20,7 +30,7 @@
 	</jsp:include>
 	
 	<h2>管理者ページ</h2><br>
-	 <div class="admin-div">
+	 <div class="admin-center-index">
 	   <form action= "admin-photo-add" method = "POST" class="admin-form">
 		 <input type = "submit" value = "公開写真登録" >
 	   </form>
@@ -28,7 +38,7 @@
 		 <input type = "submit" value = "公開写真一覧" >
 	   </form>
 	 </div><br>
-	 <div class="admin-div">
+	 <div class="admin-center-index">
 	 	<form action= "admin-regi.jsp" >
 		 <input type="submit" value="管理者登録" >
 	   </form>
