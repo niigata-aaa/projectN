@@ -1,3 +1,4 @@
+<%@page import="model.entity.AreaBean"%>
 <%@page import="model.entity.UserBean"%>
 <%@page import="model.entity.PhotoBean"%>
 <%@page import="java.util.List"%>
@@ -24,13 +25,30 @@
 	</jsp:include>
 	<%
 		List<PhotoBean> photoList = (List<PhotoBean>)request.getAttribute("photoList");
+		List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");
 	%>
 	
 	<%
 		if (photoList != null && !photoList.isEmpty()){
 	%>
+	市町村絞り込み
+	<form action="release-photo-list" method="POST">
+		<select name="area_id">
+	    <%
+	       for(AreaBean area : areaList){
+	    %>
+	      <%int id = area.getArea_id(); %>
+			<option value="<%=id%>"><%=area.getArea_id() %>:<%=area.getArea_name() %></option>
+		 <%
+	       }
+		 %>
+		 </select>
+		 <div class="loginForm-button-design">
+			<input type="submit" value="絞り込み" style="margin: 0 auto;">
+		</div>
+	</form>
 	<h3>写真一覧</h3>
-	<div>
+	<div id="published-photo-card">
 	<%
 		for (PhotoBean photo : photoList){
 	%>
@@ -42,8 +60,7 @@
 	%>
 	</div>
 	<% 
-	
-	} else {
+		} else {
 	%>
 		<h3>写真が登録されていません</h3>
 	<%

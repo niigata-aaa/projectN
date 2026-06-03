@@ -19,14 +19,19 @@
 				<%
 				} else {
 				%>
-
 					<%
 					// ログインしている場合
 					// 管理者判定
 					if (user.getPost_id() == 2) {
+						if(request.getParameter("adminPage") != null){
+					%>
+						<li><a href="general-user-top">ユーザートップ</a></li>
+					<%
+						}else{
 					%>
 						<li><a href="admin-top">管理者トップ</a></li>
 					<%
+						}
 					}
 					%>
 					<li><a href="logout">ログアウト</a></li>
