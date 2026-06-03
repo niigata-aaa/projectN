@@ -8,9 +8,13 @@
 <meta charset="UTF-8">
 <title>ミッション</title>
 <style>
-#mission-containener{
-justify-content: space-evenly;
+#all-mission-containener{
 display: flex;
+justify-content: space-evenly;
+}
+
+.mission-containener{
+text-align: center;
 }
 
 .missionPhoto{
@@ -52,13 +56,26 @@ width: auto;
 	<jsp:include page="header.jsp">
 		<jsp:param value="album-list" name="path" />
 	</jsp:include>
-		<h1 style="text-align:center;"><%=areaName%></h1>
-<div id = "mission-containener">
-<div>
-	<h2>①ゆるキャラ</h2>:
-	<% if(yurucharaCnt >= 1){ %>ミッション達成
-	<%} else{ %>ミッション未達成<%} %>
-	<h3>写真一覧</h3>
+		<h2 style="text-align:center;"><%=areaName%></h2>
+<div id = "all-mission-containener">
+<div class="mission-containener">
+	<h2>①ゆるキャラ</h2>
+	<h3>ミッション
+	<% if(yurucharaCnt >= 1){ %>
+			<span style="color: red;">達成</span>
+		<% } else { %>
+			<span style="color: blue;">未達成</span>
+	<% } %>
+	</h3>
+	<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
+	<div class="td">
+		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
+		<input type="hidden" id="mission_id" name="mission_id" value="1">
+		<div class = "loginForm-button-design" style="width: 150px">
+			<input type="submit" value="写真を登録">
+		</div>
+	</div>
+	</form>
 	<%
 		for (MissionPhotoBean photo : yurucharaPhotoList){
 	%>
@@ -74,24 +91,26 @@ width: auto;
 	<%
 		}
 	%>
-	
-	
-<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
-	<div class="td">
-		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
-		<input type="hidden" id="mission_id" name="mission_id" value="1">
-		<input type="submit" value="登録">
-	</div>
-</form>
 </div>
 
-<div>
-	<h2>②グルメ</h2>:
-	<% if(gurmentCnt >= 1){ %>ミッション達成
-	<%} else{ %>ミッション未達成<%}%>
-
-	<h3>写真一覧</h3>
-	
+<div class="mission-containener">
+	<h2>②ご当地グルメ</h2>
+	<h3>ミッション
+	<% if(gurmentCnt >= 1){ %>
+			<span style="color: red;">達成</span>
+		<% } else { %>
+			<span style="color: blue;">未達成</span>
+	<% } %>
+	</h3>
+	<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
+	<div class="td">
+		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
+		<input type="hidden" id="mission_id" name="mission_id" value="2">
+		<div class = "loginForm-button-design" style="width: 150px">
+			<input type="submit" value="写真を登録">
+		</div>
+	</div>
+	</form>
 	<%
 		for (MissionPhotoBean photo : gurmentPhotoList){
 	%>
@@ -108,26 +127,26 @@ width: auto;
 	<%
 		}
 	%>
-	
-<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
-	<div class="td">
-		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
-		<input type="hidden" id="mission_id" name="mission_id" value="2">
-		<input type="submit" value="登録">
-	</div>
-</form>
 </div>
 
-<div>
-	<h2>③観光</h2>:
+<div class="mission-containener">
+	<h2>③観光スポット</h2>
+	<h3>ミッション
 	<% if(sightseeCnt >= 1){ %>
-			ミッション達成
+			<span style="color: red;">達成</span>
 		<% } else { %>
-		ミッション未達成
-		<% } %>
-
-	<h3>写真一覧</h3>
-	
+			<span style="color: blue;">未達成</span>
+	<% } %>
+	</h3>
+	<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
+	<div class="td">
+		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
+		<input type="hidden" id="mission_id" name="mission_id" value="3">
+		<div class = "loginForm-button-design" style="width: 150px">
+			<input type="submit" value="写真を登録">
+		</div>
+	</div>
+	</form>
 	<%
 		for (MissionPhotoBean photo : sightseePhotoList){
 	%>
@@ -143,16 +162,6 @@ width: auto;
 	<%
 		}
 	%>
-<!--		</div>-->
-<!--	</div>-->
-	
-<form action="mission-photo-add" method="POST" enctype="multipart/form-data">
-	<div class="td">
-		<input type="file" id="missin_photo" name="mission_photo" required accept="image/*">
-		<input type="hidden" id="mission_id" name="mission_id" value="3">
-		<input type="submit" value="登録">
-	</div>
-</form>
 </div>
 </div>
 
