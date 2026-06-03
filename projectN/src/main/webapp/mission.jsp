@@ -7,6 +7,33 @@
 <head>
 <meta charset="UTF-8">
 <title>ミッション</title>
+<style>
+#mission-containener{
+justify-content: space-evenly;
+display: flex;
+}
+
+.missionPhoto{
+width: 300px;              /* 正方形の幅 */
+  
+  background-color: #f0f0f0; /* 余白部分の背景色 */
+  overflow: hidden;         /* 念のためはみ出し防止 */
+display: flex;
+flex-wrap:wrap;
+  justify-content: center; /* 水平方向にセンターに配置 */
+  align-items: center;
+  aspect-ratio: 1 / 1;       /* 正方形にする（CSS3対応ブラウザ） */
+}
+
+.missionPhoto img{
+width: auto;
+	height: auto;
+	object-fit: contain;
+	display: block;
+	padding:10px;
+	
+}
+</style>
 </head>
 
 	<%
@@ -25,21 +52,25 @@
 	<jsp:include page="header.jsp">
 		<jsp:param value="album-list" name="path" />
 	</jsp:include>
-	
-		<h2 style="text-align:center;"><%=areaName%></h2>
+		<h1 style="text-align:center;"><%=areaName%></h1>
+<div id = "mission-containener">
 <div>
-①ゆるキャラ:<% if(yurucharaCnt >= 1){ %>ミッション達成
-<%} else{ %>ミッション未達成<%} %>
-<h3>写真一覧</h3>
+	<h2>①ゆるキャラ</h2>:
+	<% if(yurucharaCnt >= 1){ %>ミッション達成
+	<%} else{ %>ミッション未達成<%} %>
+	<h3>写真一覧</h3>
+<!--		<div class = "missionPhoto-img">-->
 	<%
 		for (MissionPhotoBean photo : yurucharaPhotoList){
 	%>
-		<div>
+		<div class = "missionPhoto">
 		<img src="${pageContext.request.contextPath}/photo/<%=photo.getMission_photo_data()%>" ><br>
 		</div>
 	<%
 		}
 	%>
+	
+	
 <form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
 		<input type="file" id="missin_photo" name="mission_photo" multiple required accept="image/*">
@@ -50,16 +81,20 @@
 </div>
 
 <div>
-②グルメ:<% if(gurmentCnt >= 1){ %>ミッション達成
-<%} else{ %>ミッション未達成<%}%>
+	<h2>②グルメ</h2>:
+	<% if(gurmentCnt >= 1){ %>ミッション達成
+	<%} else{ %>ミッション未達成<%}%>
 
-<h3>写真一覧</h3>
+	<h3>写真一覧</h3>
+	
 	<%
 		for (MissionPhotoBean photo : gurmentPhotoList){
 	%>
-		<div>
+	
+		<div class = "missionPhoto">
 		<img src="${pageContext.request.contextPath}/photo/<%=photo.getMission_photo_data()%>" ><br>
 		</div>
+	
 	<%
 		}
 	%>
@@ -74,22 +109,26 @@
 </div>
 
 <div>
-③観光:<% if(sightseeCnt >= 1){ %>
+	<h2>③観光</h2>:
+	<% if(sightseeCnt >= 1){ %>
 			ミッション達成
 		<% } else { %>
 		ミッション未達成
 		<% } %>
 
-<h3>写真一覧</h3>
+	<h3>写真一覧</h3>
+	
 	<%
 		for (MissionPhotoBean photo : sightseePhotoList){
 	%>
-		<div>
+		<div class = "missionPhoto">
 		<img src="${pageContext.request.contextPath}/photo/<%=photo.getMission_photo_data()%>" ><br>
 		</div>
 	<%
 		}
 	%>
+<!--		</div>-->
+<!--	</div>-->
 	
 <form action="mission-photo-add" method="POST" enctype="multipart/form-data">
 	<div class="td">
@@ -99,6 +138,8 @@
 	</div>
 </form>
 </div>
+</div>
+
 
 </body>
 </html>
