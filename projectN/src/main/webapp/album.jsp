@@ -11,17 +11,18 @@
 <style>
 #albumHeader {
 	display: flex;
-	min-height:300px;
+	min-height:200px;
 }
 
 #albumInfo{
 width:70%;
-padding:30px;
-font-size:24px;
+padding:10px;
+font-size:20px;
 line-height:2;
 background:white;
 border-radius:10px;
 box-shadow:0 2px 10px rgba(0,0,0,0.15);
+overflow-wrap: break-word;
 }
 
 .albumInfoTitle{
@@ -31,7 +32,7 @@ font-weight:bold;
 
 #albumButton-position{
 position: absolute; /* ページ内で絶対位置指定 */
-  top: 150px;          /* ヘッダーの高さ分だけ下げる */
+  top: 130px;          /* ヘッダーの高さ分だけ下げる */
   right: 20px; /* 右端から20px */
   }
   
@@ -55,9 +56,9 @@ margin-left:50px;
 		
 		<div id = "albumHeader">
 			<div id="albumInfo">
+				<span class = "albumInfoTitle">タイトル</span>:<%=album.getAlbum_name()%><br>
 				<span class = "albumInfoTitle">期間</span>：<%=album.getTrip_start()%>~
 				<%=album.getTrip_end()%><br> 
-				<span class = "albumInfoTitle">タイトル</span>:<%=album.getAlbum_name()%><br>
 				<span class = "albumInfoTitle">同行者</span>：<%=album.getCompanion()%><br>
 				<span class = "albumInfoTitle">メモ</span>：<%=album.getMemo() %><br>
 			</div>
