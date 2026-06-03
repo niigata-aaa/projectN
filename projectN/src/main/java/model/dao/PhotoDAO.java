@@ -125,7 +125,7 @@ public class PhotoDAO {
 
 		String sql = "SELECT t_photo.photo_id, t_photo.area_id, m_area.area_name, t_photo.photo_title, t_photo.is_published, t_photo.photo_data "
 				+ "FROM t_photo LEFT JOIN m_area ON t_photo.area_id = m_area.area_id "
-				+ "WHERE is_published = 1 ORDER BY photo_id DESC;";
+				+ "WHERE is_published = 1 ORDER BY t_photo.photo_id ASC;";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);) {
@@ -213,7 +213,7 @@ public class PhotoDAO {
 
 		String sql = "SELECT t_photo.photo_id, t_photo.area_id, m_area.area_name, t_photo.photo_title, t_photo.is_published, t_photo.photo_data "
 				+ "FROM t_photo LEFT JOIN m_area ON t_photo.area_id = m_area.area_id "
-				+ "WHERE is_published = 1 AND t_photo.area_id = ? ORDER BY photo_id DESC;";
+				+ "WHERE is_published = 1 AND t_photo.area_id = ? ORDER BY t_photo.photo_id ASC;";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql);) {

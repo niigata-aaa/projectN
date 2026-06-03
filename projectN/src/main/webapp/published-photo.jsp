@@ -96,6 +96,7 @@
 		<div class="area-select-box">
 		市町村絞り込み<br>
 		<select name="area_id">
+			<option value="0">すべて</option>
 	    <%
 	       for(AreaBean area : areaList){
 	    %>
