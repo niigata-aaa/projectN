@@ -22,7 +22,7 @@
 				<label>アルバム名</label><input type="text" name="albumName" maxlength="50" required><br>
 			</div>
 			<div class="form-group">
-				<label>日付</label><input type="date" name="startDate" required>～ <input
+				<label>開始日</label><input type="date" name="startDate" required>終了日 <input
 					type="date" name="endDate" required><br>
 			</div>
 			<div class="form-group">
