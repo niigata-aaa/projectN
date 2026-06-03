@@ -11,15 +11,17 @@
 	<style>
 	    .admin-margin{
 			margin-top:15px;
+			margin: 0 auto;
 		}
 		.admin-center{
-			width: 250px;   /* 必須 */
+			width: 450px;   /* 必須 */
     		margin: 0 auto;
 		}
 		tr{
 			border-radius :8px;
   			box-shadow :0px 0px 5px silver;
   			padding: 0.5em 0.5em 0.5em 2em;
+  			scroll-snap-align:start;
 		}
 		tr,th{
 			line-height: 1.5;
@@ -30,9 +32,20 @@
 			width:450px;
 			border-radius:20px;
 			background-position:center;
+			text-align:center;
+			padding-bottom:3px;
+			
 		}
 		.admin-center input[type="submit"]{
 		 	background:#808080;
+		 	display:block;
+		 	margin:20px auto;
+		}
+		
+		.table-area{
+		height:400px;
+		overflow-y:auto;
+		scroll-snap-type:y mandatory;
 		}
 		
 	</style>
@@ -42,7 +55,7 @@
 	</jsp:include>
 
 	<div class="admin-center">
-	  <h2 >ユーザ一覧</h2><br>
+	  <h2 >ユーザ一覧</h2>
 	  
 	 <div class="admin-back">
 	  <form action="user-list" method = "POST">
@@ -58,7 +71,7 @@
 	   <%
 		  List<UserBean> userList = (List<UserBean>)request.getAttribute("userList");
 	   %>
-	   
+	   <div class= "table-area">
 	    <table border="1" class="admin-margin">
 		 <tr>
 			<th>user_id</th>
@@ -82,6 +95,7 @@
 
 		 <%} %>
 	    </table>
+	    </div>
 	   </form>
 	   <form action = "admin-index.jsp" method="POST" class="admin-margin">
 		 <input type = "submit" value = "管理者ページに戻る" class="admin-btn">
