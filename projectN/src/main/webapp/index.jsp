@@ -7,56 +7,6 @@
 <meta charset="UTF-8">
 <title>にいカイブ｜トップ画面</title>
 <link rel="stylesheet" href="Style.css">
-<style>
-#map-photo-popup {
-	margin-top: 20px;
-	background: rgba(255, 255, 255, 0.95);
-	border: 1px solid #ccc;
-	padding: 15px;
-	border-radius: 8px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	width: 300px;           
-	height: 235px;
-	box-sizing: border-box;
-	display: block;
-	pointer-events: none;
-}
-
-#map-photo-popup img,
-#popup-message {
-	width: 100%;
-	height: 165px;
-	box-sizing: border-box;
-}
-
-#map-photo-popup img {
-	object-fit: cover;
-	border-radius: 4px;
-}
-
-#popup-message {
-	display: flex;
-	align-items: center;    /* 文字を上下中央に */
-	justify-content: center;/* 文字を左右中央に */
-	color: #666;
-	font-size: 14px;
-	font-weight: bold;
-	line-height: 1.5;
-	padding: 0 10px;
-	text-align: center;
-}
-
-#popup-title {
-	margin-top: 10px;
-	font-size: 14px;
-	font-weight: bold;
-	color: #333;
-	word-break: break-all;
-	min-height: 20px;
-	max-height: 40px;
-	overflow: hidden;
-}
-</style>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
