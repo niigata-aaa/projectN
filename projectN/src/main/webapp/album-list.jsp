@@ -8,6 +8,47 @@
 <head>
 <meta charset="UTF-8">
 <title>アルバム一覧</title>
+<style>
+.published-photo-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	height: 500px;
+	overflow: scroll;
+}
+
+.published-photo-card {
+	margin-top: 20px;
+	background: rgba(255, 255, 255, 0.95);
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+	width: 450px;
+	height: 350px;
+	box-sizing: border-box;
+	display: block;
+}
+
+.published-photo-card img {
+	width: 100%;
+	height: 250px;
+	box-sizing: border-box;
+	object-fit: cover;
+	border-radius: 4px;
+}
+
+.published-photo-info {
+	margin-top: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	word-break: break-all;
+	min-height: 20px;
+	max-height: 40px;
+	overflow: hidden;
+}
+</style>
 </head>
 <body>
 
@@ -20,11 +61,7 @@
 	</jsp:include>
 
 
-	<div class="flexbox">
-		<div>
-			<h1 class="areaName"><%=areaName%></h1>
-		</div>
-
+	<div class="text-flex" style="align-items: center;">
 		<div>
 			<form action="mission" method="post">
 				<div class="loginForm-button-design">
@@ -33,49 +70,62 @@
 			</form>
 		</div>
 		<div>
+			<h1 class="areaName"><%=areaName%></h1>
+		</div>
+
+
+		<div>
 			<form action="album-regi.jsp" method="post">
 				<div class="loginForm-button-design">
 					<input type="submit" value="アルバムを作成する">
 				</div>
 			</form>
 		</div>
+
 	</div>
 
+	<h2>―アルバム一覧―</h2>
 
+	<div class="published-photo-list">
 
-	<h2>アルバム一覧</h2>
-	<br>
-<!--	<a href="selected-album" class="example"> -->
-	<%
- if (albumList.size() != 0) {
- 	for (AlbumBean album : albumList) {
- %> <!--	<div class="btn-square-slant" style="display:inline-block;">-->
+		<%
+		if (albumList.size() != 0) {
+			for (AlbumBean album : albumList) {
+		%>
 		<form action="selected-album" method="post"
 			style="display: inline-block, text-align:center;">
-			<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
-			<!--		<div class="sample_box12">-->
-			<!--			<div class="sample_box12_tape"></div>-->
-			<span>
-				<button type="submit" class="btn btn-danger btn-sm">
-					<!--				<p class="sample_box12_title">-->
 
-					<%=album.getAlbum_name()%></p>
-					<br>
-					<!--				<p class="sample_box12_subtitle">-->
-					期間：
-					<%=album.getTrip_start()%>
-					~
-					<%=album.getTrip_end()%><br> 同行者：
-					<%=album.getCompanion()%></p>
-					<br> <br>
-				</button>
-			</span>
-			<!--		</div>-->
-		</form> <!--	</div>--> <%
- }
- } else {
- %> アルバムが作成されていません。 <%
- }
- %>
+			<input type="hidden" name="album_id" value="<%=album.getAlbum_id()%>">
+
+
+			<!--					<button type="submit" class="btn btn-danger btn-sm">-->
+
+			<div class="published-photo-card">
+				<%=album.getAlbum_name()%>
+				<br> 期間：
+				<%=album.getTrip_start()%>
+				~
+				<%=album.getTrip_end()%><br> 同行者：
+				<%=album.getCompanion()%>
+				<br> <br>
+			</div>
+			<!--					</button>-->
+			<!--				</div>-->
+			<!--			</span>-->
+
+
+		</form>
+
+		<%
+		}
+		%>
+		<%
+		} else {
+		%>
+		<h2>アルバムが作成されていません。</h2>
+		<%
+		}
+		%>
+	</div>
 </body>
 </html>

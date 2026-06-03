@@ -328,10 +328,7 @@ input[type="submit"] {
 	color: #7172ac;
 }
 
-.areaName {
-	margin:3%;
-	margin-left: 10%;
-}
+
 
 
 /*　ｈ２タグの編集　*/
@@ -378,6 +375,7 @@ h2 {
 
 .flexbox{
   display:flex;
+  
 }
 
 /*ボタンのデザイン*/
@@ -527,7 +525,9 @@ h2 {
 /* ボタンを横並びにするCSS*/
 .text-flex {
 	display: flex;
+	justify-content: space-around;
 }
+
 
 /*アルバムのデザイン*/
 .btn-square-slant {
