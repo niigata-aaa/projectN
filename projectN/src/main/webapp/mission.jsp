@@ -7,53 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ミッション</title>
-<style>
-#all-mission-containener {
-	display: flex;
-	justify-content: space-evenly;
-}
-
-.mission-containener {
-	text-align: center;
-	width: 500px;
-}
-
-.mission-photo-list {
-	overflow: scroll;
-	width: 100%;
-	height: 500px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: #D2F5A0;
-}
-
-.missionPhoto {
-	margin-top: 10px;
-	background: rgba(255, 255, 255, 0.95);
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	width: 400px;
-	height: 325px;
-	box-sizing: border-box;
-	display: block;
-}
-
-.missionPhoto-image {
-	width: 100%;
-	height: 250px;
-	box-sizing: border-box;
-}
-
-.missionPhoto img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	border-radius: 4px;
-}
-</style>
+<link rel="stylesheet" href="Style.css">
 </head>
 
 <%

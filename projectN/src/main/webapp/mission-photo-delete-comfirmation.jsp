@@ -6,33 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ミッション写真削除確認画面</title>
-<style>
-.photo-card {
-	margin-top: 10px;
-	background: rgba(255, 255, 255, 0.95);
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 8px;
-	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	width: 450px;
-	height: 450px;
-	box-sizing: border-box;
-	display: block;
-	margin: 0 auto;
-}
-
-.photo-card-image{
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-}
-.photo-card img {
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
-	border-radius: 4px;
-}
-</style>
+<link rel="stylesheet" href="Style.css">
 </head>
 <body>
 	<jsp:include page="header.jsp" />
