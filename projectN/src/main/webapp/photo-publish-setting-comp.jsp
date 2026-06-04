@@ -16,7 +16,7 @@
 	<%
 	if (cnt == 1) {
 	%>
-	<h2>登録完了</h2>
+	<h2>公開設定を変更しました</h2>
 	<%
 	} else {
 	%>
@@ -24,15 +24,20 @@
 	<%
 	}
 	%>
-	公開設定を変更した写真
+	<!--	公開設定を変更した写真-->
 	<br>
-	<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>">
+	<div class="photo-card">
+		<div class="photo-card-image">
+			<img
+				src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>">
+		</div>
+	</div>
 	<form action="selected-album" method="GET">
 		<div class="loginForm-button-design">
 			<input type="submit" value="アルバム画面に戻る">
 		</div>
 	</form>
-<!--	<a href="selected-album">アルバム画面に戻る</a>-->
+	<!--	<a href="selected-album">アルバム画面に戻る</a>-->
 
 </body>
 </html>

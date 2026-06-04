@@ -26,7 +26,7 @@ String areaName = (String) session.getAttribute("area_name");
 	<jsp:include page="header.jsp">
 		<jsp:param value="album-list" name="path" />
 	</jsp:include>
-	<h2 style="text-align: center;"><%=areaName%></h2>
+	<h1 style="text-align: center; margin-top:10px;margin-bottom:-10px;" class="areaName"><%=areaName%></h2>
 	<div id="all-mission-containener">
 		<div class="mission-containener">
 			<h2>①ゆるキャラ</h2>
