@@ -129,10 +129,11 @@ body {
 .site-title {
 	margin: 0;
 }
+
 .site-header {
 	background-color: rgb(33, 203, 37);
 	color: #fff;
-/*	padding: 2px;*/
+	/*	padding: 2px;*/
 	height: 83.7px;
 }
 
@@ -165,7 +166,7 @@ body {
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	
+
 	margin-bottom: 15px;
 
 }
@@ -182,14 +183,15 @@ body {
 .loginForm-design input[type="password"] {
 	width: 100%;
 	padding: 10px;
-	padding-right:0.5px;
-	padding-left:3px;
+	padding-right: 0.5px;
+	padding-left: 3px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 }
 
 /*submitボタンのデザイン*/
-input[type="submit"] ,button{
+input[type="submit"],
+button {
 	/* 1.形をきめる */
 	width: 240px;
 	height: 48px;
@@ -210,7 +212,7 @@ input[type="submit"] ,button{
 
 
 /*ボタンのデザイン*/
-.loginForm-button-design{
+.loginForm-button-design {
 	background: #6bb6ff;
 	border-radius: 3px;
 	position: relative;
@@ -304,11 +306,11 @@ input[type="submit"] ,button{
 .album-regi-style {
 	display: block;
 	margin-bottom: 1px;
-	padding-top:10px;
+	padding-top: 10px;
 	padding-bottom: 5px;
 	font-weight: bold;
 	font-family: 'Courier New', Courier, monospace;
-	
+
 }
 
 .album-regi-style input[type="text"],
@@ -349,7 +351,7 @@ h2 {
 }
 
 /* h4タグの編集　*/
-h4{
+h4 {
 	text-align: center;
 }
 
@@ -543,7 +545,7 @@ h4{
 .text-flex {
 	display: flex;
 	justify-content: space-around;
-	
+
 }
 
 
@@ -682,21 +684,23 @@ h4{
 }
 
 .area-select-box {
-	width:150px;
+	width: 150px;
 	font-size: 20px;
 }
-.area-select-box select{
+
+.area-select-box select {
 	font-size: 20px;
 	width: 100%;
 }
 
 .published-photo-list {
 	display: flex;
-	flex-wrap:wrap;
-	justify-content:space-around;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	height: 500px;
 	overflow: scroll;
 }
+
 .published-photo-card {
 	margin-top: 20px;
 	background: rgba(255, 255, 255, 0.95);
@@ -704,18 +708,18 @@ h4{
 	padding: 15px;
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	width: 450px;           
+	width: 450px;
 	height: 350px;
 	box-sizing: border-box;
 	display: block;
 	pointer-events: none;
 }
 
-.published-photo-image{
+.published-photo-image {
 	width: 100%;
 	height: 275px;
 	box-sizing: border-box;
-	
+
 }
 
 .published-photo-card img {
@@ -744,18 +748,19 @@ h4{
 
 .mission-containener {
 	text-align: center;
-	width: 500px;
+	width: 33%;
 }
 
 .mission-photo-list {
-	overflow-y: scroll;
-	overflow-x: hidden;
 	width: 100%;
 	height: 360px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: #D2F5A0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	scrollbar-gutter: stable both-edges;
 }
 
 .missionPhoto {
@@ -765,15 +770,15 @@ h4{
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-	width: 400px;
-	height: 325px;
+	width: 80%;
+	max-height: 325px;
 	box-sizing: border-box;
 	display: block;
 }
 
 .missionPhoto-image {
 	width: 100%;
-	height: 250px;
+	max-height: 250px;
 	box-sizing: border-box;
 }
 
@@ -799,11 +804,12 @@ h4{
 	margin: 0 auto;
 }
 
-.photo-card-image{
+.photo-card-image {
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
 }
+
 .photo-card img {
 	width: 100%;
 	height: 100%;
@@ -854,5 +860,3 @@ h4{
 }
 
 /*ボディの色*/
-
-

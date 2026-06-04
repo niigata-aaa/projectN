@@ -68,7 +68,7 @@ String areaName = (String) session.getAttribute("area_name");
 						<input type="hidden" name="mission_photo_id"
 							value="<%=photo.getMission_photo_id()%>">
 						<div class="loginForm-button-design"
-							style="width: 100px; margin-top: 0; margin-bottom: 0">
+							style="max-width: 100px; margin-top: 0; margin-bottom: 0">
 							<input type="submit" value="削除する">
 						</div>
 					</form>
