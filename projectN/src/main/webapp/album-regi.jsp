@@ -23,8 +23,8 @@
 				<label>アルバム名</label><input type="text" name="albumName" maxlength="50" required><br>
 			</div>
 			<div class="form-group">
-				<label>開始日</label><input type="date" name="startDate" required>終了日 <input
-					type="date" name="endDate" required><br>
+				<label>開始日</label><input type="date" name="startDate" required max="9999-12-31">>終了日 <input
+					type="date" name="endDate" required max="9999-12-31">><br>
 			</div>
 			<div class="form-group">
 				<label>同行者</label><input type="text" name="companion" maxlength="20"><br>
