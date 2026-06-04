@@ -20,7 +20,8 @@
 	margin-top: 10px;
 	background: rgba(255, 255, 255, 0.95);
 	border: 1px solid #ccc;
-	padding: 10px; border-radius : 8px;
+	padding: 10px;
+	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 	width: 300px;
 	height: 380px;
@@ -55,7 +56,7 @@
 		<%
 		PhotoBean selectPhoto = (PhotoBean) request.getAttribute("selectDeletePhoto");
 		%>
-<<<<<<< HEAD
+
 		<div class="album-photo-card">
 			<div class="album-photo-image">
 				<img
@@ -95,12 +96,12 @@
 						type="submit" value="削除する">
 				</form>
 			</div>
-			</div>
+		</div>
 	</div>
-			<div class="loginForm-button-design" style="margin-top:-70px;">
-				<input type="submit"
-					onclick="location.href='album-photo-delete.jsp'" value="キャンセル">
-			</div>
-		
+	<div class="loginForm-button-design" style="margin-top: -70px;">
+		<input type="submit" onclick="location.href='album-photo-delete.jsp'"
+			value="キャンセル">
+	</div>
+
 </body>
 </html>
