@@ -11,13 +11,15 @@
 	<%
 	List<String> photoDataList = (List<String>) request.getAttribute("photoDataList");
 	%>
-<<<<<<< HEAD
-<jsp:include page="header.jsp" />
-<h2>アルバムに写真を追加しました！</h2>
-=======
+
 	<jsp:include page="header.jsp" />
-	<h1 style="text-align: center;">アルバムに写真を追加しました！</h1>
->>>>>>> refs/remotes/origin/master
+	<!--	<h2>アルバムに写真を追加しました！</h2>-->
+
+	<!--	<jsp:include page="header.jsp" />-->
+	<!--	<h1 style="text-align: center;">アルバムに写真を追加しました！</h1>-->
+	<!--	<jsp:include page="header.jsp" />-->
+	<h2>アルバムに写真を追加しました！</h2>
+
 	<%
 	for (String photo : photoDataList) {
 	%>
@@ -34,6 +36,6 @@
 			<input type="submit" value="アルバム画面に戻る">
 		</div>
 	</form>
->>>>>>> refs/remotes/origin/master
+
 </body>
 </html>

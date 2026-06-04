@@ -15,6 +15,7 @@
 		enctype="multipart/form-data">
 		<label for="logo"></label> <br>
 		<div class="td" style="text-align: center">
+		<h3>追加する写真を選択してください</h3>
 			<input type="file" id="photo" name="photo" multiple required
 				accept="image/*">
 			<div class="loginForm-button-design">
