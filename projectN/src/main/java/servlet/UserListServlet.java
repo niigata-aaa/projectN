@@ -60,7 +60,12 @@ public class UserListServlet extends HttpServlet {
 		
 		try {
 			if(user_id != null && !(user_id.isEmpty())) {
-				userList = userDao.displaySelectUser(user_id);
+				if(post_id != 0) {
+					userList = userDao.displaySelectUser(user_id, post_id);
+				}else {
+					userList = userDao.displaySelectUser(user_id);
+				}
+				
 			}else if(post_id == 1 || post_id ==  2){
 				userList = userDao.displaySelectUser(post_id);
 			}else {

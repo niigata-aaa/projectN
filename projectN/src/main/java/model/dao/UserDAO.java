@@ -128,14 +128,15 @@ public class UserDAO {
 	}
 
 	//displaySelectUser(String user_id)のDAO
-	public List<UserBean> displaySelectUser(String user_id) throws SQLException, ClassNotFoundException {
+	public List<UserBean> displaySelectUser(String user_id, int post_id) throws SQLException, ClassNotFoundException {
 		List<UserBean> displaySelectUser = new ArrayList<UserBean>();
-		String sql = "SELECT * FROM m_user WHERE user_id = ?";
+		String sql = "SELECT * FROM m_user WHERE user_id = ? AND post_id = ?";
 		//データベースへの接続の取得、PreparedStatementの取得
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
 			//プレースホルダへの値の設定
 			pstmt.setString(1, user_id);
+			pstmt.setInt(2, post_id);
 			//SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();
 			//結果の操作
@@ -162,6 +163,26 @@ public class UserDAO {
 			//SQLステートメントの実行
 			ResultSet res = pstmt.executeQuery();
 
+			while (res.next()) {
+				UserBean user = new UserBean();
+				user.setUser_id(res.getString("user_id"));
+				user.setPost_id(res.getInt("post_id"));
+				displaySelectUser.add(user);
+			}
+		}
+		return displaySelectUser;
+	}
+	public List<UserBean> displaySelectUser(String user_id) throws SQLException, ClassNotFoundException {
+		List<UserBean> displaySelectUser = new ArrayList<UserBean>();
+		String sql = "SELECT * FROM m_user WHERE user_id = ?;";
+		//データベースへの接続の取得、PreparedStatementの取得
+		try (Connection con = ConnectionManager.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql)) {
+			//プレースホルダへの値の設定
+			pstmt.setString(1, user_id);
+			//SQLステートメントの実行
+			ResultSet res = pstmt.executeQuery();
+			//結果の操作
 			while (res.next()) {
 				UserBean user = new UserBean();
 				user.setUser_id(res.getString("user_id"));
