@@ -17,6 +17,7 @@ body {
 	display: flex;
 	min-height: 200px;
 	justify-content: space-between;
+	margin-top: 20px; 
 }
 
 #albumInfo {
@@ -28,13 +29,17 @@ body {
 	border-radius: 10px;
 	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 	overflow-wrap: break-word;
-	margin-top: 20px; <!--
+<!--	margin-top: 20px; -->
 	margin-left: 40%;
-	-->
 }
 
 .albumInfoTitle {
-	font-size: 24px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.albumInfoTitle-sub {
+	font-size: 16px;
 	font-weight: bold;
 }
 
@@ -52,9 +57,10 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	height: 500px;
+	height: 450px;
 	overflow-y: auto;
 	scroll-snap-type: y mandatory;
+	
 }
 
 .album-photo-card {
@@ -113,10 +119,10 @@ body {
 			</form>
 		</div>
 		<div id="albumInfo">
-			<span class="albumInfoTitle">タイトル</span>:<%=album.getAlbum_name()%><br>
-			<span class="albumInfoTitle">期間</span>：<%=album.getTrip_start()%>~
-			<%=album.getTrip_end()%><br> <span class="albumInfoTitle">同行者</span>：<%=album.getCompanion()%><br>
-			<span class="albumInfoTitle">メモ</span>：<%=album.getMemo() %><br>
+			<span class="albumInfoTitle">タイトル：<%=album.getAlbum_name()%><br></span>
+			<span class="albumInfoTitle-sub">期間：<%=album.getTrip_start()%>~
+			<%=album.getTrip_end()%><br> </span><span class="albumInfoTitle-sub">同行者：<%=album.getCompanion()%><br></span>
+			<span class="albumInfoTitle-sub">メモ：<%=album.getMemo() %><br></span>
 		</div>
 		<div id="albumButton-position">
 			<form action="album-edit.jsp" method="POST">
@@ -211,7 +217,9 @@ body {
 		<%
 		}
 		%>
+		
 	</div>
+	
 
 </body>
 </html>
