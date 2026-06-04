@@ -84,14 +84,14 @@ body{
 	
 	<div>
 
-		<form action="AdminReleaseSettingServlet" method="POST">
+		<form action="admin-photo-publish-setting.jsp" method="POST">
 			タイトル：<%=photo.getPhoto_title() %>
 			<% if(photo.getIs_published() == 1) {%>
 			<input type="hidden" name="photo_title" value="">
 			<input type="hidden" name="is_published" value="0"> 
 			<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
 			<div class = "admin-button">
-			<input type="submit" value="非公開にする">
+			  <input type="submit" value="非公開にする">
 			</div>
 			<% }%>
 		</form>

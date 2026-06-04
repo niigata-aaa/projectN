@@ -3,6 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>管理者写真公開設定完了画面</title>
+</head>
 <style>
 body{
 	 background:#f5f5f5;
@@ -23,9 +26,6 @@ body{
 }
 </style>
 
-<meta charset="UTF-8">
-<title>管理者写真公開設定完了画面</title>
-</head>
 <body>
 	<jsp:include page="header.jsp"/>
 	
