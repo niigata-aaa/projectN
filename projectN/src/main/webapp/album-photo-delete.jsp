@@ -76,35 +76,35 @@
 		%>
 		<div class="album-photo-card">
 			<div class="album-photo-image">
-				<img
-					src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>"><br>
+					<img
+						src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>"><br>
 			</div>
 			<h4>
-			タイトル：
-			<%
+				タイトル：
+				<%
 			if (photo.getPhoto_title() != null) {
 			%>
-			<%=photo.getPhoto_title()%>
-			<%
+				<%=photo.getPhoto_title()%>
+				<%
 			} else {
 			%>
-			未設定
-			<%
+				未設定
+				<%
 			}
 			%><br>
-			<div class="album-padding">
-				<%
+				<div class="album-padding">
+					<%
 				if (photo.getIs_published() == 0) {
 				%>
-				非公開
-				<%
+					非公開
+					<%
 				} else {
 				%>
-				公開
-				<%
+					公開
+					<%
 				}
 				%>
-			</div>
+				</div>
 			</h4>
 
 			<!--			<input type="submit" value="削除する">-->
@@ -115,7 +115,8 @@
 			<!--			</form>-->
 			<div class="loginForm-button-design">
 				<a href="album-photo-delete?index=<%=photoList.indexOf(photo)%>"
-					style="text-decoration: none;"><input type="submit" value="削除する"></a>
+					style="text-decoration: none;"><input type="submit"
+					value="削除する"></a>
 			</div>
 		</div>
 		<%

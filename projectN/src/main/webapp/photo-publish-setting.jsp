@@ -12,9 +12,12 @@
 		<jsp:include page="header.jsp">
 			<jsp:param value="selected-album" name="path" />
 		</jsp:include>
+		<div class="album-photo-list">
 		<%
 		PhotoBean photo = (PhotoBean)request.getAttribute("photo");
 	%>
+	<div class="album-photo-card">
+			<div class="album-photo-image">
 		<img
 			src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>">
 	</div>
@@ -27,6 +30,7 @@
 		<% } %>
 	</div>
 	<div>
+
 		<form action="release-setting-comp" method="POST">
 			<!--タイトル：<input type="text" name="photo_title">-->
 			<% if(photo.getIs_published() == 1) {%>
@@ -34,8 +38,8 @@
 				type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
 			<input type="submit" value="非公開にする">
 			<% } else { %>
-			タイトル：<input type="text" name="photo_title" required maxlength="50"> <input
-				type="hidden" name="is_published" value="1">公開にする <input
+			タイトル：<input type="text" name="photo_title" required maxlength="50">
+			<input type="hidden" name="is_published" value="1">公開にする <input
 				type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
 			<input type="submit" value="公開にする">
 			<% } %>
@@ -44,6 +48,7 @@
 			<!--<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">-->
 			<!--<input type="submit" value="登録">-->
 		</form>
+	</div>
 	</div>
 </body>
 </html>
