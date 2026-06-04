@@ -80,7 +80,7 @@ public class AlbumDAO {
 
 		String sql = "SELECT album_id, user_id, t_album.area_id, m_area.area_name, trip_start, trip_end, album_name, companion, memo "
 				+ "FROM t_album INNER JOIN m_area ON t_album.area_id = m_area.area_id "
-				+ "WHERE user_id = ? AND t_album.area_id = ?;";
+				+ "WHERE user_id = ? AND t_album.area_id = ? ORDER BY album_id DESC;";
 
 		try (Connection con = ConnectionManager.getConnection();
 				PreparedStatement pstmt = con.prepareStatement(sql)) {
