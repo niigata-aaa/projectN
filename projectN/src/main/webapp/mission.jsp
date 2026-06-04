@@ -179,7 +179,6 @@ String areaName = (String) session.getAttribute("area_name");
 			<%
 			}
 			%>
-			<div class="mission-photo-list">
 		</div>
 	</div>
 
