@@ -114,7 +114,7 @@
 				 同行者：
 				<%=album.getCompanion()%>
 				</h4>
-				<br> <br>
+				<br> 
 				<div class="loginForm-button-design">
 				<input type="submit" value="アルバムを見る" class="btn btn-danger btn-sm">
 				</div>

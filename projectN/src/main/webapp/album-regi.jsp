@@ -27,7 +27,7 @@
 					type="date" name="endDate" required><br>
 			</div>
 			<div class="form-group">
-				<label>同行者</label><input type="text" name="companion" maxlength="100"><br>
+				<label>同行者</label><input type="text" name="companion" maxlength="20"><br>
 			</div>
 			<div class="form-group">
 				<label>メモ</label>
