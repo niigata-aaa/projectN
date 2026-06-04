@@ -748,9 +748,10 @@ h4{
 }
 
 .mission-photo-list {
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	width: 100%;
-	height: 500px;
+	height: 360px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
