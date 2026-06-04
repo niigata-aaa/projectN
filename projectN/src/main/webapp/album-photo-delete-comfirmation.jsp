@@ -99,7 +99,7 @@
 		</div>
 	</div>
 	<div class="loginForm-button-design" style="margin-top: -70px;">
-		<input type="submit" onclick="location.href='album-photo-delete.jsp'"
+		<input type="submit" onclick="location.href='album-photo-delete'"
 			value="キャンセル">
 	</div>
 
