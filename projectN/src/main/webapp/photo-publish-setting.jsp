@@ -55,7 +55,7 @@
 							<!--						</div>-->
 							<% } else { %>
 							<div class="text-center">
-								タイトルを入力してください：<input type="text" name="photo_title" required
+								タイトルを入力してください：<span style="color: red;">*</span><input type="text" name="photo_title" required
 									maxlength="50"><br> <input type="hidden"
 									name="is_published" value="1"> <input type="hidden"
 									name=name= "is_published" value="0"> <input

@@ -42,8 +42,8 @@
 	
 	<h2>管理者登録</h2>
 	  <form action="admin-register" method = POST class="loginForm-design">
-		 ID<input type = "text" name ="id" required><br>
-		 パスワード<input type = "password" name = "password" required minlength="8" maxlength="100"><br>
+		 <label>ID<span style="color: red;">*</span></label><input type = "text" name ="id" required><br>
+		 <label>パスワード<span style="color: red;">*</span></label><input type = "password" name = "password" required minlength="8" maxlength="100"><br>
 		<div class="admin-center">
 		 <input type = "submit" value ="登録" class="admin-margin">
 	    </div>

@@ -36,7 +36,8 @@
 	<h2>公開写真登録</h2>
 	<div class="loginForm-design">
 	 <form action="admin-photo-add-comp" method="POST" enctype="multipart/form-data">
-		 タイトル<input type="text" name="title" required maxlength="50"><br>
+		 タイトル<span style="color: red;">*</span><input type="text" name="title" required maxlength="50"><br>
+		 市町村<span style="color: red;">*</span>
 		 <select name="area_id">
 	    <%
 	   	   List<AreaBean> areaList = (List<AreaBean>) request.getAttribute("areaList");

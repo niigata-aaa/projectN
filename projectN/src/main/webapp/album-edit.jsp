@@ -17,9 +17,9 @@
 	
 	<form action="album-edit" method="POST" class="album-regi-style">
 	<h2>アルバム編集</h2>
-		アルバム名 : <input type="text" name="albumName" maxlength="50" value="<%=album.getAlbum_name() %>" required><br> 
-		日付 : <input type="date" name="startDate" value="<%=album.getTrip_start() %>" required max="9999-12-31"> ～ 
-			<input type="date"name="endDate" value="<%= album.getTrip_end()%>" required max="9999-12-31"><br> 
+		アルバム名 : <span style="color: red;">*</span><input type="text" name="albumName" maxlength="50" value="<%=album.getAlbum_name() %>" required><br> 
+		<label>開始日<span style="color: red;">*</span></label><input type="date" name="startDate" value="<%=album.getTrip_start() %>" required max="9999-12-31">
+		 <label>終了日<span style="color: red;">*</span></label><input type="date"name="endDate" value="<%= album.getTrip_end()%>" required max="9999-12-31"><br> 
 		同行者 : <input type="text" name="companion" maxlength="20" value="<%=album.getCompanion() %>"><br> 
 		メモ : <textarea name="memo" rows="5" cols="40" maxlength="200" ><%=album.getMemo()%></textarea><br> 
 		<div class="loginForm-button-design">

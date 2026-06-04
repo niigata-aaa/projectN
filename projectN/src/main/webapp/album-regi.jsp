@@ -20,11 +20,12 @@
 	<h2>新規アルバム作成</h2>
 		<form action="album-register" method="POST"  enctype="multipart/form-data">
 			<div class="form-group">
-				<label>アルバム名</label><input type="text" name="albumName" maxlength="50" required><br>
+				<label>アルバム名<span style="color: red;">*</span></label><input type="text" name="albumName" maxlength="50" required><br>
 			</div>
 			<div class="form-group">
-				<label>開始日</label><input type="date" name="startDate" required max="9999-12-31">>終了日 <input
-					type="date" name="endDate" required max="9999-12-31">><br>
+				<label>開始日<span style="color: red;">*</span></label><input type="date" name="startDate" required max="9999-12-31">
+				<label>終了日<span style="color: red;">*</span></label><input
+					type="date" name="endDate" required max="9999-12-31"><br>
 			</div>
 			<div class="form-group">
 				<label>同行者</label><input type="text" name="companion" maxlength="20"><br>
@@ -34,7 +35,7 @@
 				<textarea name="memo" maxlength="200"></textarea>
 				<br>
 			</div>
-			<label>写真登録</label><input type="file" name="photoRegistration"  multiple required accept="image/*">
+			<label>写真登録<span style="color: red;">*</span></label><input type="file" name="photoRegistration"  multiple required accept="image/*">
 			<br>
 			<div class = "loginForm-button-design">
 			<input type="submit" value="作成" style="margin:0 auto; margin-top:5px;">
