@@ -37,7 +37,7 @@
 #albumButton-position-left {
 	top: 100px; /* ヘッダーの高さ分だけ下げる */
 	left: 20px; /* 左端から20px */
-	margin-right:450px;
+	margin-right:430px;
 	margin-top:18px;
 }
 </style>
