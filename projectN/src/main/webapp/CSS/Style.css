@@ -25,7 +25,7 @@
 
 /*user-index画面の配置*/
 .user-index-left-container {
-/*	width: 300px;*/
+	/*	width: 300px;*/
 	flex-shrink: 0;
 	text-align: center;
 }
@@ -698,7 +698,9 @@ h4 {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	height: 500px;
-	overflow: scroll;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	scrollbar-gutter: stable both-edges;
 }
 
 .published-photo-card {
