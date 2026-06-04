@@ -55,6 +55,7 @@
 		<%
 		PhotoBean selectPhoto = (PhotoBean) request.getAttribute("selectDeletePhoto");
 		%>
+<<<<<<< HEAD
 		<div class="album-photo-card">
 			<div class="album-photo-image">
 				<img
@@ -104,5 +105,37 @@
 
 
 
+=======
+		<%=selectPhoto.getPhoto_title()%>
+		<%
+		} else {
+		%>
+		未設定
+		<%
+		}
+		%><br>
+		<%
+		if (selectPhoto.getIs_published() == 0) {
+		%>
+		非公開
+		<%
+		} else {
+		%>
+		公開
+		<%
+		}
+		%>
+	  この写真を削除しますか？<br>
+	  
+	  <form action="album-photo-delete" method="GET">
+	  	<input type="hidden" name="deletePhoto" value="<%= selectPhoto.getPhoto_id() %>">
+		<input type="submit" value="キャンセル">
+	  </form>
+	  
+	  <form action="album-photo-delete" method="POST">
+	  	<input type="hidden" name="deletePhoto" value="<%= selectPhoto.getPhoto_id() %>">
+		<input type="submit" value="削除する">
+	  </form>
+>>>>>>> refs/remotes/origin/master
 </body>
 </html>
