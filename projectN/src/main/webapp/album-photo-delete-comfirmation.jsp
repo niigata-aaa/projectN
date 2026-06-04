@@ -39,7 +39,10 @@
 		%>
 	  この写真を削除しますか？<br>
 	  
-	  <input type="button" onclick="location.href='album-photo-delete.jsp'" value="キャンセル">
+	  <form action="album-photo-delete" method="GET">
+	  	<input type="hidden" name="deletePhoto" value="<%= selectPhoto.getPhoto_id() %>">
+		<input type="submit" value="キャンセル">
+	  </form>
 	  
 	  <form action="album-photo-delete" method="POST">
 	  	<input type="hidden" name="deletePhoto" value="<%= selectPhoto.getPhoto_id() %>">
