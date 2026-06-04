@@ -14,17 +14,13 @@
 	<%
 	MissionPhotoBean selectMissionPhoto = (MissionPhotoBean) request.getAttribute("missionPhoto");
 	%>
-	<h2>この写真をミッションから削除しますか？</h2>
-	<div class="photo-card">
+	<h4>この写真をミッションから削除しますか？</h4>
+	<div class="photo-card" style="width: 380px;height: 380px;">
 		<div class="photo-card-image">
-			<img src="${pageContext.request.contextPath}/photo/<%=selectMissionPhoto.getMission_photo_data()%>">
+			<img
+				src="${pageContext.request.contextPath}/photo/<%=selectMissionPhoto.getMission_photo_data()%>">
 		</div>
 	</div>
-	<form action="mission" method="POST">
-		<div class="loginForm-button-design">
-			<input type="submit" value="キャンセル">
-		</div>
-	</form>
 	<form action="mission-photo-delete" method="POST">
 		<input type="hidden" name="mission_photo_id"
 			value="<%=selectMissionPhoto.getMission_photo_id()%>">
@@ -32,5 +28,17 @@
 			<input type="submit" value="削除する">
 		</div>
 	</form>
+	<form action="mission" method="POST">
+		<div class="loginForm-button-design">
+			<input type="submit" value="キャンセル">
+		</div>
+	</form>
+	<!--	<form action="mission-photo-delete" method="POST">-->
+	<!--		<input type="hidden" name="mission_photo_id"-->
+	<!--			value="<%=selectMissionPhoto.getMission_photo_id()%>">-->
+	<!--		<div class="loginForm-button-design">-->
+	<!--			<input type="submit" value="削除する">-->
+	<!--		</div>-->
+	<!--	</form>-->
 </body>
 </html>

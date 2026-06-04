@@ -145,26 +145,36 @@ padding:10px;
 			<div class="album-photo-image">
 				<img src="${pageContext.request.contextPath}/photo/<%=photo.getPhoto_data()%>" ><br>
 			</div>
-		
-			タイトル：
+			<h4>タイトル：
 			<% if(photo.getPhoto_title() != null) {%>
 				<%= photo.getPhoto_title() %>
 			<% } else { %>
 				未設定
 			<% } %><br>
+			</h4>
+<!--			<form action="release-setting" method="POST">-->
+<!--			<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">-->
+<!--			<div class="loginForm-button-design">-->
+<!--				<input type="submit" value="公開設定">-->
+<!--			</div>-->
+<!--			<br>-->
+<!--			</form>-->
+<!--			<div class = "album-padding">-->
+			<h4>
+			<% if(photo.getIs_published() == 0) {%>
+				現在：非公開
+			<% } else { %>
+				現在：公開
+			<% } %>
+			</h4>
+<!--			</div>-->
 			<form action="release-setting" method="POST">
 			<input type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
 			<div class="loginForm-button-design">
 				<input type="submit" value="公開設定">
 			</div>
+			<br>
 			</form>
-			<div class = "album-padding">
-			<% if(photo.getIs_published() == 0) {%>
-				非公開
-			<% } else { %>
-				公開
-			<% } %>
-			</div>
 		</div>
 		<%
 			}
