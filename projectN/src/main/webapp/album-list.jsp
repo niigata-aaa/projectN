@@ -28,7 +28,7 @@
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 	width: 450px;
-	height: 350px;
+	height: 380px;
 	box-sizing: border-box;
 	display: block;
 }
@@ -116,7 +116,8 @@
 				</h4>
 				<br> 
 				<div class="loginForm-button-design">
-				<input type="submit" value="アルバムを見る" class="btn btn-danger btn-sm">
+				<input type="submit" value="アルバムを見る">
+<!--				class="btn btn-danger btn-sm">-->
 				</div>
 			</div>
 
