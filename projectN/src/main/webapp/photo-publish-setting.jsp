@@ -6,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>変更完了</title>
+<style>
+#album-photo-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+}
+</style>
 </head>
 <body>
 	<div>
@@ -13,7 +22,7 @@
 			<jsp:param value="selected-album" name="path" />
 		</jsp:include>
 		<h2>公開設定を変更します</h2>
-		<div class="album-photo-list">
+		<div id="album-photo-list">
 			<%
 		PhotoBean photo = (PhotoBean)request.getAttribute("photo");
 	%>
@@ -46,12 +55,12 @@
 							<!--						</div>-->
 							<% } else { %>
 							<div class="text-center">
-							タイトルを入力してください：<input type="text" name="photo_title" required
-								maxlength="50"><br> <input type="hidden"
-								name="is_published" value="1"> <input type="hidden"
-								name=name= "is_published" value="0"> <input
-								type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
-							<br>
+								タイトルを入力してください：<input type="text" name="photo_title" required
+									maxlength="50"><br> <input type="hidden"
+									name="is_published" value="1"> <input type="hidden"
+									name=name= "is_published" value="0"> <input
+									type="hidden" name="photo_id" value="<%=photo.getPhoto_id()%>">
+								<br>
 							</div>
 							<div class="loginForm-button-design">
 								<input type="submit" value="公開にする">
@@ -64,6 +73,12 @@
 					</form>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="loginForm-button-design" >
+			<form action="selected-album" method="POST" >
+				<input type="submit" value="キャンセル">
+			</form>
 		</div>
 </body>
 </html>
