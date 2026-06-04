@@ -32,7 +32,7 @@
 	<h2>管理者登録が完了しました</h2><br>
 	<div class=admin-center>
 	  ID:<%=user_id %>
-	  password:<%=password %>
+<!--	  password:<%=password %>-->
 	
 	 <div class="admin-center">
 	  <form action = "admin-index.jsp" >
