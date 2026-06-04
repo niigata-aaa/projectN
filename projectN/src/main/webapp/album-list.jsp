@@ -14,7 +14,10 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 	height: 500px;
-	overflow: scroll;
+<!--	overflow: scroll;-->
+	overflow-x: hidden;
+	overflow-y: scroll;
+	scrollbar-gutter: stable both-edges;
 }
 
 .album-card {
