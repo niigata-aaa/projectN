@@ -771,14 +771,14 @@ h4 {
 	border-radius: 8px;
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 	width: 80%;
-	max-height: 325px;
+	height: 325px;
 	box-sizing: border-box;
 	display: block;
 }
 
 .missionPhoto-image {
 	width: 100%;
-	max-height: 250px;
+	height: 250px;
 	box-sizing: border-box;
 }
 
@@ -822,7 +822,7 @@ h4 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	height: 370px;
+	height: 500px;
 	overflow-y: auto;
 	scroll-snap-type: y mandatory;
 }
