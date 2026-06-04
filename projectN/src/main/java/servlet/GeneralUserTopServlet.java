@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.dao.AlbumDAO;
+import model.dao.PhotoDAO;
+import model.entity.PhotoBean;
 import model.entity.UserBean;
 
 /**
@@ -88,6 +90,14 @@ public class GeneralUserTopServlet extends HttpServlet {
 			    // 3. ステータス判定済みのMapをJSPに渡す
 			    request.setAttribute("cityStatusMap", cityStatusMap);
 
+			    PhotoDAO PhotoDao = new PhotoDAO();
+				// 各市町村ごとの公開写真を一枚ランダムに取得
+				Map<Integer, PhotoBean> ramdomPhotos = PhotoDao.publishPhotoMap();
+			    
+			    // MapをJSPに渡す
+			    request.setAttribute("ramdomPhotos", ramdomPhotos);
+
+			    
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

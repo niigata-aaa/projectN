@@ -1,3 +1,4 @@
+<%@page import="model.entity.PhotoBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,6 +29,12 @@
 			<h1>新潟県市町村マップ</h1>
 			<div class="map-name-display">
 				選択中の地域: <span id="selected-city-name">未選択</span>
+			</div>
+			
+			<div id="map-photo-popup">
+				<div id="popup-message" style="display: none; padding: 20px 0; color: #888;">写真が未登録です</div>
+					<img id="popup-img" src="" alt="地域の写真">
+				<div id="popup-title"></div>
 			</div>
 			
 			<!-- データを送るフォーム。 JavaScriptで中身を選択によって変える-->
@@ -142,62 +149,126 @@
         </svg>
         </div>
 	</div>
-
 	<script>
-        // spanタグを取得
-        const nameDisplay = document.getElementById('selected-city-name');
+	// --- 要素の取得 ---
+	const nameDisplay = document.getElementById('selected-city-name');
+	const photoPopup = document.getElementById('map-photo-popup');
+	const popupImg = document.getElementById('popup-img');
+	const popupTitle = document.getElementById('popup-title');
+	const popupMessage = document.getElementById('popup-message');
+	
+	const form = document.getElementById('mapForm');
+	const hiddenInputCode = document.getElementById('municipalityCode');
+	const hiddenInputName = document.getElementById('municipalityName');
 
-        const svgElement = document.querySelector('svg');
-        let hoverLayer = document.getElementById('hover-layer');
-        if (!hoverLayer && svgElement) {
-            hoverLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-            hoverLayer.id = 'hover-layer';
-            svgElement.appendChild(hoverLayer); 
-        }
+	// --- ポップアップの初期状態を設定 ---
+	popupImg.style.display = 'none';
+	popupMessage.style.display = 'flex'; 
+	popupMessage.textContent = "各市町村にマウスを合わせると公開写真がランダムに表示されます";
+	popupTitle.textContent = "";
+	
+	// --- Javaから写真データを取得してJSオブジェクトへ変換 ---
+	const imageMap = {};
+	<%
+	java.util.Map<Integer, PhotoBean> photos = (java.util.Map<Integer, PhotoBean>) request.getAttribute("ramdomPhotos");
+	if (photos != null) {
+		for (java.util.Map.Entry<Integer, PhotoBean> entry : photos.entrySet()) {
+			PhotoBean bean = entry.getValue(); 
+			if (bean != null) {
+	%>
+					imageMap['<%=entry.getKey()%>'] = {
+						path: '${pageContext.request.contextPath}/photo/<%=bean.getPhoto_data()%>',
+						title: '<%=bean.getPhoto_title() != null ? bean.getPhoto_title() : ""%>'
+					};
+		<%
+			}
+		}
+	}
+	%>
 
-        document.querySelectorAll('.municipality').forEach(town => {
+	// --- ホバーレイヤー（浮き上がりエフェクト用）の生成 ---
+	const svgElement = document.querySelector('svg');
+	let hoverLayer = document.getElementById('hover-layer');
+	if (!hoverLayer && svgElement) {
+	    hoverLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+	    hoverLayer.id = 'hover-layer';
+	    svgElement.appendChild(hoverLayer); 
+	}
 
-            // 各市町村ホバー時
-            town.addEventListener('mouseenter', (e) => {
-                // spanの表示をdata-nameに変える
-                nameDisplay.textContent = e.target.dataset.name;
-                hoverLayer.innerHTML = '';
-                const clone = e.target.cloneNode(true);
-                clone.classList.add('floating');
-                hoverLayer.appendChild(clone);
-                e.target.style.opacity = '0';
-            });
+	// --- 全ての市町村パスに対してイベントを設定 ---
+	document.querySelectorAll('.municipality').forEach(town => {
 
-            // 各市町村ホバー終了時
-            town.addEventListener('mouseleave', (e) => {
-                // マウスが離れたら表示を戻す
-                nameDisplay.textContent = '未選択';
-                hoverLayer.innerHTML = '';
-                e.target.style.opacity = '1';
-            });
+	    // 1. 各市町村ホバー時（mouseenter）
+	    town.addEventListener('mouseenter', (e) => {
+	        const currentTown = e.target; 
 
-        });
-    </script>
-	<script>
-        // 全ての市町村パスを取得
-        const municipalities = document.querySelectorAll('.municipality');
-        const form = document.getElementById('mapForm');
-        const hiddenInputCode = document.getElementById('municipalityCode');
-        const hiddenInputName = document.getElementById('municipalityName');
+	        // 地域名の表示更新
+	        nameDisplay.textContent = currentTown.dataset.name;
+	        
+	        // 写真データの出し分け
+	        const code = currentTown.dataset.code; 
+	        const photoData = imageMap[code]; 
+	        
+	        if (photoData && photoData.path) {
+	            // 写真がある場合
+	            popupImg.src = photoData.path;
+	            popupImg.style.display = 'block'; 
+	            popupMessage.style.display = 'none'; 
+	            
+	            popupImg.title = photoData.title;
+	            popupImg.alt = photoData.title ? photoData.title : currentTown.dataset.name + "の写真";
+	            popupTitle.textContent = photoData.title ? photoData.title : "（タイトルなし）";
+	        } else {
+	            // 写真がない場合
+	            popupImg.src = '';
+	            popupImg.style.display = 'none'; 
+	            popupMessage.style.display = 'flex';
+	            popupMessage.textContent = "写真が未登録です"; 
+	            popupTitle.textContent = currentTown.dataset.name + "の写真はありません";
+	        }
 
-        municipalities.forEach(zone => {
-            zone.addEventListener('click', function () {
-                const code = this.getAttribute('data-code');
-                const name = this.getAttribute('data-name');
+	        // 浮き上がりクローンエフェクトの処理
+	        hoverLayer.innerHTML = '';
+	        const clone = currentTown.cloneNode(true);
+	        clone.classList.add('floating');
+	        
+	        // ★重要：クローン側のイベントを無効化し、下の元の要素がクリックできるようにする
+	        clone.style.pointerEvents = 'none'; 
+	        
+	        hoverLayer.appendChild(clone);
+	        
+	        // 元の要素を透明にしてクローンを引き立たせる
+	        currentTown.style.opacity = '0.01';
+	    });
 
-                // フォームの input に値をセット
-                hiddenInputCode.value = code;
-                hiddenInputName.value = name;
+	    // 2. 各市町村ホバー終了時（mouseleave）
+	    town.addEventListener('mouseleave', (e) => {
+	        nameDisplay.textContent = '未選択';
 
-                // サーブレットへフォームを送信
-                form.submit();
-            });
-        });
-    </script>
+	        // 初期文言に戻す
+	        popupImg.src = ''; 
+	        popupImg.style.display = 'none';
+	        popupMessage.style.display = 'flex'; 
+	        popupMessage.textContent = "地図の地域にマウスを合わせると写真が表示されます"; 
+	        popupTitle.textContent = ""; 
+
+	        hoverLayer.innerHTML = '';
+	        e.target.style.opacity = '1';
+	    });
+
+	    // 3. 各市町村クリック時（click：アルバム画面への遷移）
+	    town.addEventListener('click', function () {
+	        const code = this.getAttribute('data-code');
+	        const name = this.getAttribute('data-name');
+
+	        // フォームの input に値をセットして送信
+	        hiddenInputCode.value = code;
+	        hiddenInputName.value = name;
+	        form.submit();
+	    });
+
+	});
+</script>
+
 </body>
 </html>
