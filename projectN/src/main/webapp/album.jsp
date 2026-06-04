@@ -18,6 +18,8 @@ body {
 	min-height: 200px;
 	justify-content: space-between;
 	margin-top: 20px; 
+	margin-left:20px;
+	margin-right:20px;
 }
 
 #albumInfo {
