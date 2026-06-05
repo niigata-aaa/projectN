@@ -697,7 +697,7 @@ h4 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	height: 500px;
+	height: 600px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	scrollbar-gutter: stable both-edges;
