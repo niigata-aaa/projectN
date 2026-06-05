@@ -55,16 +55,6 @@ body {
 	left: 20px; /* 左端から20px */
 }
 
-.album-photo-list {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	height: 450px;
-	overflow-y: auto;
-	scroll-snap-type: y mandatory;
-	
-}
-
 .album-photo-card {
 	margin-top: 10px;
 	background: rgba(255, 255, 255, 0.95);
