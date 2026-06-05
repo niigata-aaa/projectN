@@ -148,8 +148,9 @@ body {
 .global-nav ul {
 	list-style: none;
 	display: flex;
-	gap: 15px;
+	gap: 10px;
 	padding: 0;
+	align-items: center;
 }
 
 .global-nav a {

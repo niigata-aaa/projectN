@@ -149,7 +149,7 @@
 
 	popupImg.style.display = 'none';
 	popupMessage.style.display = 'flex'; 
-	popupMessage.textContent = "各市町村にマウスを合わせると公開写真がランダムに表示されます";
+	popupMessage.textContent = "地図の地域にマウスを合わせると写真が表示されます";
 	popupTitle.textContent = "";
 	
 	const imageMap = {};
