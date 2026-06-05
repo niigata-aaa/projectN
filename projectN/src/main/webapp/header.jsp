@@ -31,7 +31,7 @@
 					// 管理者判定
 					if (user.getPost_id() == 2) {
 					%>
-						<li><label class="header-font"  style="color: black;">ログイン中：<br>
+						<li><label class="header-font"  style="color: black;">ログイン中：
 						管理者ユーザ</label></li>
 					<%
 						if(request.getParameter("adminPage") != null){
@@ -45,7 +45,7 @@
 						}
 					}else{
 					%>
-						<li><label class="header-font" style="color: black;">ログイン中：<br>
+						<li><label class="header-font" style="color: black;">ログイン中：
 						一般ユーザ</label></li>
 					<%
 					}
