@@ -47,7 +47,7 @@ body{
 					<input type = "submit" value = "キャンセル">
 				</form>
 				
-				<form action = "admin-release-setting" method="POST" class="admin-margin">
+				<form action = "AdminReleaseSettingServlet" method="POST" class="admin-margin">
 					<input type="hidden" name="photo_title" value="">
 					<input type="hidden" name="is_published" value="0"> 
 					<input type="hidden" name="photo_id" value="<%=photo_id%>">
