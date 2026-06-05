@@ -698,7 +698,7 @@ h4 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	height: 600px;
+	height: 580px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	scrollbar-gutter: stable both-edges;
@@ -825,7 +825,7 @@ h4 {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	height: 700px;
+	height: 420px;
 	overflow-y: auto;
 	scroll-snap-type: y mandatory;
 }
