@@ -198,7 +198,7 @@
 	// --- 全ての市町村パスに対してイベントを設定 ---
 	document.querySelectorAll('.municipality').forEach(town => {
 
-	    // 1. 各市町村ホバー時（mouseenter）
+	    // 各市町村ホバー時（mouseenter）
 	    town.addEventListener('mouseenter', (e) => {
 	        const currentTown = e.target; 
 
@@ -232,7 +232,7 @@
 	        const clone = currentTown.cloneNode(true);
 	        clone.classList.add('floating');
 	        
-	        // ★重要：クローン側のイベントを無効化し、下の元の要素がクリックできるようにする
+	        // クローン側のイベントを無効化し、下の元の要素がクリックできるようにする
 	        clone.style.pointerEvents = 'none'; 
 	        
 	        hoverLayer.appendChild(clone);
@@ -241,7 +241,7 @@
 	        currentTown.style.opacity = '0.01';
 	    });
 
-	    // 2. 各市町村ホバー終了時（mouseleave）
+	    // 各市町村ホバー終了時（mouseleave）
 	    town.addEventListener('mouseleave', (e) => {
 	        nameDisplay.textContent = '未選択';
 
@@ -256,7 +256,7 @@
 	        e.target.style.opacity = '1';
 	    });
 
-	    // 3. 各市町村クリック時（click：アルバム画面への遷移）
+	    // 各市町村クリック時（click：アルバム画面への遷移）
 	    town.addEventListener('click', function () {
 	        const code = this.getAttribute('data-code');
 	        const name = this.getAttribute('data-name');
