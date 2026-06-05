@@ -26,7 +26,7 @@ body{
 	display: flex;
 	flex-wrap:wrap;
 	justify-content:space-around;
-	height: 70vh;
+	height: 700px;
 	overflow: scroll;
 	overflow-x:hidden;
 }
